@@ -13,23 +13,23 @@ const PricingPage: React.FC = () => {
     if (price.includes('Custom') || price.includes('Free')) {
       return price;
     }
-    
+
     // Handle percentage values
     if (price.includes('%')) {
       return price; // Percentages don't need conversion
     }
-    
+
     // Handle price ranges (e.g., "₹10,000 – ₹17,500" or "$400 – $600")
     if (price.includes('–')) {
       const parts = price.split(' – ');
       if (parts.length === 2) {
         const firstValue = parts[0];
         const secondValue = parts[1];
-        
+
         if (firstValue.startsWith('₹')) {
           const firstNumeric = parseFloat(firstValue.replace(/[₹$,]/g, '').replace(/\s/g, ''));
           const secondNumeric = parseFloat(secondValue.replace(/[₹$,]/g, '').replace(/\s/g, ''));
-          
+
           if (currency === 'INR') {
             return `₹${firstNumeric.toLocaleString('en-IN')} – ₹${secondNumeric.toLocaleString('en-IN')}`;
           } else if (currency === 'USD') {
@@ -43,7 +43,7 @@ const PricingPage: React.FC = () => {
         } else if (firstValue.startsWith('$')) {
           const firstNumeric = parseFloat(firstValue.replace(/[₹$,]/g, '').replace(/\s/g, ''));
           const secondNumeric = parseFloat(secondValue.replace(/[₹$,]/g, '').replace(/\s/g, ''));
-          
+
           if (currency === 'INR') {
             const firstConverted = firstNumeric * exchangeRate;
             const secondConverted = secondNumeric * exchangeRate;
@@ -59,14 +59,14 @@ const PricingPage: React.FC = () => {
         }
       }
     }
-    
+
     // Handle single values
     const numericValue = parseFloat(price.replace(/[₹$,]/g, '').replace(/\s/g, ''));
-    
+
     if (isNaN(numericValue)) {
       return price;
     }
-    
+
     if (currency === 'INR') {
       return `₹${numericValue.toLocaleString('en-IN')}`;
     } else if (currency === 'USD') {
@@ -82,9 +82,9 @@ const PricingPage: React.FC = () => {
     <div className="min-h-screen pt-36 pb-32 bg-revonza-base transition-colors duration-300">
       <div className="container mx-auto px-4">
         <div className="text-center mb-24 animate-fade-in-up">
-           <span className="text-revonza-accent font-bold tracking-[0.2em] uppercase text-sm mb-4 block"> <Link 
+          <span className="text-revonza-accent font-bold tracking-[0.2em] uppercase text-sm mb-4 block"> <Link
             to="/detailed-pricing"
-            className="px-10 py-4 bg-revonza-accent text-white rounded-full font-bold text-lg hover:bg-revonza-text hover:text-revonza-base hover:scale-105 transition-all shadow-xl hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] inline-block"
+            className="px-5 py-2 bg-revonza-accent text-white rounded-full font-bold text-lg hover:bg-revonza-text hover:text-revonza-base hover:scale-100 transition-all shadow-xl hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] inline-block"
           >
             Detailed Pricing Structure
           </Link></span>
@@ -97,19 +97,19 @@ const PricingPage: React.FC = () => {
         {/* Currency Selector */}
         <div className="flex justify-center mb-16">
           <div className="inline-flex items-center bg-revonza-surface rounded-full p-1 border border-revonza-border">
-            <button 
+            <button
               className={`px-6 py-2 rounded-full text-sm font-medium ${currency === 'INR' ? 'bg-revonza-accent text-white' : ''}`}
               onClick={() => setCurrency('INR')}
             >
               INR (₹)
             </button>
-            <button 
+            <button
               className={`px-6 py-2 rounded-full text-sm font-medium ${currency === 'USD' ? 'bg-revonza-accent text-white' : ''}`}
               onClick={() => setCurrency('USD')}
             >
               USD ($)
             </button>
-            <button 
+            <button
               className={`px-6 py-2 rounded-full text-sm font-medium ${currency === 'AUTO' ? 'bg-revonza-accent text-white' : ''}`}
               onClick={() => setCurrency('AUTO')}
             >
@@ -120,13 +120,12 @@ const PricingPage: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {PRICING.map((tier, index) => (
-            <div 
-              key={tier.name} 
-              className={`relative flex flex-col p-12 rounded-[2.5rem] border transition-all duration-500 animate-scale-in group ${
-                tier.recommended 
-                  ? 'bg-revonza-surface border-revonza-accent shadow-[0_0_60px_rgba(139,92,246,0.25)] scale-105 z-10' 
-                  : 'glass-panel border-revonza-border hover:border-revonza-text/20 hover:bg-revonza-surface'
-              }`}
+            <div
+              key={tier.name}
+              className={`relative flex flex-col p-12 rounded-[2.5rem] border transition-all duration-500 animate-scale-in group ${tier.recommended
+                ? 'bg-revonza-surface border-revonza-accent shadow-[0_0_60px_rgba(139,92,246,0.25)] scale-105 z-10'
+                : 'glass-panel border-revonza-border hover:border-revonza-text/20 hover:bg-revonza-surface'
+                }`}
               style={{ animationDelay: tier.recommended ? '300ms' : `${index * 150}ms` }}
             >
               {tier.recommended && (
@@ -154,13 +153,12 @@ const PricingPage: React.FC = () => {
                 ))}
               </ul>
 
-              <Link 
+              <Link
                 to="/contact"
-                className={`w-full py-5 rounded-2xl font-bold text-sm uppercase tracking-widest text-center transition-all shadow-lg ${
-                  tier.recommended
-                    ? 'bg-revonza-accent text-white hover:bg-revonza-accent/90 hover:shadow-revonza-accent/40'
-                    : 'bg-revonza-surface text-revonza-text hover:bg-revonza-text hover:text-revonza-base border border-revonza-border'
-                }`}
+                className={`w-full py-5 rounded-2xl font-bold text-sm uppercase tracking-widest text-center transition-all shadow-lg ${tier.recommended
+                  ? 'bg-revonza-accent text-white hover:bg-revonza-accent/90 hover:shadow-revonza-accent/40'
+                  : 'bg-revonza-surface text-revonza-text hover:bg-revonza-text hover:text-revonza-base border border-revonza-border'
+                  }`}
               >
                 Get Started
               </Link>
@@ -171,7 +169,7 @@ const PricingPage: React.FC = () => {
         {/* Additional Options & Resources */}
         <div className="mt-32 max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-revonza-text mb-16">Additional Options & Resources</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Demo/Trial Options */}
             <div className="glass-panel p-8 rounded-[2rem] border border-revonza-border">
@@ -195,7 +193,7 @@ const PricingPage: React.FC = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Additional Resources */}
             <div className="glass-panel p-8 rounded-[2rem] border border-revonza-border">
               <h3 className="text-xl font-bold text-revonza-text mb-6">Additional Resources</h3>
@@ -218,7 +216,7 @@ const PricingPage: React.FC = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* E-commerce Options */}
             <div className="glass-panel p-8 rounded-[2rem] border border-revonza-border">
               <h3 className="text-xl font-bold text-revonza-text mb-6">E-commerce & Domain</h3>
@@ -241,7 +239,7 @@ const PricingPage: React.FC = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Support & Maintenance */}
             <div className="glass-panel p-8 rounded-[2rem] border border-revonza-border md:col-span-2 lg:col-span-3">
               <h3 className="text-xl font-bold text-revonza-text mb-6">Support & Maintenance</h3>
