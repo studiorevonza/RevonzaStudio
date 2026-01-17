@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Zap, Quote, Cpu, ShieldCheck, TrendingUp, Lightbulb, Search, Code, Rocket, Star, ChevronRight, MonitorSmartphone, ScanSearch, BrainCircuit } from 'lucide-react';
+import { ArrowRight, Zap, Quote, Cpu, ShieldCheck, TrendingUp, Lightbulb, Search, Code, Rocket, Star, ChevronRight, MonitorSmartphone, ScanSearch, BrainCircuit, Fingerprint, Layers, DatabaseZap, Paintbrush, Palette, Wrench } from 'lucide-react';
 import { SERVICES, TESTIMONIALS } from '../constants';
 
 const Home: React.FC = () => {
@@ -12,6 +12,12 @@ const Home: React.FC = () => {
       'MonitorSmartphone': MonitorSmartphone,
       'ScanSearch': ScanSearch,
       'BrainCircuit': BrainCircuit,
+      'Fingerprint': Fingerprint,
+      'Layers': Layers,
+      'DatabaseZap': DatabaseZap,
+      'Paintbrush': Paintbrush,
+      'Palette': Palette,
+      'Wrench': Wrench,
     };
     return iconMap[iconName] || Zap;
   };
