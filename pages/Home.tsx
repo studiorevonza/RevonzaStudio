@@ -101,6 +101,14 @@ const Home: React.FC = () => {
                    0{index + 1}
                  </span>
 
+                 {/* Background Pattern Elements */}
+                 <div className="absolute inset-0 overflow-hidden">
+                   <div className="absolute top-1/4 left-1/4 w-32 h-32 border border-revonza-accent/10 rounded-full group-hover:scale-150 group-hover:opacity-20 transition-all duration-1000 delay-150"></div>
+                   <div className="absolute top-1/3 right-1/3 w-24 h-24 border border-revonza-accent/10 rounded-full group-hover:scale-125 group-hover:opacity-30 transition-all duration-1000 delay-300"></div>
+                   <div className="absolute bottom-1/4 left-1/3 w-20 h-20 border border-revonza-accent/10 rounded-full group-hover:scale-125 group-hover:opacity-25 transition-all duration-1000 delay-450"></div>
+                   <div className="absolute bottom-1/3 right-1/4 w-16 h-16 border border-revonza-accent/10 rounded-full group-hover:scale-125 group-hover:opacity-20 transition-all duration-1000 delay-600"></div>
+                 </div>
+
                  {/* Icon Background Glow */}
                  <div className="absolute top-0 right-0 w-64 h-64 bg-revonza-accent/5 rounded-full blur-3xl group-hover:bg-revonza-accent/20 transition-colors duration-500 -translate-y-1/2 translate-x-1/2"></div>
 
