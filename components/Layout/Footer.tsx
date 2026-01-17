@@ -29,14 +29,14 @@ const Footer: React.FC = () => {
               We engineer digital excellence. Turning complex ideas into intelligent, beautiful experiences for the modern web.
             </p>
             <div className="flex space-x-4 pt-4">
+              <a href="https://www.instagram.com/revonza.studio/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-revonza-surface flex items-center justify-center text-revonza-text hover:bg-revonza-accent hover:text-white transition-all duration-300 hover:-translate-y-1">
+                <Instagram size={18} />
+              </a>
+              <a href="https://www.linkedin.com/in/revonzastudio/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-revonza-surface flex items-center justify-center text-revonza-text hover:bg-revonza-accent hover:text-white transition-all duration-300 hover:-translate-y-1">
+                <Linkedin size={18} />
+              </a>
               <a href="mailto:studiorevonza@gmail.com" className="w-10 h-10 rounded-full bg-revonza-surface flex items-center justify-center text-revonza-text hover:bg-revonza-accent hover:text-white transition-all duration-300 hover:-translate-y-1">
                 <Mail size={18} />
-              </a>
-              <a href="tel:+918851619647" className="w-10 h-10 rounded-full bg-revonza-surface flex items-center justify-center text-revonza-text hover:bg-revonza-accent hover:text-white transition-all duration-300 hover:-translate-y-1">
-                <Phone size={18} />
-              </a>
-              <a href="tel:+919714407181" className="w-10 h-10 rounded-full bg-revonza-surface flex items-center justify-center text-revonza-text hover:bg-revonza-accent hover:text-white transition-all duration-300 hover:-translate-y-1">
-                <Phone size={18} />
               </a>
             </div>
           </div>
