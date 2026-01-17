@@ -8,6 +8,7 @@ import ProjectsPage from './pages/ProjectsPage';
 import PricingPage from './pages/PricingPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import DetailedPricingPage from './pages/DetailedPricingPage';
 
 // Theme Context
 type Theme = 'light' | 'dark';
@@ -68,6 +69,7 @@ const App: React.FC = () => {
               <Route path="/pricing" element={<PricingPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/detailed-pricing" element={<DetailedPricingPage />} />
             </Routes>
           </main>
           <Footer />
