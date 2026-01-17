@@ -72,6 +72,18 @@ export const SERVICES: Service[] = [
     description: 'Tell your story through captivating visuals. From marketing collateral to social assets, we create cohesive, high-fidelity designs that elevate your brand narrative and engage your audience visually.',
     icon: 'Paintbrush'
   },
+  {
+    id: 'branding',
+    title: 'Design & Branding',
+    description: 'Craft a cohesive visual identity that resonates with your audience. We develop comprehensive brand guidelines, color palettes, typography, and visual assets that communicate your unique value proposition.',
+    icon: 'Palette'
+  },
+  {
+    id: 'maintenance',
+    title: 'Maintenance & Modification',
+    description: 'Keep your digital assets running smoothly with our ongoing maintenance services. We provide updates, bug fixes, performance optimizations, and feature enhancements to ensure your investment continues to deliver value.',
+    icon: 'Wrench'
+  },
 ];
 
 export const PROJECTS: Project[] = [
@@ -81,7 +93,7 @@ export const PROJECTS: Project[] = [
     category: 'Website & Branding',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop',
     description: 'A comprehensive banking dashboard with real-time data visualization and a secure backend infrastructure.',
-    tags: ['web', 'logo', 'hosting']
+    tags: ['web', 'logo', 'hosting', 'branding']
   },
   {
     id: '2',
@@ -89,7 +101,7 @@ export const PROJECTS: Project[] = [
     category: 'AI Integration',
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2532&auto=format&fit=crop',
     description: 'An intelligent chatbot integrated into an e-commerce platform to handle customer queries and product recommendations automatically.',
-    tags: ['ai', 'web', 'seo']
+    tags: ['ai', 'web', 'seo', 'maintenance']
   },
   {
     id: '3',
@@ -97,7 +109,7 @@ export const PROJECTS: Project[] = [
     category: 'Graphic Design',
     image: 'https://images.unsplash.com/photo-1626785774573-4b799314346d?q=80&w=2670&auto=format&fit=crop',
     description: 'A complete visual overhaul for a streaming service, including logo redesign, social media assets, and YouTube thumbnails.',
-    tags: ['graphic', 'logo', 'thumbnail']
+    tags: ['graphic', 'logo', 'thumbnail', 'branding']
   },
   {
     id: '4',

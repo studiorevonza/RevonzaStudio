@@ -40,10 +40,14 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-revonza-text font-bold mb-6 tracking-wide">Services</h3>
             <ul className="space-y-4 text-revonza-textMuted">
-              <li className="hover:text-revonza-accent transition-colors cursor-pointer">Web Development</li>
-              <li className="hover:text-revonza-accent transition-colors cursor-pointer">AI Solutions</li>
-              <li className="hover:text-revonza-accent transition-colors cursor-pointer">Brand Strategy</li>
+              <li className="hover:text-revonza-accent transition-colors cursor-pointer">Website Development</li>
               <li className="hover:text-revonza-accent transition-colors cursor-pointer">SEO Optimization</li>
+              <li className="hover:text-revonza-accent transition-colors cursor-pointer">AI Integration</li>
+              <li className="hover:text-revonza-accent transition-colors cursor-pointer">Logo Design</li>
+              <li className="hover:text-revonza-accent transition-colors cursor-pointer">Thumbnail Design</li>
+              <li className="hover:text-revonza-accent transition-colors cursor-pointer">Graphic Design</li>
+              <li className="hover:text-revonza-accent transition-colors cursor-pointer">Design & Branding</li>
+              <li className="hover:text-revonza-accent transition-colors cursor-pointer">Maintenance & Modification</li>
             </ul>
           </div>
 

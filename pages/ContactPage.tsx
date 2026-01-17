@@ -121,9 +121,14 @@ const ContactPage: React.FC = () => {
                           className="w-full bg-revonza-base/50 border border-revonza-border rounded-2xl px-6 py-4 text-revonza-text appearance-none cursor-pointer focus:outline-none focus:border-revonza-accent focus:bg-revonza-base transition-all duration-300"
                         >
                           <option value="" className="text-revonza-text bg-revonza-base">Select a topic...</option>
-                          <option value="web" className="text-revonza-text bg-revonza-base">Web Development</option>
-                          <option value="ai" className="text-revonza-text bg-revonza-base">AI Solutions</option>
-                          <option value="design" className="text-revonza-text bg-revonza-base">Design & Branding</option>
+                          <option value="web" className="text-revonza-text bg-revonza-base">Website Development</option>
+                          <option value="seo" className="text-revonza-text bg-revonza-base">SEO Optimization</option>
+                          <option value="ai" className="text-revonza-text bg-revonza-base">AI Integration</option>
+                          <option value="logo" className="text-revonza-text bg-revonza-base">Logo Design</option>
+                          <option value="thumbnail" className="text-revonza-text bg-revonza-base">Thumbnail Design</option>
+                          <option value="graphic" className="text-revonza-text bg-revonza-base">Graphic Design</option>
+                          <option value="branding" className="text-revonza-text bg-revonza-base">Design & Branding</option>
+                          <option value="maintenance" className="text-revonza-text bg-revonza-base">Maintenance & Modification</option>
                           <option value="other" className="text-revonza-text bg-revonza-base">Other</option>
                         </select>
                         <ArrowRight className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-500 rotate-90 pointer-events-none" size={18} />
