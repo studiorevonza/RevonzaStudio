@@ -158,17 +158,68 @@ const Home: React.FC = () => {
 
             <div className="flex flex-col lg:flex-row gap-6 h-auto lg:h-[500px]">
               {featuredServices.map((service, index) => (
-                <div
-                  key={service.id}
+                <div 
+                  key={service.id} 
                   className="group relative flex-1 hover:flex-[2.5] transition-all duration-500 ease-out glass-panel rounded-[2rem] overflow-hidden border border-revonza-border hover:border-revonza-accent cursor-pointer flex flex-col justify-end p-8"
                 >
+                   {/* Service-Specific Animated Transparent Icons */}
+                   <div className="absolute inset-0 opacity-0 group-hover:opacity-15 transition-opacity duration-700">
+                     {/* Large decorative icon in background */}
+                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-revonza-accent/20">
+                       {service.id === 'website-development' && (
+                         <MonitorSmartphone className="w-32 h-32 scale-110 group-hover:scale-150 transition-transform duration-1000 rotate-12 group-hover:rotate-45" />
+                       )}
+                       {service.id === 'ai-integration' && (
+                         <BrainCircuit className="w-32 h-32 scale-110 group-hover:scale-150 transition-transform duration-1000 -rotate-12 group-hover:-rotate-45" />
+                       )}
+                       {service.id === 'logo-design' && (
+                         <Fingerprint className="w-32 h-32 scale-110 group-hover:scale-150 transition-transform duration-1000 rotate-6 group-hover:rotate-30" />
+                       )}
+                       {service.id === 'thumbnail-design' && (
+                         <Layers className="w-32 h-32 scale-110 group-hover:scale-150 transition-transform duration-1000 -rotate-6 group-hover:-rotate-30" />
+                       )}
+                       {service.id === 'product-launching' && (
+                         <Rocket className="w-32 h-32 scale-110 group-hover:scale-150 transition-transform duration-1000 rotate-3 group-hover:rotate-15" />
+                       )}
+                       {service.id === 'hosting-solutions' && (
+                         <DatabaseZap className="w-32 h-32 scale-110 group-hover:scale-150 transition-transform duration-1000 -rotate-3 group-hover:-rotate-15" />
+                       )}
+                       {service.id === 'graphic-design' && (
+                         <Paintbrush className="w-32 h-32 scale-110 group-hover:scale-150 transition-transform duration-1000 rotate-9 group-hover:rotate-36" />
+                       )}
+                       {service.id === 'design-branding' && (
+                         <Palette className="w-32 h-32 scale-110 group-hover:scale-150 transition-transform duration-1000 -rotate-9 group-hover:-rotate-36" />
+                       )}
+                       {service.id === 'maintenance-modification' && (
+                         <Wrench className="w-32 h-32 scale-110 group-hover:scale-150 transition-transform duration-1000 rotate-4 group-hover:rotate-20" />
+                       )}
+                     </div>
+                                 
+                     {/* Secondary smaller icons for pattern effect */}
+                     <div className="absolute top-1/4 left-1/4 text-revonza-accent/10">
+                       {React.createElement(getServiceIcon(service.icon), { 
+                         className: "w-16 h-16 scale-90 group-hover:scale-125 transition-transform duration-700 animate-pulse" 
+                       })}
+                     </div>
+                     <div className="absolute bottom-1/4 right-1/4 text-revonza-accent/10">
+                       {React.createElement(getServiceIcon(service.icon), { 
+                         className: "w-16 h-16 scale-90 group-hover:scale-125 transition-transform duration-700 animate-pulse delay-300" 
+                       })}
+                     </div>
+                     <div className="absolute top-3/4 left-3/4 text-revonza-accent/10">
+                       {React.createElement(getServiceIcon(service.icon), { 
+                         className: "w-12 h-12 scale-90 group-hover:scale-125 transition-transform duration-700 animate-pulse delay-700" 
+                       })}
+                     </div>
+                   </div>
+              
                   {/* Background Number */}
-                  <span className="absolute top-4 right-6 text-8xl font-black text-revonza-text/5 group-hover:text-revonza-accent/10 transition-colors duration-500 select-none">
+                  <span className="absolute top-4 right-6 text-8xl font-black text-revonza-text/5 group-hover:text-revonza-accent/10 transition-colors duration-500 select-none z-10">
                     0{index + 1}
                   </span>
-
+              
                   {/* Icon Background Glow */}
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-revonza-accent/5 rounded-full blur-3xl group-hover:bg-revonza-accent/20 transition-colors duration-500 -translate-y-1/2 translate-x-1/2"></div>
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-revonza-accent/5 rounded-full blur-3xl group-hover:bg-revonza-accent/20 transition-colors duration-500 -translate-y-1/2 translate-x-1/2 z-10"></div>
 
                   <div className="relative z-10">
                     <div className="w-16 h-16 bg-revonza-surface/80 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 border border-revonza-border group-hover:bg-revonza-accent group-hover:text-white transition-all duration-500">
