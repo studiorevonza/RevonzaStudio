@@ -10,7 +10,7 @@ const ServicesPage: React.FC = () => {
       <div className="container mx-auto px-4">
         
         {/* Header */}
-        <div className="mb-32 text-center max-w-4xl mx-auto animate-fade-in-up">
+        <div className="mb-32 text-center mSax-w-4xl mx-auto animate-fade-in-up">
            <span className="text-revonza-accent font-bold tracking-[0.2em] uppercase text-sm mb-6 block">Our Capabilities</span>
            <h1 className="text-5xl md:text-7xl font-bold text-revonza-text mb-10 leading-tight">Comprehensive <br/> Digital Solutions</h1>
            <p className="text-xl text-revonza-textMuted font-light max-w-2xl mx-auto leading-relaxed">

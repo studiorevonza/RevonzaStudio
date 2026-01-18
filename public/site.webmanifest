@@ -1,0 +1,32 @@
+{
+  "name": "Revonza Studio - Digital Excellence Engineering",
+  "short_name": "Revonza Studio",
+  "description": "We engineer digital excellence. Turning complex ideas into intelligent, beautiful experiences for the modern web.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e202c",
+  "theme_color": "#8b5cf6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Zap, Quote, Cpu, ShieldCheck, TrendingUp, Lightbulb, Search, Code, Rocket, Star, ChevronRight, MonitorSmartphone, ScanSearch, BrainCircuit, Fingerprint, Layers, DatabaseZap, Paintbrush, Palette, Wrench } from 'lucide-react';
 import { SERVICES, TESTIMONIALS } from '../constants';
+import SEO from '../components/SEO';
 
 const Home: React.FC = () => {
   const featuredServices = SERVICES.slice(0, 3);
@@ -30,7 +31,18 @@ const Home: React.FC = () => {
   ];
 
   return (
-    <div className="flex flex-col w-full overflow-hidden">
+    <>
+      <SEO 
+        pageSEO={{
+          title: 'Home',
+          description: 'Revonza Studio bridges the gap between creative imagination and technical engineering. We build digital ecosystems that scale.',
+          keywords: ['web development', 'digital agency', 'software development', 'react development'],
+          canonical: 'https://revonzastudio.com/',
+          ogImage: 'https://revonzastudio.com/og-home.jpg',
+          ogType: 'website'
+        }}
+      />
+      <div className="flex flex-col w-full overflow-hidden">
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-24 pb-12">
@@ -335,6 +347,7 @@ const Home: React.FC = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

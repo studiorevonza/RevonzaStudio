@@ -1,11 +1,22 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.revonzastudio.tech/sitemap.xml
+# Sitemap
+Sitemap: https://revonzastudio.com/sitemap.xml
 
-# Prevent crawling of development/testing pages
-Disallow: /test/
-Disallow: /temp/
+# Specific bots
+User-agent: Googlebot
+Allow: /
 
-# Host directive
-Host: https://www.revonzastudio.tech
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Disallow admin or private areas if any
+# Disallow: /admin/
+# Disallow: /private/
+
+# Crawl delay
+Crawl-delay: 10
