@@ -358,17 +358,17 @@ const Home: React.FC = () => {
             </div>
 
             <div className="relative max-w-6xl mx-auto">
-              <div className="overflow-hidden rounded-[3rem]">
+              <div className="">
                 <div
                   className="flex transition-transform duration-500 ease-in-out"
                   style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                   {carouselImages.map((image, index) => (
                     <div key={index} className="flex-shrink-0 w-full">
-                      <div className="aspect-video bg-revonza-base rounded-[2rem] flex items-center justify-center p-8 md:p-16">
+                      <div className="aspect-video bg-transparent flex items-center justify-center p-4 md:p-8">
                         <img
                           src={image.src}
                           alt={image.alt}
-                          className="max-h-64 object-contain cursor-zoom-in hover:brightness-75 transition-all duration-300"
+                          className="max-h-[80vh] w-auto object-contain cursor-zoom-in hover:brightness-75 transition-all duration-300"
                           onClick={() => setZoomedImage(image)}
                         />
                       </div>
