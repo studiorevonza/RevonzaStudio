@@ -137,6 +137,9 @@ const DesignBrandingPage: React.FC = () => {
             Let's create a brand identity that connects with your audience on a deeper level.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/services/design-branding/projects" className="px-8 py-4 bg-revonza-surface text-revonza-text rounded-full font-bold hover:scale-105 transition-all border border-revonza-border hover:bg-revonza-accent hover:text-white">
+              View Projects
+            </Link>
             <Link to="/contact" className="px-8 py-4 bg-revonza-accent text-white rounded-full font-bold hover:scale-105 transition-all shadow-[0_0_30px_rgba(139,92,246,0.5)]">
               Get Started Today
             </Link>

@@ -24,6 +24,17 @@ import GraphicDesignPage from './pages/services/GraphicDesignPage';
 import DesignBrandingPage from './pages/services/DesignBrandingPage';
 import MaintenanceModificationPage from './pages/services/MaintenanceModificationPage';
 
+// Import individual service project pages
+import WebsiteDevelopmentProjects from './pages/services/projects/WebsiteDevelopmentProjects';
+import AIIntegrationProjects from './pages/services/projects/AIIntegrationProjects';
+import LogoDesignProjects from './pages/services/projects/LogoDesignProjects';
+import ThumbnailDesignProjects from './pages/services/projects/ThumbnailDesignProjects';
+import ProductLaunchingProjects from './pages/services/projects/ProductLaunchingProjects';
+import HostingSolutionsProjects from './pages/services/projects/HostingSolutionsProjects';
+import GraphicDesignProjects from './pages/services/projects/GraphicDesignProjects';
+import DesignBrandingProjects from './pages/services/projects/DesignBrandingProjects';
+import MaintenanceModificationProjects from './pages/services/projects/MaintenanceModificationProjects';
+
 // Scroll to top helper
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -62,6 +73,17 @@ const App: React.FC = () => {
               <Route path="/services/graphic-design" element={<GraphicDesignPage />} />
               <Route path="/services/design-branding" element={<DesignBrandingPage />} />
               <Route path="/services/maintenance-modification" element={<MaintenanceModificationPage />} />
+              
+              {/* Individual Service Project Routes */}
+              <Route path="/services/website-development/projects" element={<WebsiteDevelopmentProjects />} />
+              <Route path="/services/ai-integration/projects" element={<AIIntegrationProjects />} />
+              <Route path="/services/logo-design/projects" element={<LogoDesignProjects />} />
+              <Route path="/services/thumbnail-design/projects" element={<ThumbnailDesignProjects />} />
+              <Route path="/services/product-launching/projects" element={<ProductLaunchingProjects />} />
+              <Route path="/services/hosting-solutions/projects" element={<HostingSolutionsProjects />} />
+              <Route path="/services/graphic-design/projects" element={<GraphicDesignProjects />} />
+              <Route path="/services/design-branding/projects" element={<DesignBrandingProjects />} />
+              <Route path="/services/maintenance-modification/projects" element={<MaintenanceModificationProjects />} />
             </Routes>
           </main>
           <Footer />
