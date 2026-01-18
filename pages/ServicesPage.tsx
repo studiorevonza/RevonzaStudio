@@ -3,18 +3,50 @@ import { SERVICES } from '../constants';
 import * as LucideIcons from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const ServicesPage: React.FC = () => {
   return (
-    <div className="min-h-screen pt-36 pb-32 bg-revonza-base transition-colors duration-300">
+    <>
+      <SEO 
+        pageSEO={{
+          title: 'Web Development & SEO Services | Affordable Branding Agency | Revonza Studio',
+          description: 'Professional web development studio offering SEO services for startups, AI website development, and affordable branding agency solutions. Custom website development for small business growth.',
+          keywords: [
+            'web development services',
+            'SEO optimization services',
+            'AI integration services',
+            'branding agency services',
+            'custom website development',
+            'digital marketing services',
+            'startup web solutions',
+            'small business website development'
+          ],
+          canonical: 'https://revonzastudio.com/services',
+          ogImage: 'https://revonzastudio.com/og-services.jpg',
+          ogType: 'website',
+          structuredData: {
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            'name': 'Web Development & SEO Services',
+            'itemListElement': SERVICES.map((service, index) => ({
+              '@type': 'Service',
+              'position': index + 1,
+              'name': service.title,
+              'description': service.description
+            }))
+          }
+        }}
+      />
+      <div className="min-h-screen pt-36 pb-32 bg-revonza-base transition-colors duration-300">
       <div className="container mx-auto px-4">
         
         {/* Header */}
         <div className="mb-32 text-center mSax-w-4xl mx-auto animate-fade-in-up">
            <span className="text-revonza-accent font-bold tracking-[0.2em] uppercase text-sm mb-6 block">Our Capabilities</span>
-           <h1 className="text-5xl md:text-7xl font-bold text-revonza-text mb-10 leading-tight">Comprehensive <br/> Digital Solutions</h1>
-           <p className="text-xl text-revonza-textMuted font-light max-w-2xl mx-auto leading-relaxed">
-             We don't just offer services; we offer partnerships. From the first line of code to the final pixel, we are dedicated to your vision.
+           <h1 className="text-4xl md:text-6xl font-bold text-revonza-text mb-6 leading-tight">Professional Web Development & SEO Services</h1>
+           <p className="text-xl text-revonza-textMuted font-light max-w-3xl mx-auto leading-relaxed">
+             Affordable branding agency services specializing in web development for small business and SEO optimization for startups. From custom website development to AI-powered digital solutions, we deliver results that drive growth.
            </p>
         </div>
 
@@ -65,6 +97,7 @@ const ServicesPage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

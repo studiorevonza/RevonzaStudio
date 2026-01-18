@@ -34,12 +34,34 @@ const Home: React.FC = () => {
     <>
       <SEO 
         pageSEO={{
-          title: 'Home',
-          description: 'Revonza Studio bridges the gap between creative imagination and technical engineering. We build digital ecosystems that scale.',
-          keywords: ['web development', 'digital agency', 'software development', 'react development'],
+          title: 'Web Development & SEO Studio for Startups | Revonza Studio',
+          description: 'Revonza Studio offers web development, SEO & AI solutions for modern businesses. Build faster. Rank smarter. We specialize in affordable branding agency services and website development for small business.',
+          keywords: [
+            'web development studio India', 
+            'SEO services for startups', 
+            'AI website development', 
+            'affordable branding agency', 
+            'website development for small business',
+            'custom website development',
+            'digital marketing agency',
+            'react development India'
+          ],
           canonical: 'https://revonzastudio.com/',
           ogImage: 'https://revonzastudio.com/og-home.jpg',
-          ogType: 'website'
+          ogType: 'website',
+          structuredData: {
+            '@context': 'https://schema.org',
+            '@type': 'ProfessionalService',
+            'name': 'Revonza Studio',
+            'description': 'Web Development & SEO Studio for Startups',
+            'serviceType': [
+              'Web Development',
+              'SEO Services',
+              'AI Integration',
+              'Branding Agency',
+              'Digital Marketing'
+            ]
+          }
         }}
       />
       <div className="flex flex-col w-full overflow-hidden">
@@ -61,13 +83,14 @@ const Home: React.FC = () => {
             </div>
           </div>
 
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold text-revonza-text leading-[1.05] tracking-tight mb-8 animate-fade-in-up delay-100 drop-shadow-2xl">
-            Design. Build. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-revonza-accentOld via-purple-400 to-pink-500">Dominate.</span>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-revonza-text leading-[1.05] tracking-tight mb-8 animate-fade-in-up delay-100 drop-shadow-2xl">
+            Web Development<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-revonza-accentOld via-purple-400 to-pink-500">SEO & AI Solutions</span><br />
+            <span className="text-3xl md:text-4xl lg:text-5xl font-normal">for Modern Businesses</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-revonza-textMuted max-w-3xl mx-auto mb-14 font-light leading-relaxed animate-fade-in-up delay-200">
-            Revonza Studio bridges the gap between creative imagination and technical engineering. We build digital ecosystems that scale.
+            Revonza Studio offers affordable web development, SEO services for startups, and AI-powered digital solutions. Build faster. Rank smarter. Perfect for small business website development and branding agency needs.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up delay-300">
@@ -94,8 +117,8 @@ const Home: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 animate-fade-in-up">
             <div>
-              <h2 className="text-5xl font-bold text-revonza-text mb-4">Our Expertise</h2>
-              <p className="text-revonza-textMuted text-lg">Mastery across the digital spectrum.</p>
+              <h2 className="text-5xl font-bold text-revonza-text mb-4">Web Development & SEO Studio Services</h2>
+              <p className="text-revonza-textMuted text-lg">Mastery across web development, SEO optimization, and AI integration for startups and small businesses.</p>
             </div>
             <Link to="/services" className="text-revonza-accent hover:text-revonza-text transition-colors flex items-center gap-2 mt-6 md:mt-0 font-semibold group">
               View all services <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform"/>
