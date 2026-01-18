@@ -134,7 +134,7 @@ const Home: React.FC = () => {
                  {/* Icon Background Glow */}
                  <div className="absolute top-0 right-0 w-64 h-64 bg-revonza-accent/5 rounded-full blur-3xl group-hover:bg-revonza-accent/20 transition-colors duration-500 -translate-y-1/2 translate-x-1/2"></div>
 
-                 <div className="relative z-10">
+                 <div className="relative z-10 flex flex-col h-full">
                     <div className="relative w-full h-48 mb-6 rounded-2xl overflow-hidden border border-revonza-border">
                       <img 
                         src={service.image} 
@@ -147,12 +147,14 @@ const Home: React.FC = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-revonza-base/80 to-transparent"></div>
                     </div>
-                    <h3 className="text-3xl font-bold text-revonza-text mb-4 group-hover:text-revonza-accent transition-colors whitespace-nowrap">{service.title}</h3>
-                    <div className="max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100 transition-all duration-500 overflow-hidden">
-                       <p className="text-revonza-textMuted leading-relaxed text-base">{service.description}</p>
-                       <div className="mt-6 flex items-center gap-2 text-revonza-accent font-bold text-sm uppercase tracking-wider">
-                          Learn More <ChevronRight size={16} />
-                       </div>
+                    <div className="flex-grow">
+                      <h3 className="text-3xl font-bold text-revonza-text mb-4 group-hover:text-revonza-accent transition-colors whitespace-nowrap">{service.title}</h3>
+                      <div className="max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100 transition-all duration-500 overflow-hidden">
+                         <p className="text-revonza-textMuted leading-relaxed text-base">{service.description}</p>
+                         <div className="mt-6 flex items-center gap-2 text-revonza-accent font-bold text-sm uppercase tracking-wider">
+                            Learn More <ChevronRight size={16} />
+                         </div>
+                      </div>
                     </div>
                  </div>
                  

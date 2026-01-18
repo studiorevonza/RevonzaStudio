@@ -62,8 +62,8 @@ const ServicesPage: React.FC = () => {
                   className="group glass-panel glass-panel-hover p-10 rounded-[2.5rem] flex flex-col justify-between h-full border border-revonza-border animate-fade-in-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div>
-                    <div className="relative w-full h-48 mb-8 rounded-2xl overflow-hidden border border-revonza-border">
+                  <div className="flex flex-col h-full">
+                    <div className="relative w-full h-48 mb-6 rounded-2xl overflow-hidden border border-revonza-border">
                       <img 
                         src={service.image} 
                         alt={`${service.title} illustration`} 
@@ -76,17 +76,17 @@ const ServicesPage: React.FC = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-revonza-base/80 to-transparent"></div>
                     </div>
                     
-                    <div className="flex justify-between items-start mb-8">
-                      <div className="w-16 h-16 bg-revonza-surface rounded-2xl flex items-center justify-center text-revonza-text group-hover:text-revonza-accent group-hover:scale-110 group-hover:bg-revonza-surface/80 transition-all duration-500 border border-revonza-border shadow-lg group-hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]">
-                        <IconComponent size={28} strokeWidth={1.25} />
+                    <div className="flex justify-between items-start mb-6">
+                      <div className="w-14 h-14 bg-revonza-surface rounded-2xl flex items-center justify-center text-revonza-text group-hover:text-revonza-accent group-hover:scale-110 group-hover:bg-revonza-surface/80 transition-all duration-500 border border-revonza-border shadow-lg group-hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]">
+                        <IconComponent size={24} strokeWidth={1.25} />
                       </div>
                       <Link to={`/services/${service.id}`} className="w-12 h-12 rounded-full border border-revonza-border flex items-center justify-center text-gray-500 group-hover:bg-revonza-accent group-hover:border-revonza-accent group-hover:text-white transition-all transform group-hover:rotate-45 group-hover:shadow-[0_0_15px_rgba(139,92,246,0.6)]">
                         <ArrowUpRight size={22} />
                       </Link>
                     </div>
                     
-                    <h3 className="text-2xl font-bold text-revonza-text mb-4 group-hover:text-revonza-accent transition-colors drop-shadow-sm">{service.title}</h3>
-                    <p className="text-revonza-textMuted text-base leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
+                    <h3 className="text-2xl font-bold text-revonza-text mb-3 group-hover:text-revonza-accent transition-colors drop-shadow-sm flex-grow">{service.title}</h3>
+                    <p className="text-revonza-textMuted text-base leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity flex-grow">
                       {service.description}
                     </p>
                   </div>
