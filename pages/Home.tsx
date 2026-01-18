@@ -1,11 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Zap, Quote, Cpu, ShieldCheck, TrendingUp, Lightbulb, Search, Code, Rocket, Star, ChevronRight, MonitorSmartphone, ScanSearch, BrainCircuit, Fingerprint, Layers, DatabaseZap, Paintbrush, Palette, Wrench } from 'lucide-react';
+import { ArrowRight, Zap, Quote, Cpu, ShieldCheck, TrendingUp, Lightbulb, Search, Code, Rocket, Star, ChevronRight, MonitorSmartphone, ScanSearch, BrainCircuit, Fingerprint, Layers, DatabaseZap, Paintbrush, Palette, Wrench, ChevronLeft, ChevronRight as ChevronRightIcon } from 'lucide-react';
 import { SERVICES } from '../constants';
 import SEO from '../components/SEO';
 
 const Home: React.FC = () => {
   const featuredServices = SERVICES.slice(0, 3);
+  
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
+  const carouselImages = [
+    { src: '/feedback/cl1.png', alt: 'Client Feedback 1' },
+    { src: '/feedback/cl2.png', alt: 'Client Feedback 2' },
+    { src: '/feedback/cl3.png', alt: 'Client Feedback 3' },
+    { src: '/feedback/cl4.png', alt: 'Client Feedback 4' },
+    { src: '/feedback/cl5.png', alt: 'Client Feedback 5' },
+  ];
+  
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+  
+  const goToPrev = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? carouselImages.length - 1 : prevIndex - 1
+    );
+  };
+  
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+  
+  // Auto-advance carousel every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      goToNext();
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, []);
 
   // Icon mapping for services
   const getServiceIcon = (iconName: string) => {
@@ -325,6 +360,64 @@ const Home: React.FC = () => {
           <Link to="/contact" className="inline-flex items-center gap-3 px-14 py-6 bg-revonza-text text-revonza-base rounded-full font-bold text-xl hover:scale-105 transition-all shadow-[0_0_50px_rgba(139,92,246,0.3)]">
             Book a Consultation
           </Link>
+        </div>
+      </section>
+      
+      {/* Client Feedback Carousel */}
+      <section className="py-32 bg-revonza-surface relative overflow-hidden transition-colors duration-300">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16 animate-fade-in-up">
+            <h2 className="text-4xl md:text-5xl font-bold text-revonza-text mb-4">Client Feedback</h2>
+            <p className="text-revonza-textMuted text-lg max-w-2xl mx-auto">What our clients say about our services</p>
+          </div>
+          
+          <div className="relative max-w-6xl mx-auto">
+            <div className="overflow-hidden rounded-[3rem]">
+              <div 
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+                {carouselImages.map((image, index) => (
+                  <div key={index} className="flex-shrink-0 w-full">
+                    <div className="aspect-video bg-revonza-base rounded-[2rem] flex items-center justify-center p-8 md:p-16">
+                      <img 
+                        src={image.src}
+                        alt={image.alt}
+                        className="max-h-64 object-contain"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Navigation Arrows */}
+            <button 
+              onClick={goToPrev}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-revonza-surface/80 backdrop-blur-md rounded-full p-3 text-revonza-text hover:bg-revonza-accent hover:text-white transition-all shadow-lg"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button 
+              onClick={goToNext}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-revonza-surface/80 backdrop-blur-md rounded-full p-3 text-revonza-text hover:bg-revonza-accent hover:text-white transition-all shadow-lg"
+              aria-label="Next slide"
+            >
+              <ChevronRightIcon size={24} />
+            </button>
+            
+            {/* Indicators */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+              {carouselImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all ${currentIndex === index ? 'bg-revonza-accent w-6' : 'bg-revonza-text/50'}`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </div>
