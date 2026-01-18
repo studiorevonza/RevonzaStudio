@@ -182,7 +182,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: 'CEO',
     company: 'Nexus FinTech',
     content: 'Revonza Studio transformed our digital presence. The AI integration they built has saved us hundreds of hours in customer support.',
-    avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026024d'
+    avatar: '/feedback/client 1 .png'
   },
   {
     id: 't2',
@@ -190,7 +190,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: 'Marketing Director',
     company: 'Vivid Stream',
     content: 'The new branding is absolutely stunning. They understood our vision perfectly and delivered a logo that truly stands out.',
-    avatar: 'https://i.pravatar.cc/150?u=a04258a2462d826712d'
+    avatar: '/feedback/client 2.png'
   },
   {
     id: 't3',
@@ -198,6 +198,6 @@ export const TESTIMONIALS: Testimonial[] = [
     role: 'Founder',
     company: 'EcoSphere',
     content: 'Professional, fast, and incredibly talented. The SEO strategies they implemented doubled our organic traffic in just three months.',
-    avatar: 'https://i.pravatar.cc/150?u=a04258114e29026302d'
+    avatar: '/feedback/client 3.png'
   }
 ];

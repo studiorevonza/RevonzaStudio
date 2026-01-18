@@ -322,7 +322,7 @@ const Home: React.FC = () => {
             {TESTIMONIALS.map((testimonial, index) => (
               <div 
                 key={testimonial.id} 
-                className="glass-panel p-10 rounded-[2rem] relative animate-fade-in-up hover:-translate-y-3 transition-transform duration-500 border border-revonza-border"
+                className="glass-panel p-10 rounded-[2rem] relative animate-fade-in-up hover:-translate-y-3 transition-transform duration-500"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
                 <div className="flex items-center gap-1.5 mb-8 text-yellow-500">
@@ -333,7 +333,7 @@ const Home: React.FC = () => {
                   <Star size={18} fill="currentColor" />
                 </div>
                 <p className="text-revonza-textMuted leading-relaxed mb-10 text-lg italic opacity-90">"{testimonial.content}"</p>
-                <div className="flex items-center gap-5 border-t border-revonza-border pt-8">
+                <div className="flex items-center gap-5 pt-8">
                   <img 
                     src={testimonial.avatar} 
                     alt={testimonial.name} 
