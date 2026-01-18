@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { NavLink, Link } from 'react-router-dom';
+import { Menu, X, Sun, Moon, MessageCircle } from 'lucide-react';
 import { NAV_ITEMS, LOGO_WHITE_URL, LOGO_BLACK_URL, BRAND_NAME } from '../../constants';
 import { useTheme } from '../../contexts/ThemeContext';
 
 const Header: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
@@ -92,24 +92,24 @@ const Header: React.FC = () => {
               {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
             </button>
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-revonza-text hover:text-revonza-accent transition-colors p-2 bg-revonza-surface rounded-full"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
       </header>
 
       {/* Mobile Nav Overlay */}
-      <div className={`fixed inset-0 z-40 bg-revonza-base/95 transition-all duration-300 md:hidden ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+      <div className={`fixed inset-0 z-40 bg-revonza-base/95 transition-all duration-300 md:hidden ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
         <div className="flex flex-col items-center justify-center h-full space-y-8">
             {NAV_ITEMS.map((item) => (
               <NavLink
                 key={item.path}
                 to={item.path}
                 onClick={() => {
-                  setIsOpen(false);
+                  setIsMenuOpen(false);
                 }}
                 className={({ isActive }) =>
                   `text-3xl font-bold transition-colors ${
