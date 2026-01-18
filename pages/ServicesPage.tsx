@@ -63,16 +63,29 @@ const ServicesPage: React.FC = () => {
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div>
-                    <div className="flex justify-between items-start mb-10">
-                      <div className="w-24 h-24 bg-revonza-surface rounded-3xl flex items-center justify-center text-revonza-text group-hover:text-revonza-accent group-hover:scale-110 group-hover:bg-revonza-surface/80 transition-all duration-500 border border-revonza-border shadow-lg group-hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]">
-                        <IconComponent size={44} strokeWidth={1.25} />
+                    <div className="relative w-full h-48 mb-8 rounded-2xl overflow-hidden border border-revonza-border">
+                      <img 
+                        src={service.image} 
+                        alt={`${service.title} illustration`} 
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = 'https://placehold.co/400x300/e2e8f0/64748b?text=Service+Image';
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-revonza-base/80 to-transparent"></div>
+                    </div>
+                    
+                    <div className="flex justify-between items-start mb-8">
+                      <div className="w-16 h-16 bg-revonza-surface rounded-2xl flex items-center justify-center text-revonza-text group-hover:text-revonza-accent group-hover:scale-110 group-hover:bg-revonza-surface/80 transition-all duration-500 border border-revonza-border shadow-lg group-hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]">
+                        <IconComponent size={28} strokeWidth={1.25} />
                       </div>
                       <Link to={`/services/${service.id}`} className="w-12 h-12 rounded-full border border-revonza-border flex items-center justify-center text-gray-500 group-hover:bg-revonza-accent group-hover:border-revonza-accent group-hover:text-white transition-all transform group-hover:rotate-45 group-hover:shadow-[0_0_15px_rgba(139,92,246,0.6)]">
                         <ArrowUpRight size={22} />
                       </Link>
                     </div>
                     
-                    <h3 className="text-2xl font-bold text-revonza-text mb-5 group-hover:text-revonza-accent transition-colors drop-shadow-sm">{service.title}</h3>
+                    <h3 className="text-2xl font-bold text-revonza-text mb-4 group-hover:text-revonza-accent transition-colors drop-shadow-sm">{service.title}</h3>
                     <p className="text-revonza-textMuted text-base leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
                       {service.description}
                     </p>
