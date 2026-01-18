@@ -161,7 +161,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 For inquiries about our services, please contact us through the contact form on our website or reach out directly:
 
-- Website: [https://revonzastudio.com](https://www.revonzastudio.com)
+- Website: [https://revonzastudio.com](https://revonzastudio.tech/)
 - Email: [contact@revonzastudio.com](mailto:contact@revonzastudio.com)
 
 ---
