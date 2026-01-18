@@ -10,28 +10,23 @@ const ContactPage: React.FC = () => {
     service: '',
     budget: '',
     timeline: '',
+    priority: '',
     message: ''
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Create a comprehensive message with all form data
-    const fullMessage = `
-New Inquiry from: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Company: ${formData.company || 'N/A'}
-Service Interested: ${formData.service}
-Budget Range: ${formData.budget || 'Not specified'}
-Timeline: ${formData.timeline || 'Flexible'}
-Priority: ${formData.priority || 'Standard'}
-
-Message:
-${formData.message}
-    `;
+    const fullMessage = `*New Inquiry from:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A*Company:* ${formData.company || 'N/A'}%0A*Service Interested:* ${formData.service}%0A*Budget Range:* ${formData.budget || 'Not specified'}%0A*Timeline:* ${formData.timeline || 'Flexible'}%0A*Priority:* ${formData.priority || 'Standard'}%0A*Message:*%0A${encodeURIComponent(formData.message)}%0A%0A_Sent via Revonza Studio Contact Form_`;
     
-    console.log('Form submitted:', formData);
-    alert(`Thank you for your inquiry, ${formData.name}! We'll contact you soon at ${formData.email} or ${formData.phone}.`);
+    // Open WhatsApp with the pre-filled message
+    const whatsappUrl = `https://wa.me/919714407181?text=${fullMessage}`;
+    window.open(whatsappUrl, '_blank');
+    
+    // Show confirmation message
+    alert(`Thank you for your inquiry, ${formData.name}! Your message has been sent to our WhatsApp. We'll contact you soon.`);
+    
+    // Reset form
     setFormData({ 
       name: '', 
       email: '', 
@@ -40,6 +35,7 @@ ${formData.message}
       service: '', 
       budget: '', 
       timeline: '', 
+      priority: '',
       message: '' 
     });
   };
@@ -98,11 +94,11 @@ ${formData.message}
                 </div>
                 <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Call Us</h3>
                 <div className="flex flex-col gap-2">
-                  <a href="tel:+918851619647" className="text-2xl font-semibold text-revonza-text hover:text-revonza-accent transition-colors">
-                    +91 8851619647
-                  </a>
                   <a href="tel:+919714407181" className="text-2xl font-semibold text-revonza-text hover:text-revonza-accent transition-colors">
                     +91 9714407181
+                  </a>
+                  <a href="tel:+918851619647" className="text-2xl font-semibold text-revonza-text hover:text-revonza-accent transition-colors">
+                    +91 8851619647
                   </a>
                 </div>
              </div>
@@ -198,7 +194,7 @@ ${formData.message}
                       </div>
                    </div>
                    
-                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       <div className="group">
                         <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 ml-4">Budget Range</label>
                         <div className="relative">
@@ -233,6 +229,24 @@ ${formData.message}
                             <option value="medium" className="text-revonza-text bg-revonza-base">Medium Term (3-6 months)</option>
                             <option value="long" className="text-revonza-text bg-revonza-base">Long Term (6+ months)</option>
                             <option value="flexible" className="text-revonza-text bg-revonza-base">Flexible Timeline</option>
+                          </select>
+                          <ArrowRight className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-500 rotate-90 pointer-events-none" size={18} />
+                        </div>
+                      </div>
+                      <div className="group">
+                        <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 ml-4">Priority</label>
+                        <div className="relative">
+                          <select
+                            name="priority"
+                            value={formData.priority}
+                            onChange={handleChange}
+                            className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-current appearance-none cursor-pointer focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface transition-all duration-300"
+                          >
+                            <option value="" className="text-revonza-text bg-revonza-base">Select Priority</option>
+                            <option value="low" className="text-revonza-text bg-revonza-base">Low Priority</option>
+                            <option value="standard" className="text-revonza-text bg-revonza-base">Standard Priority</option>
+                            <option value="high" className="text-revonza-text bg-revonza-base">High Priority</option>
+                            <option value="urgent" className="text-revonza-text bg-revonza-base">Urgent Priority</option>
                           </select>
                           <ArrowRight className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-500 rotate-90 pointer-events-none" size={18} />
                         </div>
