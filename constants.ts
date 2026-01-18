@@ -1,4 +1,4 @@
-import { NavItem, Service, Project, PricingTier, Testimonial } from './types';
+import { NavItem, Service, Project, PricingTier } from './types';
 
 export const BRAND_NAME = "Revonza Studio";
 export const TAGLINE = "Turning Ideas Into Intelligent Experiences.";
@@ -172,32 +172,5 @@ export const PRICING: PricingTier[] = [
       'White-label Solution',
       '24/7 Priority Support'
     ]
-  }
-];
-
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    id: 't1',
-    name: 'Sarah Jenkins',
-    role: 'CEO',
-    company: 'Nexus FinTech',
-    content: 'Revonza Studio transformed our digital presence. The AI integration they built has saved us hundreds of hours in customer support.',
-    avatar: '/feedback/client 1 .png'
-  },
-  {
-    id: 't2',
-    name: 'Michael Chen',
-    role: 'Marketing Director',
-    company: 'Vivid Stream',
-    content: 'The new branding is absolutely stunning. They understood our vision perfectly and delivered a logo that truly stands out.',
-    avatar: '/feedback/client 2.png'
-  },
-  {
-    id: 't3',
-    name: 'Elena Rodriguez',
-    role: 'Founder',
-    company: 'EcoSphere',
-    content: 'Professional, fast, and incredibly talented. The SEO strategies they implemented doubled our organic traffic in just three months.',
-    avatar: '/feedback/client 3.png'
   }
 ];

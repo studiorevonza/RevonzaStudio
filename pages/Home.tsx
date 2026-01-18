@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Zap, Quote, Cpu, ShieldCheck, TrendingUp, Lightbulb, Search, Code, Rocket, Star, ChevronRight, MonitorSmartphone, ScanSearch, BrainCircuit, Fingerprint, Layers, DatabaseZap, Paintbrush, Palette, Wrench } from 'lucide-react';
-import { SERVICES, TESTIMONIALS } from '../constants';
+import { SERVICES } from '../constants';
 import SEO from '../components/SEO';
 
 const Home: React.FC = () => {
@@ -309,43 +309,6 @@ const Home: React.FC = () => {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials - Enhanced Cards */}
-      <section className="py-32 bg-gradient-to-b from-transparent to-revonza-surface transition-colors duration-300">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-revonza-text text-center mb-20">Client Stories</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {TESTIMONIALS.map((testimonial, index) => (
-              <div 
-                key={testimonial.id} 
-                className="glass-panel p-10 rounded-[2rem] relative animate-fade-in-up hover:-translate-y-3 transition-transform duration-500"
-                style={{ animationDelay: `${index * 150}ms` }}
-              >
-                <div className="flex items-center gap-1.5 mb-8 text-yellow-500">
-                  <Star size={18} fill="currentColor" />
-                  <Star size={18} fill="currentColor" />
-                  <Star size={18} fill="currentColor" />
-                  <Star size={18} fill="currentColor" />
-                  <Star size={18} fill="currentColor" />
-                </div>
-                <p className="text-revonza-textMuted leading-relaxed mb-10 text-lg italic opacity-90">"{testimonial.content}"</p>
-                <div className="flex items-center gap-5 pt-8">
-                  <img 
-                    src={testimonial.avatar} 
-                    alt={testimonial.name} 
-                    className="w-12 h-12 rounded-full ring-2 ring-revonza-accent/50 object-cover"
-                  />
-                  <div>
-                    <h4 className="text-revonza-text font-bold text-base">{testimonial.name}</h4>
-                    <p className="text-xs text-revonza-accent uppercase tracking-wider font-bold">{testimonial.role}, {testimonial.company}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
