@@ -36,9 +36,7 @@ const AboutPage: React.FC = () => {
                 />
              </div>
              {/* Decorative Elements */}
-             <div className="absolute top-0 right-0 w-full max-w-[500px] h-full border border-revonza-accent/20 rounded-[2.5rem] translate-x-6 -translate-y-6 -z-0"></div>
-             <div className="absolute bottom-0 left-0 w-3/4 h-3/4 bg-gradient-to-tr from-revonza-accent/10 to-transparent rounded-full -translate-x-12 translate-y-12 blur-[80px] -z-0"></div>
-          </div>
+             </div>
         </div>
 
         {/* Stats - Refined Glass Panels */}
@@ -76,6 +74,67 @@ const AboutPage: React.FC = () => {
                  "We don't just build websites; we engineer <span className="text-transparent bg-clip-text bg-gradient-to-r from-revonza-accent to-purple-400">digital ecosystems</span>. Every project is an opportunity to push the boundaries of what's possible on the web."
                </p>
            </div>
+        </div>
+
+        {/* Testimonials - Indian Reviews */}
+        <div className="mt-32">
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-revonza-text mb-20">What Our Indian Clients Say</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+           
+            
+            
+            <div className="glass-panel p-8 rounded-[2rem] transition-all duration-300">
+              <div className="flex items-center mb-6">
+                <Quote className="text-revonza-accent" size={32} />
+              </div>
+              <p className="text-lg text-revonza-text mb-6 italic">
+                "Outstanding work! The team delivered our e-commerce platform ahead of schedule with exceptional quality. The customer experience has improved dramatically."
+              </p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-revonza-accent to-purple-500 rounded-full flex items-center justify-center text-white font-bold">
+                  RS
+                </div>
+                <div>
+                  <h4 className="font-bold text-revonza-text">Rajesh Sharma</h4>
+                  </div>
+              </div>
+            </div>
+            
+            <div className="glass-panel p-8 rounded-[2rem] transition-all duration-300">
+              <div className="flex items-center mb-6">
+                <Quote className="text-revonza-accent" size={32} />
+              </div>
+              <p className="text-lg text-revonza-text mb-6 italic">
+                "The mobile app they developed for our startup has received excellent user feedback. Their attention to detail and technical expertise is unmatched."
+              </p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-revonza-accent to-purple-500 rounded-full flex items-center justify-center text-white font-bold">
+                  PK
+                </div>
+                <div>
+                  <h4 className="font-bold text-revonza-text">Priya Khanna</h4>
+                  </div>
+              </div>
+            </div>
+            
+            <div className="glass-panel p-8 rounded-[2rem] transition-all duration-300">
+              <div className="flex items-center mb-6">
+                <Quote className="text-revonza-accent" size={32} />
+              </div>
+              <p className="text-lg text-revonza-text mb-6 italic">
+                "Their SEO expertise helped our online business grow 3x in just 6 months. The ROI has been incredible. Highly recommended!"
+              </p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-revonza-accent to-purple-500 rounded-full flex items-center justify-center text-white font-bold">
+                  AV
+                </div>
+                <div>
+                  <h4 className="font-bold text-revonza-text">Anil Verma</h4>
+                 </div>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
