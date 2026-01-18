@@ -28,65 +28,56 @@ export const SERVICES: Service[] = [
     id: 'website-development',
     title: 'Website Development',
     description: 'Forge a digital identity that commands attention. We engineer high-performance, pixel-perfect websites and web applications designed to convert visitors into loyal advocates. Speed, security, and scalability are built-in, not add-ons.',
-    icon: 'MonitorSmartphone',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop'
+    icon: 'MonitorSmartphone'
   },
   
   {
     id: 'ai-integration',
     title: 'AI Integration',
     description: 'Future-proof your business with intelligent automation. We seamlessly integrate custom AI solutions—from smart chatbots to predictive analytics—that streamline operations and create personalized customer experiences.',
-    icon: 'BrainCircuit',
-    image: 'https://images.unsplash.com/photo-1677442135722-fee72649b623?q=80&w=2787&auto=format&fit=crop'
+    icon: 'BrainCircuit'
   },
   {
     id: 'logo-design',
     title: 'Logo Design',
     description: 'Distill your brand\'s essence into a timeless mark. We craft memorable visual identities that resonate deeply with your audience, ensuring your brand stands out in a crowded marketplace.',
-    icon: 'Fingerprint',
-    image: 'https://images.unsplash.com/photo-1545239351-ef35f43d01b9?q=80&w=2787&auto=format&fit=crop'
+    icon: 'Fingerprint'
   },
   {
     id: 'thumbnail-design',
     title: 'Thumbnail Design',
     description: 'Stop the scroll with high-impact visuals. Our scientifically designed thumbnails are optimized for click-through rates, turning casual browsers into engaged viewers across YouTube and social media platforms.',
-    icon: 'Layers',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop'
+    icon: 'Layers'
   },
   {
     id: 'product-launching',
     title: 'Product Launching',
     description: 'Ignite your market entry with a strategic blast-off. We orchestrate comprehensive launch campaigns, managing everything from hype-building assets to go-to-market execution for maximum impact.',
-    icon: 'Rocket',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop'
+    icon: 'Rocket'
   },
   {
     id: 'hosting-solutions',
     title: 'Hosting Solutions',
     description: 'Experience rock-solid reliability for your digital assets. Our managed hosting infrastructure delivers blazing fast speeds, 99.9% uptime, and military-grade security to keep your business online, always.',
-    icon: 'DatabaseZap',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2787&auto=format&fit=crop'
+    icon: 'DatabaseZap'
   },
   {
     id: 'graphic-design',
     title: 'Graphic Design',
     description: 'Tell your story through captivating visuals. From marketing collateral to social assets, we create cohesive, high-fidelity designs that elevate your brand narrative and engage your audience visually.',
-    icon: 'Paintbrush',
-    image: 'https://images.unsplash.com/photo-1546474428-9b4a0d0e7a3c?q=80&w=2670&auto=format&fit=crop'
+    icon: 'Paintbrush'
   },
   {
     id: 'design-branding',
     title: 'Design & Branding',
     description: 'Craft a cohesive visual identity that resonates with your audience. We develop comprehensive brand guidelines, color palettes, typography, and visual assets that communicate your unique value proposition.',
-    icon: 'Palette',
-    image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?q=80&w=2788&auto=format&fit=crop'
+    icon: 'Palette'
   },
   {
     id: 'maintenance-modification',
     title: 'Maintenance & Modification',
     description: 'Keep your digital assets running smoothly with our ongoing maintenance services. We provide updates, bug fixes, performance optimizations, and feature enhancements to ensure your investment continues to deliver value.',
-    icon: 'Wrench',
-    image: 'https://images.unsplash.com/photo-1553877522-4324936dbf38?q=80&w=2670&auto=format&fit=crop'
+    icon: 'Wrench'
   },
 ];
 
