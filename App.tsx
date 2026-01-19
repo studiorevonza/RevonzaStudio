@@ -12,6 +12,7 @@ import PricingPage from './pages/PricingPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import DetailedPricingPage from './pages/DetailedPricingPage';
+import ProjectDetailsPage from './pages/ProjectDetailsPage';
 
 // Import individual service pages
 import WebsiteDevelopmentPage from './pages/services/WebsiteDevelopmentPage';
@@ -54,9 +55,9 @@ const App: React.FC = () => {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/detailed-pricing" element={<DetailedPricingPage />} />
-              
-
-              
+              <Route path="/project-details" element={<ProjectDetailsPage />} />
+                            
+                            
               {/* Individual Service Routes */}
               <Route path="/services/website-development" element={<WebsiteDevelopmentPage />} />
               <Route path="/services/ai-integration" element={<AIIntegrationPage />} />

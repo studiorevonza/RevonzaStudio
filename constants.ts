@@ -84,36 +84,57 @@ export const SERVICES: Service[] = [
 export const PROJECTS: Project[] = [
   {
     id: '1',
-    title: 'Nexus FinTech Platform',
+    title: 'TAKE OPINION MEDICAL',
+    tags: ['web', 'logo', 'hosting', 'branding'],
     category: 'Website & Branding',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop',
+    image: 'public/ProjectImage/WEBSITE/Screenshot 2026-01-19 230105.png',
     description: 'A comprehensive banking dashboard with real-time data visualization and a secure backend infrastructure.',
-    tags: ['web', 'logo', 'hosting', 'branding']
+    images: [
+  ],
+    bannerText: 'Medical Innovation at Its Finest'
   },
   {
     id: '2',
     title: 'EcoSphere AI Assistant',
+    tags: ['ai', 'web', 'seo', 'maintenance'],
     category: 'AI Integration',
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2532&auto=format&fit=crop',
     description: 'An intelligent chatbot integrated into an e-commerce platform to handle customer queries and product recommendations automatically.',
-    tags: ['ai', 'web', 'seo', 'maintenance']
+    images: [
+      'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2532&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1563206767-e4db5d3e8334?q=80&w=2787&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1676823104070-48f1c5f0d3bc?q=80&w=2787&auto=format&fit=crop'
+    ],
+    bannerText: 'AI-Powered Solutions'
   },
   {
     id: '3',
+    tags: ['graphic', 'logo', 'thumbnail', 'branding'],
     title: 'Vivid Stream Rebrand',
     category: 'Graphic Design',
     image: 'https://images.unsplash.com/photo-1626785774573-4b799314346d?q=80&w=2670&auto=format&fit=crop',
     description: 'A complete visual overhaul for a streaming service, including logo redesign, social media assets, and YouTube thumbnails.',
-    tags: ['graphic', 'logo', 'thumbnail', 'branding']
+    images: [
+      'https://images.unsplash.com/photo-1626785774573-4b799314346d?q=80&w=2670&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1579033462043-0f11fe7c0f1b?q=80&w=2787&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?q=80&w=2787&auto=format&fit=crop'
+    ],
+    bannerText: 'Creative Redesign Journey'
   },
  
   {
     id: '5',
     title: 'CloudSafe Hosting',
+    tags: ['hosting', 'web'],
     category: 'Infrastructure',
     image: 'https://images.unsplash.com/photo-1558494949-efc535b5c47c?q=80&w=2674&auto=format&fit=crop',
     description: 'Migration and setup of a scalable cloud hosting environment for a high-traffic SaaS application.',
-    tags: ['hosting', 'web']
+    images: [
+      'https://images.unsplash.com/photo-1558494949-efc535b5c47c?q=80&w=2674&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=2787&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1567337719746-3fddd5bf7c9c?q=80&w=2864&auto=format&fit=crop'
+    ],
+    bannerText: 'Secure Cloud Solutions'
   },
   {
     id: '6',
@@ -121,7 +142,13 @@ export const PROJECTS: Project[] = [
     category: 'Branding',
     image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2670&auto=format&fit=crop',
     description: 'Logo creation and comprehensive brand guidelines for a technology podcast and blog series.',
-    tags: ['logo', 'graphic', 'thumbnail']
+    tags: ['logo', 'graphic', 'thumbnail', 'branding'],
+    images: [
+      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2670&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2874&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop'
+    ],
+    bannerText: 'Brand Identity Experts'
   }
 ];
 

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { PROJECTS, SERVICES } from '../constants';
 import { ExternalLink, Check, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 
 const ProjectsPage: React.FC = () => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  const [zoomedImage, setZoomedImage] = useState<{ src: string, alt: string } | null>(null);
 
   const toggleFilter = (serviceId: string) => {
     setSelectedFilters(prev => 
@@ -22,6 +24,8 @@ const ProjectsPage: React.FC = () => {
         project.tags.some(tag => selectedFilters.includes(tag))
       );
 
+
+  
   return (
     <>
       <SEO
@@ -84,15 +88,19 @@ const ProjectsPage: React.FC = () => {
             </p>
           </div>
           
-          {/* Active Filter Summary / Clear */}
+          <div className="flex flex-wrap gap-3 mb-8">
           {selectedFilters.length > 0 && (
              <button 
                onClick={clearFilters}
-               className="text-revonza-accent hover:text-revonza-text transition-colors flex items-center gap-2 text-sm mt-8 md:mt-0 font-bold uppercase tracking-wider bg-revonza-surface px-4 py-2 rounded-full border border-revonza-accent/20 hover:border-revonza-accent"
+               className="text-revonza-accent hover:text-revonza-text transition-colors flex items-center gap-2 text-sm font-bold uppercase tracking-wider bg-revonza-surface px-4 py-2 rounded-full border border-revonza-accent/20 hover:border-revonza-accent"
              >
                <X size={14} /> Clear Filters ({selectedFilters.length})
              </button>
           )}
+          <Link to="/project-details" className="text-revonza-accent hover:text-revonza-text transition-colors flex items-center gap-2 text-sm font-bold uppercase tracking-wider bg-revonza-surface px-4 py-2 rounded-full border border-revonza-accent/20 hover:border-revonza-accent">
+            View Project Details
+          </Link>
+        </div>
         </div>
 
         {/* Filter Tags - Refined Buttons */}
@@ -138,7 +146,8 @@ const ProjectsPage: React.FC = () => {
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100 cursor-pointer"
+                  onClick={() => setZoomedImage({ src: project.image, alt: project.title })}
                 />
               </div>
               
@@ -168,6 +177,33 @@ const ProjectsPage: React.FC = () => {
         )}
       </div>
     </div>
+      {/* Zoom Overlay */}
+      {zoomedImage && (
+        <div
+          className="fixed inset-0 bg-black/90 z-[9999] flex items-center justify-center p-4 backdrop-blur-sm"
+          onClick={() => setZoomedImage(null)}
+        >
+          <div className="relative max-w-6xl max-h-[90vh]">
+            <img
+              src={zoomedImage.src}
+              alt={zoomedImage.alt}
+              className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+            />
+            <button
+              className="absolute top-4 right-4 text-white bg-revonza-accent rounded-full p-3 hover:bg-revonza-text transition-colors"
+              onClick={(e) => {
+                e.stopPropagation();
+                setZoomedImage(null);
+              }}
+              aria-label="Close zoom"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
       </>
     );
 };

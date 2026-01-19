@@ -12,6 +12,8 @@ export interface Project {
   image: string;
   description: string;
   tags: string[]; // IDs of services used
+  images?: string[]; // Optional array of additional images
+  bannerText?: string; // Optional casual banner text
 }
 
 export interface PricingTier {
