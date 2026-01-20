@@ -87,10 +87,13 @@ export const PROJECTS: Project[] = [
     title: 'TAKE OPINION MEDICAL',
     tags: ['web', 'logo', 'hosting', 'branding'],
     category: 'Website & Branding',
-    image: 'public/ProjectImage/WEBSITE/Screenshot 2026-01-19 230105.png',
+    image: '/ProjectImage/WEBSITE/Screenshot 2026-01-19 230105.png',
     description: 'A comprehensive banking dashboard with real-time data visualization and a secure backend infrastructure.',
     images: [
-  ],
+      '/ProjectImage/WEBSITE/Screenshot 2026-01-19 230225.png',
+      '/ProjectImage/WEBSITE/Screenshot 2026-01-19 230249.png',
+      '/ProjectImage/WEBSITE/Screenshot 2026-01-19 230305.png'
+    ],
     bannerText: 'Medical Innovation at Its Finest'
   },
   {

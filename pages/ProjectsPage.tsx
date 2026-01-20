@@ -18,10 +18,28 @@ const ProjectsPage: React.FC = () => {
 
   const clearFilters = () => setSelectedFilters([]);
 
+  // Map service IDs to project tags for filtering
+  const getServiceTags = (serviceId: string): string[] => {
+    const tagMapping: Record<string, string[]> = {
+      'website-development': ['web'],
+      'ai-integration': ['ai'],
+      'logo-design': ['logo'],
+      'thumbnail-design': ['thumbnail'],
+      'product-launching': ['launch'],
+      'hosting-solutions': ['hosting'],
+      'graphic-design': ['graphic'],
+      'design-branding': ['branding', 'logo', 'graphic'],
+      'maintenance-modification': ['maintenance']
+    };
+    return tagMapping[serviceId] || [];
+  };
+
   const filteredProjects = selectedFilters.length === 0
     ? PROJECTS
     : PROJECTS.filter(project => 
-        project.tags.some(tag => selectedFilters.includes(tag))
+        selectedFilters.some(filterId => 
+          getServiceTags(filterId).some(tag => project.tags.includes(tag))
+        )
       );
 
 

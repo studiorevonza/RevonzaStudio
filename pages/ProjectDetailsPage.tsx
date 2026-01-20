@@ -1,35 +1,42 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PROJECTS } from '../constants';
-import { ExternalLink, ArrowLeft, Image, Tag, FolderOpen } from 'lucide-react';
+import { ExternalLink, ArrowLeft, Image, Tag, FolderOpen, ChevronLeft, ChevronRight } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const ProjectDetailsPage: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<typeof PROJECTS[0] | null>(null);
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
-  const [showZoomModal, setShowZoomModal] = useState<boolean>(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
   const handleProjectClick = (project: typeof PROJECTS[0]) => {
     setSelectedProject(project);
   };
 
-  const handleImageClick = (imageUrl: string) => {
-    setSelectedImage(imageUrl);
+  const handleZoomImage = (imageUrl: string, index: number) => {
+    console.log('Zoom image clicked:', imageUrl);
+    setCurrentImageIndex(index);
+    setZoomedImage(imageUrl);
   };
 
-  const handleZoomImage = (imageUrl: string) => {
-    setZoomedImage(imageUrl);
-    setShowZoomModal(true);
+  const nextImage = () => {
+    if (selectedProject) {
+      const allImages = [selectedProject.image, ...(selectedProject.images || [])];
+      const nextIndex = (currentImageIndex + 1) % allImages.length;
+      setCurrentImageIndex(nextIndex);
+    }
+  };
+
+  const prevImage = () => {
+    if (selectedProject) {
+      const allImages = [selectedProject.image, ...(selectedProject.images || [])];
+      const prevIndex = (currentImageIndex - 1 + allImages.length) % allImages.length;
+      setCurrentImageIndex(prevIndex);
+    }
   };
 
   const closeProjectDetail = () => {
     setSelectedProject(null);
-    setSelectedImage(null);
-  };
-
-  const closeImageViewer = () => {
-    setSelectedImage(null);
   };
 
   return (
@@ -188,37 +195,68 @@ const ProjectDetailsPage: React.FC = () => {
                       <h3 className="text-xl font-bold text-revonza-text">Project Images</h3>
                     </div>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="relative group">
-                        <img
-                          src={selectedProject.image}
-                          alt={selectedProject.title}
-                          className="w-full h-auto rounded-xl cursor-pointer hover:opacity-90 transition-opacity"
-                          onClick={() => handleZoomImage(selectedProject.image)}
-                        />
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 rounded-xl transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
-                          <div className="bg-revonza-accent text-white p-3 rounded-full">
-                            <ExternalLink size={20} />
-                          </div>
-                        </div>
+                    <div className="relative max-w-4xl mx-auto">
+                      <div className="aspect-video bg-transparent flex items-center justify-center p-4">
+                        {selectedProject && (
+                          <>
+                            <img
+                              src={[selectedProject.image, ...(selectedProject.images || [])][currentImageIndex]}
+                              alt={`${selectedProject.title} - Image ${currentImageIndex + 1}`}
+                              className="max-h-[70vh] w-auto object-contain cursor-zoom-in hover:brightness-75 transition-all duration-300"
+                              onClick={() => handleZoomImage([selectedProject.image, ...(selectedProject.images || [])][currentImageIndex], currentImageIndex)}
+                            />
+                            
+                            {/* Navigation Arrows */}
+                            {([selectedProject.image, ...(selectedProject.images || [])].length > 1) && (
+                              <>
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    prevImage();
+                                  }}
+                                  className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-revonza-surface/80 backdrop-blur-md rounded-full p-3 text-revonza-text hover:bg-revonza-accent hover:text-white transition-all shadow-lg"
+                                  aria-label="Previous image"
+                                >
+                                  <ChevronLeft size={24} />
+                                </button>
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    nextImage();
+                                  }}
+                                  className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-revonza-surface/80 backdrop-blur-md rounded-full p-3 text-revonza-text hover:bg-revonza-accent hover:text-white transition-all shadow-lg"
+                                  aria-label="Next image"
+                                >
+                                  <ChevronRight size={24} />
+                                </button>
+                              </>
+                            )}
+                          </>
+                        )}
                       </div>
                       
-                      {selectedProject.images && selectedProject.images.length > 0 && (
-                        <div className="grid grid-cols-1 gap-4">
-                          {selectedProject.images.slice(0, 2).map((img, index) => (
-                            <div key={index} className="relative group">
+                      {/* Thumbnails */}
+                      {selectedProject && [selectedProject.image, ...(selectedProject.images || [])].length > 1 && (
+                        <div className="flex justify-center gap-2 mt-4 flex-wrap">
+                          {[selectedProject.image, ...(selectedProject.images || [])].map((img, index) => (
+                            <button
+                              key={index}
+                              onClick={() => {
+                                setCurrentImageIndex(index);
+                              }}
+                              className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                                currentImageIndex === index 
+                                  ? 'border-revonza-accent shadow-lg' 
+                                  : 'border-revonza-border hover:border-revonza-accent/50'
+                              }`}
+                              aria-label={`View image ${index + 1}`}
+                            >
                               <img
                                 src={img}
-                                alt={`${selectedProject.title} - Additional image ${index + 1}`}
-                                className="w-full h-auto rounded-xl cursor-pointer hover:opacity-90 transition-opacity"
-                                onClick={() => handleZoomImage(img)}
+                                alt={`Thumbnail ${index + 1}`}
+                                className="w-full h-full object-cover"
                               />
-                              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 rounded-xl transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
-                                <div className="bg-revonza-accent text-white p-3 rounded-full">
-                                  <ExternalLink size={20} />
-                                </div>
-                              </div>
-                            </div>
+                            </button>
                           ))}
                         </div>
                       )}
@@ -241,38 +279,11 @@ const ProjectDetailsPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Image Viewer Modal */}
-      {selectedImage && (
-        <div 
-          className="fixed inset-0 bg-black/90 z-[9999] flex items-center justify-center p-4 backdrop-blur-sm"
-          onClick={closeImageViewer}
-        >
-          <div className="relative max-w-6xl max-h-[90vh]">
-            <img
-              src={selectedImage}
-              alt="Project"
-              className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
-            />
-            <button
-              className="absolute top-4 right-4 text-white bg-revonza-accent rounded-full p-3 hover:bg-revonza-text transition-colors"
-              onClick={closeImageViewer}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      )}
-      
       {/* Zoomed Image Modal */}
-      {showZoomModal && zoomedImage && (
+      {zoomedImage && (
         <div 
           className="fixed inset-0 bg-black/90 z-[10000] flex items-center justify-center p-4 backdrop-blur-sm"
-          onClick={() => {
-            setZoomedImage(null);
-            setShowZoomModal(false);
-          }}
+          onClick={() => setZoomedImage(null)}
         >
           <div className="relative max-w-7xl max-h-[95vh]">
             <img
@@ -285,7 +296,6 @@ const ProjectDetailsPage: React.FC = () => {
               onClick={(e) => {
                 e.stopPropagation();
                 setZoomedImage(null);
-                setShowZoomModal(false);
               }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
