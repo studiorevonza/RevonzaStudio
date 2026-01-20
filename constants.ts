@@ -126,34 +126,6 @@ export const PROJECTS: Project[] = [
     bannerText: 'Professional Logo Design for Local Business Establishment and Branding Services'
   },
  
-  {
-    id: '5',
-    title: 'CLOUDSAFE HOSTING',
-    tags: ['hosting', 'web'],
-    category: 'Infrastructure',
-    image: 'https://images.unsplash.com/photo-1558494949-efc535b5c47c?q=80&w=2674&auto=format&fit=crop',
-    description: 'Migration and setup of a scalable cloud hosting environment for a high-traffic SaaS application.',
-    images: [
-      'https://images.unsplash.com/photo-1558494949-efc535b5c47c?q=80&w=2674&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=2787&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1567337719746-3fddd5bf7c9c?q=80&w=2864&auto=format&fit=crop'
-    ],
-    bannerText: 'Secure Cloud Solutions'
-  },
-  {
-    id: '6',
-    title: 'TECHTALKS BRAND IDENTITY',
-    category: 'BRANDING & IDENTITY SERVICES',
-    image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2670&auto=format&fit=crop',
-    description: 'Logo creation and comprehensive brand guidelines for a technology podcast and blog series.',
-    tags: ['logo', 'graphic', 'thumbnail', 'branding'],
-    images: [
-      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2670&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2874&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop'
-    ],
-    bannerText: 'Brand Identity Experts'
-  }
 ];
 
 export const PRICING: PricingTier[] = [
