@@ -84,7 +84,7 @@ export const SERVICES: Service[] = [
 export const PROJECTS: Project[] = [
   {
     id: '1',
-    title: 'TAKE OPINION MEDICAL',
+    title: 'MEDICAL WEBSITE',
     tags: ['web', 'logo', 'hosting', 'branding'],
     category: 'Website & Branding',
     image: '/ProjectImage/WEBSITE/medicalimage.webp',
@@ -98,7 +98,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '2',
-    title: 'Tour Travel Thumnail',
+    title: 'TRAVEL THUMBNAIL DESIGN',
     tags: ['graphic', 'thumbnail', 'travel'],
     category: 'Graphic Design',
     image: '/ProjectImage/Thumnails/5.svg',
@@ -112,10 +112,10 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '3',
-    title: 'Logo Design',
+    title: 'LOGO DESIGN',
     tags: ['logo', 'graphic', 'thumbnail', 'branding'],
     category: 'Graphic Design',
-    image: 'public/ProjectImage/Logo/1.svg',
+    image: '/ProjectImage/Logo/8.svg',
     description: 'A professional logo design for a local business looking to establish its online presence.',
     images: [
       '/ProjectImage/Logo/2.svg',
@@ -128,7 +128,7 @@ export const PROJECTS: Project[] = [
  
   {
     id: '5',
-    title: 'CloudSafe Hosting',
+    title: 'CLOUDSAFE HOSTING',
     tags: ['hosting', 'web'],
     category: 'Infrastructure',
     image: 'https://images.unsplash.com/photo-1558494949-efc535b5c47c?q=80&w=2674&auto=format&fit=crop',
@@ -142,8 +142,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '6',
-    title: 'TechTalks Brand Identity',
-    category: 'Branding',
+    title: 'TECHTALKS BRAND IDENTITY',
+    category: 'BRANDING & IDENTITY SERVICES',
     image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2670&auto=format&fit=crop',
     description: 'Logo creation and comprehensive brand guidelines for a technology podcast and blog series.',
     tags: ['logo', 'graphic', 'thumbnail', 'branding'],
