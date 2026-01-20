@@ -100,9 +100,9 @@ const ProjectsPage: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 animate-fade-in-up">
           <div>
             <span className="text-revonza-accent font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Portfolio</span>
-            <h3 className="text-6xl md:text-8xl font-bold text-revonza-text mb-6">Selected Work</h3>
+            <h3 className="text-6xl md:text-8xl font-bold text-revonza-text mb-6">Project Showcase</h3>
             <p className="text-xl text-revonza-textMuted max-w-lg font-light">
-              A curated collection of our most impactful digital transformations.
+              Explore our diverse portfolio of digital solutions and creative projects.
             </p>
           </div>
           
@@ -161,12 +161,17 @@ const ProjectsPage: React.FC = () => {
               style={{ animationDelay: `${Math.min(index * 100, 500)}ms` }}
             >
               <div className="aspect-[4/3] overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100 cursor-pointer"
-                  onClick={() => setZoomedImage({ src: project.image, alt: project.title })}
-                />
+                <div className="relative w-full h-full">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100 cursor-pointer"
+                    onClick={() => setZoomedImage({ src: project.image, alt: project.title })}
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
+                    <span className="text-white font-bold text-sm rotate-[-45deg]">Revonza Studio</span>
+                  </div>
+                </div>
               </div>
               
               {/* Overlay Gradient */}
@@ -202,11 +207,16 @@ const ProjectsPage: React.FC = () => {
           onClick={() => setZoomedImage(null)}
         >
           <div className="relative max-w-6xl max-h-[90vh]">
-            <img
-              src={zoomedImage.src}
-              alt={zoomedImage.alt}
-              className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
-            />
+            <div className="relative inline-block">
+              <img
+                src={zoomedImage.src}
+                alt={zoomedImage.alt}
+                className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+              />
+              <div className="absolute inset-0 flex items-center justify-center opacity-30 pointer-events-none">
+                <span className="text-white font-bold text-3xl rotate-[-45deg]">Revonza Studio</span>
+              </div>
+            </div>
             <button
               className="absolute top-4 right-4 text-white bg-revonza-accent rounded-full p-3 hover:bg-revonza-text transition-colors"
               onClick={(e) => {

@@ -199,12 +199,17 @@ const ProjectDetailsPage: React.FC = () => {
                       <div className="aspect-video bg-transparent flex items-center justify-center p-4">
                         {selectedProject && (
                           <>
-                            <img
-                              src={[selectedProject.image, ...(selectedProject.images || [])][currentImageIndex]}
-                              alt={`${selectedProject.title} - Image ${currentImageIndex + 1}`}
-                              className="max-h-[70vh] w-auto object-contain cursor-zoom-in hover:brightness-75 transition-all duration-300"
-                              onClick={() => handleZoomImage([selectedProject.image, ...(selectedProject.images || [])][currentImageIndex], currentImageIndex)}
-                            />
+                            <div className="relative inline-block max-h-[70vh] w-auto">
+                              <img
+                                src={[selectedProject.image, ...(selectedProject.images || [])][currentImageIndex]}
+                                alt={`${selectedProject.title} - Image ${currentImageIndex + 1}`}
+                                className="max-h-[70vh] w-auto object-contain cursor-zoom-in hover:brightness-75 transition-all duration-300"
+                                onClick={() => handleZoomImage([selectedProject.image, ...(selectedProject.images || [])][currentImageIndex], currentImageIndex)}
+                              />
+                              <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
+                                <span className="text-white font-bold text-2xl rotate-[-45deg]">Revonza Studio</span>
+                              </div>
+                            </div>
                             
                             {/* Navigation Arrows */}
                             {([selectedProject.image, ...(selectedProject.images || [])].length > 1) && (
@@ -251,11 +256,16 @@ const ProjectDetailsPage: React.FC = () => {
                               }`}
                               aria-label={`View image ${index + 1}`}
                             >
-                              <img
-                                src={img}
-                                alt={`Thumbnail ${index + 1}`}
-                                className="w-full h-full object-cover"
-                              />
+                              <div className="relative w-full h-full">
+                                <img
+                                  src={img}
+                                  alt={`Thumbnail ${index + 1}`}
+                                  className="w-full h-full object-cover"
+                                />
+                                <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
+                                  <span className="text-white font-bold text-lg rotate-[-45deg]">Revonza Studio</span>
+                                </div>
+                              </div>
                             </button>
                           ))}
                         </div>
@@ -286,11 +296,16 @@ const ProjectDetailsPage: React.FC = () => {
           onClick={() => setZoomedImage(null)}
         >
           <div className="relative max-w-7xl max-h-[95vh]">
-            <img
-              src={zoomedImage}
-              alt="Zoomed Project"
-              className="max-w-full max-h-[95vh] object-contain rounded-lg shadow-2xl"
-            />
+            <div className="relative inline-block">
+              <img
+                src={zoomedImage}
+                alt="Zoomed Project"
+                className="max-w-full max-h-[95vh] object-contain rounded-lg shadow-2xl"
+              />
+              <div className="absolute inset-0 flex items-center justify-center opacity-30 pointer-events-none">
+                <span className="text-white font-bold text-3xl rotate-[-45deg]">Revonza Studio</span>
+              </div>
+            </div>
             <button
               className="absolute top-4 right-4 text-white bg-revonza-accent rounded-full p-3 hover:bg-revonza-text transition-colors"
               onClick={(e) => {

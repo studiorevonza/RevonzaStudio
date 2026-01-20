@@ -87,8 +87,8 @@ export const PROJECTS: Project[] = [
     title: 'TAKE OPINION MEDICAL',
     tags: ['web', 'logo', 'hosting', 'branding'],
     category: 'Website & Branding',
-    image: '/ProjectImage/WEBSITE/Screenshot 2026-01-19 230105.png',
-    description: 'A comprehensive banking dashboard with real-time data visualization and a secure backend infrastructure.',
+    image: '/ProjectImage/WEBSITE/medicalimage.webp',
+    description: 'A professional website and branding package designed for a local business looking to establish its online presence.',
     images: [
       '/ProjectImage/WEBSITE/Screenshot 2026-01-19 230225.png',
       '/ProjectImage/WEBSITE/Screenshot 2026-01-19 230249.png',
@@ -98,31 +98,32 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '2',
-    title: 'EcoSphere AI Assistant',
-    tags: ['ai', 'web', 'seo', 'maintenance'],
-    category: 'AI Integration',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2532&auto=format&fit=crop',
-    description: 'An intelligent chatbot integrated into an e-commerce platform to handle customer queries and product recommendations automatically.',
+    title: 'Tour Travel Thumnail',
+    tags: ['graphic', 'thumbnail', 'travel'],
+    category: 'Graphic Design',
+    image: '/ProjectImage/Thumnails/5.svg',
+    description: 'A visually appealing thumbnail designed to entice viewers and drive clicks for a travel-related YouTube channel.',
     images: [
-      'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2532&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1563206767-e4db5d3e8334?q=80&w=2787&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1676823104070-48f1c5f0d3bc?q=80&w=2787&auto=format&fit=crop'
+      '/ProjectImage/Thumnails/3.svg',
+      '/ProjectImage/Thumnails/4.svg',
+
     ],
-    bannerText: 'AI-Powered Solutions'
+    bannerText: 'Travel Inspiration Awaits You!'
   },
   {
     id: '3',
-    tags: ['graphic', 'logo', 'thumbnail', 'branding'],
-    title: 'Vivid Stream Rebrand',
+    title: 'Logo Design',
+    tags: ['logo', 'graphic', 'thumbnail', 'branding'],
     category: 'Graphic Design',
-    image: 'https://images.unsplash.com/photo-1626785774573-4b799314346d?q=80&w=2670&auto=format&fit=crop',
-    description: 'A complete visual overhaul for a streaming service, including logo redesign, social media assets, and YouTube thumbnails.',
+    image: 'public/ProjectImage/Logo/1.svg',
+    description: 'A professional logo design for a local business looking to establish its online presence.',
     images: [
-      'https://images.unsplash.com/photo-1626785774573-4b799314346d?q=80&w=2670&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1579033462043-0f11fe7c0f1b?q=80&w=2787&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?q=80&w=2787&auto=format&fit=crop'
+      '/ProjectImage/Logo/2.svg',
+      '/ProjectImage/Logo/3.svg',
+      '/ProjectImage/Logo/5.svg',
+
     ],
-    bannerText: 'Creative Redesign Journey'
+    bannerText: 'Professional Logo Design for Local Business Establishment and Branding Services'
   },
  
   {
