@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles that were in your index.html */
+:root {
+  /* Default Light Theme */
+  --color-bg-base: #ffffff;
+  --color-bg-surface: #f8fafc;
+  --color-accent: #8b5cf6; /* Brighter Purple (Violet-500/600 mix) */
+  --color-text-main: #111827;
+  --color-text-muted: #4b5563;
+  --color-text-inverse: #ffffff; /* Text on accent buttons */
+  --color-border: #e2e8f0;
+  
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  --glass-bg-hover: rgba(243, 244, 246, 0.9);
+  
+  --atmosphere-color: rgba(139, 92, 246, 0.05);
+}
+
+[data-theme='dark'] {
+  --color-bg-base: #0f111a;
+  --color-bg-surface: #1e202c;
+  --color-accent: #8b5cf6; /* Same Bright Purple */
+  --color-text-main: #ffffff;
+  --color-text-muted: #bfc0d1;
+  --color-text-inverse: #ffffff;
+  --color-border: #2d2f3d;
+
+  --glass-bg: rgba(22, 24, 33, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  --glass-bg-hover: rgba(30, 32, 44, 0.9);
+  
+  --atmosphere-color: rgba(96, 81, 155, 0.08);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-main);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Optimized Atmospheric Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% -20%, var(--atmosphere-color) 0%, transparent 60%);
+  z-index: -1;
+  pointer-events: none;
+  will-change: transform;
+  transition: background 0.3s ease;
+}
+
+/* Refined Glassmorphism - Optimized */
+.glass-panel {
+  @apply bg-[var(--glass-bg)] backdrop-blur-sm border border-[var(--glass-border)] shadow-[var(--glass-shadow)] transition-all duration-300;
+}
+
+.glass-panel-hover {
+  @apply transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)];
+}
+
+/* Neon Hover Effect */
+.glass-panel-hover:hover {
+  @apply bg-[var(--glass-bg-hover)] border-[var(--color-accent)] shadow-[0_0_20px_rgba(139,92,246,0.25),0_0_40px_rgba(139,92,246,0.1)] -translate-y-1;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-[var(--color-bg-base)];
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-[var(--color-bg-surface)] rounded-md border-2 border-[var(--color-bg-base)];
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[var(--color-accent)];
+}
+
+/* Enhanced Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+@keyframes scan {
+  0% { top: 0%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  opacity: 0;
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-scan {
+  animation: scan 3s ease-in-out infinite;
+}
+
+/* Delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Form Input Styles */
+input, select, textarea {
+  color: var(--color-text-main) !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--color-text-muted) !important;
+  opacity: 0.7;
+}
+
+option {
+  background-color: var(--color-bg-base) !important;
+  color: var(--color-text-main) !important;
+}
