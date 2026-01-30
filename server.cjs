@@ -3,8 +3,17 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
+// Logging middleware
+app.use((req, res, next) => {
+  console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
+  next();
+});
+
 // Serve static files from the dist folder
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'dist'), {
+  maxAge: '1d',
+  etag: true
+}));
 
 // Handle client-side routing
 app.get('*', (req, res) => {
