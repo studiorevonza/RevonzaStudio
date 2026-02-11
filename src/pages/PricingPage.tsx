@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { PRICING } from '../constants';
+import { PRICING } from '@/utils/constants';
 import { Check, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import SEO from '../components/SEO';
+import SEO from '@/components/SEO';
 
 const PricingPage: React.FC = () => {
   const [currency, setCurrency] = useState<'INR' | 'USD' | 'AUTO'>('AUTO');

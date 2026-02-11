@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, ArrowRight, Send } from 'lucide-react';
-import SEO from '../components/SEO';
+import SEO from '@/components/SEO';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({

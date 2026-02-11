@@ -47,6 +47,7 @@ const App: React.FC = () => {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/detailed-pricing" element={<DetailedPricingPage />} />
               <Route path="/project-details" element={<ProjectDetailsPage />} />
+              <Route path="/project-details/:projectId" element={<ProjectDetailsPage />} />
                             
                             
               {/* Individual Service Routes */}

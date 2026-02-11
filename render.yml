@@ -3,8 +3,11 @@ services:
   name: revonza-studio
   plan: free
   env: node
+  region: oregon  # Specify region for consistency
   buildCommand: npm install && npm run build
   startCommand: npm start
   envVars:
     - key: NODE_ENV
       value: production
+    - key: PORT
+      value: 10000  # Use Render's standard port

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BrainCircuit, Cpu, Zap, ShieldCheck, TrendingUp, Globe } from 'lucide-react';
-import SEO from '../../components/SEO';
+import SEO from '@/components/SEO';
 
 const AIIntegrationPage: React.FC = () => {
   return (

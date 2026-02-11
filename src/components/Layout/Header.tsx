@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { Menu, X, Sun, Moon, MessageCircle } from 'lucide-react';
-import { NAV_ITEMS, LOGO_WHITE_URL, LOGO_BLACK_URL, BRAND_NAME } from '../../constants';
-import { useTheme } from '../../contexts/ThemeContext';
+import { NAV_ITEMS, LOGO_WHITE_URL, LOGO_BLACK_URL, BRAND_NAME } from '@/utils/constants';
+import { useTheme } from '@/contexts/ThemeContext';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

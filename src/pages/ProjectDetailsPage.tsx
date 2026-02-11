@@ -1,13 +1,23 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { PROJECTS } from '../constants';
+import React, { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { PROJECTS } from '@/utils/constants';
 import { ExternalLink, ArrowLeft, Image, Tag, FolderOpen, ChevronLeft, ChevronRight } from 'lucide-react';
-import SEO from '../components/SEO';
+import SEO from '@/components/SEO';
 
 const ProjectDetailsPage: React.FC = () => {
+  const { projectId } = useParams<{ projectId: string }>();
   const [selectedProject, setSelectedProject] = useState<typeof PROJECTS[0] | null>(null);
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+
+  useEffect(() => {
+    if (projectId) {
+      const project = PROJECTS.find(p => p.id === projectId);
+      if (project) {
+        setSelectedProject(project);
+      }
+    }
+  }, [projectId]);
 
   const handleProjectClick = (project: typeof PROJECTS[0]) => {
     setSelectedProject(project);

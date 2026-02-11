@@ -2,10 +2,34 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
+import SEO from '@/components/SEO';
 
 const ComingSoonPage: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-revonza-base px-4">
+    <>
+      <SEO
+        pageSEO={{
+          title: 'Coming Soon - Revonza Studio',
+          description: 'We\'re working hard to bring you an exceptional experience. Stay tuned for exciting updates!',
+          keywords: [
+            'coming soon',
+            'under construction',
+            'new services coming',
+            'upcoming features',
+            'web development services'
+          ],
+          canonical: 'https://revonzastudio.com/coming-soon',
+          ogImage: 'https://revonzastudio.com/og-coming-soon.jpg',
+          ogType: 'website',
+          structuredData: {
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            'name': 'Coming Soon Page',
+            'description': 'We\'re working hard to bring you an exceptional experience. Stay tuned for exciting updates!'
+          }
+        }}
+      />
+      <div className="min-h-screen flex items-center justify-center bg-revonza-base px-4">
       <div className="text-center max-w-3xl">
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
@@ -55,6 +79,7 @@ const ComingSoonPage: React.FC = () => {
         </motion.div>
       </div>
     </div>
+    </>
   );
 };
 

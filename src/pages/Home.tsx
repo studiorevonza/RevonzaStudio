@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Zap, Quote, Cpu, ShieldCheck, TrendingUp, Lightbulb, Search, Code, Rocket, Star, ChevronRight, MonitorSmartphone, ScanSearch, BrainCircuit, Fingerprint, Layers, DatabaseZap, Paintbrush, Palette, Wrench, ChevronLeft, ChevronRight as ChevronRightIcon } from 'lucide-react';
-import { SERVICES } from '../constants';
-import SEO from '../components/SEO';
+import { SERVICES } from '@/utils/constants';
+import SEO from '@/components/SEO';
 
 const Home: React.FC = () => {
   const featuredServices = SERVICES.slice(0, 3);
@@ -292,7 +292,7 @@ const Home: React.FC = () => {
 
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-20 animate-fade-in-up">
-              <h2 className="text-4xl md:text-5xl font-bold text-revonza-text mb-6">The Revonza Advantage</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-revonza-text">The Revonza Advantage</h2>
               <p className="text-revonza-textMuted text-lg max-w-2xl mx-auto">Built on a foundation of data, security, and intelligence.</p>
             </div>
 
@@ -511,7 +511,6 @@ const Home: React.FC = () => {
             </Link>
           </div>
         </section>
-
 
 
         {/* Zoom Overlay */}

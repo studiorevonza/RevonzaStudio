@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '@/components/SEO';
 
 const DetailedPricingPage: React.FC = () => {
   const [currency, setCurrency] = useState<'INR' | 'USD' | 'AUTO'>('AUTO');
@@ -77,8 +78,50 @@ const DetailedPricingPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen pt-36 pb-32 bg-revonza-base transition-colors duration-300">
-      <div className="container mx-auto px-4">
+    <>
+      <SEO
+        pageSEO={{
+          title: 'Detailed Pricing - Transparent & Comprehensive Pricing | Revonza Studio',
+          description: 'Complete pricing breakdown for all our services. No hidden fees, clear scope of work. Get transparent and competitive pricing for web development, SEO, AI integration, and design services.',
+          keywords: [
+            'pricing details',
+            'web development pricing',
+            'SEO pricing',
+            'AI integration pricing',
+            'logo design pricing',
+            'graphic design pricing',
+            'digital marketing pricing',
+            'transparent pricing',
+            'competitive pricing India',
+            'web design cost'
+          ],
+          canonical: 'https://revonzastudio.com/detailed-pricing',
+          ogImage: 'https://revonzastudio.com/og-pricing.jpg',
+          ogType: 'website',
+          structuredData: {
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            'name': 'Detailed Pricing Page',
+            'description': 'Complete pricing breakdown for all our services. No hidden fees, clear scope of work.',
+            'breadcrumb': {
+              '@type': 'BreadcrumbList',
+              'itemListElement': [{
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': 'https://revonzastudio.com/'
+              }, {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Pricing',
+                'item': 'https://revonzastudio.com/detailed-pricing'
+              }]
+            }
+          }
+        }}
+      />
+      <div className="min-h-screen pt-36 pb-32 bg-revonza-base transition-colors duration-300">
+        <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-7xl font-bold text-revonza-text mb-8">Transparent & Comprehensive Pricing</h1>
           <p className="text-xl text-revonza-textMuted max-w-2xl mx-auto font-light leading-relaxed">
@@ -235,6 +278,7 @@ const DetailedPricingPage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import { SERVICES } from '../constants';
+import { SERVICES } from '@/utils/constants';
 import * as LucideIcons from 'lucide-react';
 import { Link } from 'react-router-dom';
-import SEO from '../components/SEO';
+import SEO from '@/components/SEO';
 
 const ServicesPage: React.FC = () => {
   return (

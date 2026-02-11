@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { GLOBAL_SEO, PageSEO, DEFAULT_SCHEMA } from '../seo-config';
+import { GLOBAL_SEO, PageSEO, DEFAULT_SCHEMA } from '@/utils/seo-config';
 
 interface SEOProps {
   pageSEO: PageSEO;

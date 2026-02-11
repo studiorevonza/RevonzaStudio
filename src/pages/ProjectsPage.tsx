@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { PROJECTS, SERVICES } from '../constants';
+import { PROJECTS, SERVICES } from '@/utils/constants';
 import { ExternalLink, Check, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import SEO from '../components/SEO';
+import SEO from '@/components/SEO';
 
 const ProjectsPage: React.FC = () => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
@@ -180,9 +180,12 @@ const ProjectsPage: React.FC = () => {
                   <span className="text-revonza-accent text-xs font-extrabold uppercase tracking-[0.2em] mb-3 block">{project.category}</span>
                   <div className="flex justify-between items-center mb-2">
                     <h3 className="text-2xl font-bold text-revonza-text group-hover:text-revonza-accent transition-colors">{project.title}</h3>
-                    <button className="w-10 h-10 rounded-full bg-revonza-text text-revonza-base flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-4 group-hover:translate-x-0 hover:bg-revonza-accent hover:text-white">
+                    <Link 
+                      to={`/project-details/${project.id}`} 
+                      className="w-10 h-10 rounded-full bg-revonza-text text-revonza-base flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-4 group-hover:translate-x-0 hover:bg-revonza-accent hover:text-white"
+                    >
                       <ExternalLink size={18} />
-                    </button>
+                    </Link>
                   </div>
                   <p className="text-revonza-textMuted text-sm line-clamp-2 max-w-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 leading-relaxed">
                     {project.description}

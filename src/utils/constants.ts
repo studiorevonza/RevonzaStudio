@@ -1,4 +1,4 @@
-import { NavItem, Service, Project, PricingTier } from './types';
+import { NavItem, Service, Project, PricingTier } from '@/types/types';
 
 export const BRAND_NAME = "Revonza Studio";
 export const TAGLINE = "Turning Ideas Into Intelligent Experiences.";
@@ -6,10 +6,9 @@ export const TAGLINE = "Turning Ideas Into Intelligent Experiences.";
 export const LOGO_WHITE_URL = "https://i.ibb.co/60qwhS0/image.png";
 export const LOGO_BLACK_URL = "https://i.ibb.co/2Z580M6/image.png";
 
-// Updated Colors - Using the Brighter Purple
 export const COLORS = {
   base: '#1e202c',
-  accent: '#8b5cf6', // Brighter Purple
+  accent: '#8b5cf6', 
   card: '#31323e',
   text: '#bfc0d1',
 };
@@ -102,11 +101,11 @@ export const PROJECTS: Project[] = [
     title: 'TRAVEL THUMBNAIL DESIGN',
     tags: ['graphic', 'thumbnail', 'travel'],
     category: 'Graphic Design',
-    image: '/ProjectImage/Thumnails/5.svg',
+    image: '/ProjectImage/Logo/1.svg',
     description: 'A visually appealing thumbnail designed to entice viewers and drive clicks for a travel-related YouTube channel.',
     images: [
-      '/ProjectImage/Thumnails/3.svg',
-      '/ProjectImage/Thumnails/4.svg',
+      '/ProjectImage/Logo/2.svg',
+      '/ProjectImage/Logo/3.svg',
 
     ],
     bannerText: 'Travel Inspiration Awaits You!'
@@ -126,7 +125,7 @@ export const PROJECTS: Project[] = [
     ],
     bannerText: 'Professional Logo Design for Local Business Establishment and Branding Services'
   },
- 
+
 ];
 
 export const PRICING: PricingTier[] = [

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Quote, Users, Globe, Award, Clock } from 'lucide-react';
-import SEO from '../components/SEO';
+import SEO from '@/components/SEO';
 
 const AboutPage: React.FC = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
