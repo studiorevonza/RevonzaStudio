@@ -2,20 +2,20 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { ThemeProvider } from './contexts/ThemeContext';
-import Header from './components/Layout/Header';
-import Footer from './components/Layout/Footer';
-import Home from './pages/Home';
-import ServicesPage from './pages/ServicesPage';
-import ProjectsPage from './pages/ProjectsPage';
-import PricingPage from './pages/PricingPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
-import DetailedPricingPage from './pages/DetailedPricingPage';
-import ProjectDetailsPage from './pages/ProjectDetailsPage';
+import { ThemeProvider } from '@/contexts/ThemeContext';
+import Header from '@/components/Layout/Header';
+import Footer from '@/components/Layout/Footer';
+import Home from '@/pages/Home';
+import ServicesPage from '@/pages/ServicesPage';
+import ProjectsPage from '@/pages/ProjectsPage';
+import PricingPage from '@/pages/PricingPage';
+import AboutPage from '@/pages/AboutPage';
+import ContactPage from '@/pages/ContactPage';
+import DetailedPricingPage from '@/pages/DetailedPricingPage';
+import ProjectDetailsPage from '@/pages/ProjectDetailsPage';
 
 // Import individual service pages
-import ComingSoonPage from './pages/ComingSoonPage';
+import ComingSoonPage from '@/pages/ComingSoonPage';
 
 // Import individual service project pages
 
