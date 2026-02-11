@@ -41,7 +41,7 @@ This guide will help you deploy your React application to Render.
 
 - The `render.yaml` file in this repository defines the deployment configuration
 - Static assets will be served from the `dist` folder after the build process
-- Client-side routing is handled by the Express server in `server.js`
+- Client-side routing is handled by the Express server in `server.cjs`
 - The application will listen on the port specified by the `PORT` environment variable provided by Render
 
 ## Troubleshooting
