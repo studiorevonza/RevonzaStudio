@@ -16,7 +16,6 @@ const PricingPage: React.FC = () => {
       return price;
     }
 
-    // Handle percentage values
     if (price.includes('%')) {
       return price; // Percentages don't need conversion
     }
