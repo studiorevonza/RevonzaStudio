@@ -21,16 +21,8 @@ app.use((req, res, next) => {
   next();
 });
 
-// Serve static files from the dist folder with proper MIME types
-app.use(express.static(path.join(__dirname, 'dist'), {
-  maxAge: '1y',
-  etag: false,
-  setHeaders: (res, filePath) => {
-    if (filePath.endsWith('.js') || filePath.endsWith('.css')) {
-      res.setHeader('Cache-Control', 'public, max-age=31536000');
-    }
-  }
-}));
+// Serve static files from the dist folder
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // Health check endpoint
 app.get('/health', (req, res) => {
@@ -41,31 +33,9 @@ app.get('/health', (req, res) => {
   });
 });
 
-// API routes (if any) should be defined before the catch-all handler
-// Example:
-// app.get('/api/example', (req, res) => {
-//   res.json({ message: 'API endpoint' });
-// });
-
-// Catch-all handler for client-side routing
-// This ensures that all routes fall back to index.html for React Router to handle
-// Only exclude actual static assets (files with extensions)
-app.get(/^(?!\/api|\/health).*$/, (req, res) => {
-  // Check if the request is for a file with an extension
-  if (/\.(js|mjs|css|json|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot|map|xml|txt|pdf|zip|doc|docx|xls|xlsx)$/i.test(req.path)) {
-    // If it's a static asset that doesn't exist, let Express handle it normally
-    // and it will return a 404
-    res.status(404).sendFile(path.join(__dirname, 'dist', 'index.html'));
-  } else {
-    // This is a client-side route, serve index.html
-    res.sendFile(path.join(__dirname, 'dist', 'index.html'), {
-      headers: {
-        'Cache-Control': 'no-cache, no-store, must-revalidate',
-        'Pragma': 'no-cache',
-        'Expires': '0'
-      }
-    });
-  }
+// Catch-all handler for client-side routing - this must be the last route
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 const server = app.listen(PORT, '0.0.0.0', () => {
