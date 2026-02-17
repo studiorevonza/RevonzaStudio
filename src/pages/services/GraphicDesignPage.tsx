@@ -1,29 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Palette, Brush, Layers, Type, Image, Scissors } from 'lucide-react';
-import SEO from '../../components/SEO';
 
 const GraphicDesignPage: React.FC = () => {
   return (
     <div className="min-h-screen pt-32 pb-20 bg-revonza-base transition-colors duration-300">
-      <SEO 
-        pageSEO={{
-          title: 'Professional Graphic Design Services | Creative Design Solutions | Revonza Studio',
-          description: 'Professional graphic design services by Revonza Studio. We create stunning visual content including brochures, flyers, social media graphics, and branding materials.',
-          keywords: [
-            'graphic design',
-            'creative design services',
-            'visual design',
-            'branding design',
-            'marketing materials',
-            'social media graphics'
-          ],
-          canonical: 'https://revonzastudio.com/services/graphic-design',
-          ogImage: 'https://revonzastudio.com/og-graphic-design.jpg',
-          ogType: 'website'
-        }}
-      />
-      
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className="text-center mb-20 animate-fade-in-up">

@@ -1,29 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Server, Shield, Zap, Database, Cloud, Globe } from 'lucide-react';
-import SEO from '../../components/SEO';
 
 const HostingSolutionsPage: React.FC = () => {
   return (
     <div className="min-h-screen pt-32 pb-20 bg-revonza-base transition-colors duration-300">
-      <SEO 
-        pageSEO={{
-          title: 'Professional Hosting Solutions | Web Hosting Services | Revonza Studio',
-          description: 'Professional hosting solutions by Revonza Studio. We provide secure, reliable, and scalable hosting services with premium performance and 24/7 support.',
-          keywords: [
-            'web hosting',
-            'hosting solutions',
-            'cloud hosting',
-            'secure hosting',
-            'reliable hosting',
-            'scalable hosting'
-          ],
-          canonical: 'https://revonzastudio.com/services/hosting-solutions',
-          ogImage: 'https://revonzastudio.com/og-hosting-solutions.jpg',
-          ogType: 'website'
-        }}
-      />
-      
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className="text-center mb-20 animate-fade-in-up">

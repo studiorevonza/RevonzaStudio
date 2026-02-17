@@ -1,29 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Wrench, RefreshCw, Shield, Calendar, Monitor, Settings } from 'lucide-react';
-import SEO from '../../components/SEO';
 
 const MaintenanceModificationPage: React.FC = () => {
   return (
     <div className="min-h-screen pt-32 pb-20 bg-revonza-base transition-colors duration-300">
-      <SEO 
-        pageSEO={{
-          title: 'Maintenance & Modification Services | Website Updates | Revonza Studio',
-          description: 'Professional maintenance and modification services by Revonza Studio. We keep your digital presence updated, secure, and performing optimally with ongoing support.',
-          keywords: [
-            'website maintenance',
-            'maintenance services',
-            'website modification',
-            'ongoing support',
-            'website updates',
-            'digital maintenance'
-          ],
-          canonical: 'https://revonzastudio.com/services/maintenance-modification',
-          ogImage: 'https://revonzastudio.com/og-maintenance-modification.jpg',
-          ogType: 'website'
-        }}
-      />
-      
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className="text-center mb-20 animate-fade-in-up">

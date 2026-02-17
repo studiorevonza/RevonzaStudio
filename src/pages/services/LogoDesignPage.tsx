@@ -1,29 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Fingerprint, Palette, Heart, Star, Brush, Eye } from 'lucide-react';
-import SEO from '../../components/SEO';
 
 const LogoDesignPage: React.FC = () => {
   return (
     <div className="min-h-screen pt-32 pb-20 bg-revonza-base transition-colors duration-300">
-      <SEO 
-        pageSEO={{
-          title: 'Professional Logo Design Services | Brand Identity Design | Revonza Studio',
-          description: 'Professional logo design services by Revonza Studio. We craft memorable visual identities that resonate deeply with your audience and stand out in the marketplace.',
-          keywords: [
-            'logo design',
-            'brand identity design',
-            'professional logo design',
-            'custom logo design',
-            'visual identity',
-            'logo design services'
-          ],
-          canonical: 'https://revonzastudio.com/services/logo-design',
-          ogImage: 'https://revonzastudio.com/og-logo-design.jpg',
-          ogType: 'website'
-        }}
-      />
-      
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className="text-center mb-20 animate-fade-in-up">

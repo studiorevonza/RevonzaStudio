@@ -1,29 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Layers, Play, Eye, Heart, Share2, Camera } from 'lucide-react';
-import SEO from '../../components/SEO';
 
 const ThumbnailDesignPage: React.FC = () => {
   return (
     <div className="min-h-screen pt-32 pb-20 bg-revonza-base transition-colors duration-300">
-      <SEO 
-        pageSEO={{
-          title: 'Professional Thumbnail Design Services | YouTube Thumbnails | Revonza Studio',
-          description: 'Professional thumbnail design services by Revonza Studio. We create high-impact thumbnails optimized for click-through rates across YouTube and social media platforms.',
-          keywords: [
-            'thumbnail design',
-            'YouTube thumbnails',
-            'social media thumbnails',
-            'clickbait thumbnails',
-            'video thumbnail design',
-            'thumbnail creation services'
-          ],
-          canonical: 'https://revonzastudio.com/services/thumbnail-design',
-          ogImage: 'https://revonzastudio.com/og-thumbnail-design.jpg',
-          ogType: 'website'
-        }}
-      />
-      
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className="text-center mb-20 animate-fade-in-up">

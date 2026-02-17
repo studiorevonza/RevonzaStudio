@@ -1,29 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BadgeCheck, Palette, Target, Award, Heart, Sparkles } from 'lucide-react';
-import SEO from '../../components/SEO';
 
 const DesignBrandingPage: React.FC = () => {
   return (
     <div className="min-h-screen pt-32 pb-20 bg-revonza-base transition-colors duration-300">
-      <SEO 
-        pageSEO={{
-          title: 'Design & Branding Services | Brand Identity Development | Revonza Studio',
-          description: 'Comprehensive design and branding services by Revonza Studio. We develop cohesive brand identities that resonate with your audience and establish lasting connections.',
-          keywords: [
-            'design and branding',
-            'brand identity development',
-            'brand strategy',
-            'brand positioning',
-            'brand guidelines',
-            'cohesive branding'
-          ],
-          canonical: 'https://revonzastudio.com/services/design-branding',
-          ogImage: 'https://revonzastudio.com/og-design-branding.jpg',
-          ogType: 'website'
-        }}
-      />
-      
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className="text-center mb-20 animate-fade-in-up">
