@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star, Zap, Shield, Globe, Code, Palette, Cpu, Users, TrendingUp, Calendar, CheckCircle, Menu, X, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowRight, Star, Zap, Shield, Globe, Code, Palette, Cpu, Users, TrendingUp, Calendar, CheckCircle, Menu, X, ChevronDown, ChevronUp, MonitorSmartphone, ScanSearch, BrainCircuit, Fingerprint, Layers, DatabaseZap, Paintbrush, Wrench, Search, Lightbulb, Rocket, ChevronRight, ShieldCheck, ChevronLeft, ChevronRightIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SERVICES } from '@/utils/constants';
 
