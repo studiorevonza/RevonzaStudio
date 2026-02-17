@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
 import { PROJECTS } from '@/utils/constants';
-import { ExternalLink, ArrowLeft, Image, Tag, FolderOpen, ChevronLeft, ChevronRight } from 'lucide-react';
-import SEO from '@/components/SEO';
+import { ArrowLeft, Image, Tag, FolderOpen, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link, useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const ProjectDetailsPage: React.FC = () => {
   const { projectId } = useParams<{ projectId: string }>();
@@ -50,54 +50,7 @@ const ProjectDetailsPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen pt-36 pb-32 bg-revonza-base transition-colors duration-300">
-      <SEO
-        pageSEO={{
-          title: 'Project Details & Images - Revonza Studio Portfolio',
-          description: 'View detailed project information and images from Revonza Studio portfolio. Explore our work samples and case studies.',
-          keywords: [
-            'project details',
-            'portfolio images',
-            'case studies',
-            'web development projects',
-            'design projects',
-            'project gallery',
-            'work samples',
-            'project showcase',
-            'portfolio details',
-            'project images'
-          ],
-          canonical: 'https://revonzastudio.com/project-details',
-          ogImage: 'https://revonzastudio.com/og-project-details.jpg',
-          ogType: 'website',
-          structuredData: {
-            '@context': 'https://schema.org',
-            '@type': 'WebPage',
-            'name': 'Project Details Page',
-            'description': 'View detailed project information and images from Revonza Studio portfolio.',
-            'breadcrumb': {
-              '@type': 'BreadcrumbList',
-              'itemListElement': [{
-                '@type': 'ListItem',
-                'position': 1,
-                'name': 'Home',
-                'item': 'https://revonzastudio.com/'
-              }, {
-                '@type': 'ListItem',
-                'position': 2,
-                'name': 'Projects',
-                'item': 'https://revonzastudio.com/projects'
-              }, {
-                '@type': 'ListItem',
-                'position': 3,
-                'name': 'Project Details',
-                'item': 'https://revonzastudio.com/project-details'
-              }]
-            }
-          }
-        }}
-      />
-      
+    <div className="min-h-screen pt-32 pb-20 bg-revonza-base transition-colors duration-300">
       <div className="container mx-auto px-4">
         <div className="mb-12 animate-fade-in-up">
           <Link to="/projects" className="flex items-center gap-2 text-revonza-accent hover:text-revonza-text transition-colors mb-6">

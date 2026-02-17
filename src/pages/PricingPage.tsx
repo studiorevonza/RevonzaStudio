@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { PRICING } from '@/utils/constants';
-import { Check, Star } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import SEO from '@/components/SEO';
+import { motion } from 'framer-motion';
+import { PRICING } from '@/utils/constants';
 
 const PricingPage: React.FC = () => {
   const [currency, setCurrency] = useState<'INR' | 'USD' | 'AUTO'>('AUTO');
@@ -81,61 +81,6 @@ const PricingPage: React.FC = () => {
 
   return (
     <>
-      <SEO
-        pageSEO={{
-          title: 'Web Development & SEO Pricing | Custom Website Design Costs India',
-          description: 'Transparent and competitive pricing for web development, SEO, and digital marketing services in India. Choose from flexible packages tailored to your business needs.',
-          keywords: [
-            'web development pricing',
-            'SEO services cost',
-            'website design cost India',
-            'digital marketing pricing',
-            'custom website development cost',
-            'affordable web development',
-            'web design packages',
-            'SEO pricing India',
-            'digital agency pricing',
-            'website maintenance cost'
-          ],
-          canonical: 'https://revonzastudio.com/pricing',
-          ogImage: 'https://revonzastudio.com/og-pricing.jpg',
-          ogType: 'website',
-          structuredData: {
-            '@context': 'https://schema.org',
-            '@type': 'Product',
-            'name': 'Web Development & SEO Services',
-            'description': 'Professional web development and SEO services with transparent pricing.',
-            'offers': [
-              {
-                '@type': 'Offer',
-                'name': 'Starter Package',
-                'price': '₹20000',
-                'priceCurrency': 'INR',
-                'description': 'Basic Website (5–7 Pages) with Responsive Design, Contact Forms, Basic SEO Setup, and 1 Month Support'
-              },
-              {
-                '@type': 'Offer',
-                'name': 'Professional Package',
-                'price': '₹40000',
-                'priceCurrency': 'INR',
-                'description': 'Advanced Website with CMS, Advanced SEO Structure, Branding Kit, Social Media Integration, and 3 Months Support'
-              },
-              {
-                '@type': 'Offer',
-                'name': 'Enterprise Package',
-                'price': 'Custom',
-                'priceCurrency': 'INR',
-                'description': 'Fully Custom Website/Web Application with Dashboards, AI Integration, CRM Integrations, and 24/7 Priority Support'
-              }
-            ],
-            'category': 'Professional Services',
-            'brand': {
-              '@type': 'Organization',
-              'name': 'Revonza Studio'
-            }
-          }
-        }}
-      />
       <div className="min-h-screen pt-36 pb-32 bg-revonza-base transition-colors duration-300">
       <div className="container mx-auto px-4">
         <div className="text-center mb-24 animate-fade-in-up">
