@@ -1,54 +1,11 @@
 import React, { useState } from 'react';
 import { Quote, Users, Globe, Award, Clock } from 'lucide-react';
-import SEO from '@/components/SEO';
 
 const AboutPage: React.FC = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
-    <>
-      <SEO
-        pageSEO={{
-          title: 'About Revonza Studio - Leading Web Development Agency in India',
-          description: 'Learn about Revonza Studio, the leading web development and SEO agency in India. Our mission is to engineer digital excellence by combining art and algorithms for superior results.',
-          keywords: [
-            'about Revonza Studio',
-            'web development company India',
-            'digital agency India',
-            'web development team',
-            'SEO company India',
-            'digital marketing agency',
-            'web design company',
-            'software development company',
-            'IT services India',
-            'tech agency India'
-          ],
-          canonical: 'https://revonzastudio.com/about',
-          ogImage: 'https://revonzastudio.com/og-about.jpg',
-          ogType: 'website',
-          structuredData: {
-            '@context': 'https://schema.org',
-            '@type': 'AboutPage',
-            'name': 'About Revonza Studio',
-            'description': 'Learn about Revonza Studio, the leading web development and SEO agency in India. Our mission is to engineer digital excellence by combining art and algorithms for superior results.',
-            'breadcrumb': {
-              '@type': 'BreadcrumbList',
-              'itemListElement': [{
-                '@type': 'ListItem',
-                'position': 1,
-                'name': 'Home',
-                'item': 'https://revonzastudio.com/'
-              }, {
-                '@type': 'ListItem',
-                'position': 2,
-                'name': 'About',
-                'item': 'https://revonzastudio.com/about'
-              }]
-            }
-          }
-        }}
-      />
-    <div className="min-h-screen pt-36 pb-32 bg-revonza-base transition-colors duration-300">
+    <div className="min-h-screen pt-32 pb-20 bg-revonza-base transition-colors duration-300">
       <div className="container mx-auto px-4">
         
         {/* Intro Section */}
@@ -202,8 +159,7 @@ const AboutPage: React.FC = () => {
 
       </div>
     </div>
-      </>
-    );
+  );
 };
 
 export default AboutPage;

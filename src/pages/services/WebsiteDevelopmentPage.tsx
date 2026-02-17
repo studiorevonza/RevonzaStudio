@@ -1,29 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MonitorSmartphone, Code, Zap, ShieldCheck, TrendingUp, Globe } from 'lucide-react';
-import SEO from '../../components/SEO';
 
 const WebsiteDevelopmentPage: React.FC = () => {
   return (
     <div className="min-h-screen pt-32 pb-20 bg-revonza-base transition-colors duration-300">
-      <SEO 
-        pageSEO={{
-          title: 'Professional Website Development Services | Revonza Studio',
-          description: 'Custom website development services by Revonza Studio. We create high-performance, responsive websites with modern technologies and exceptional user experiences.',
-          keywords: [
-            'website development',
-            'web development services',
-            'custom website development',
-            'responsive web design',
-            'professional website development',
-            'web application development'
-          ],
-          canonical: 'https://revonzastudio.com/services/website-development',
-          ogImage: 'https://revonzastudio.com/og-website-dev.jpg',
-          ogType: 'website'
-        }}
-      />
-      
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className="text-center mb-20 animate-fade-in-up">

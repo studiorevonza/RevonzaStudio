@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Zap, Quote, Cpu, ShieldCheck, TrendingUp, Lightbulb, Search, Code, Rocket, Star, ChevronRight, MonitorSmartphone, ScanSearch, BrainCircuit, Fingerprint, Layers, DatabaseZap, Paintbrush, Palette, Wrench, ChevronLeft, ChevronRight as ChevronRightIcon } from 'lucide-react';
+import { ArrowRight, Star, Zap, Shield, Globe, Code, Palette, Cpu, Users, TrendingUp, Calendar, CheckCircle, Menu, X, ChevronDown, ChevronUp } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { SERVICES } from '@/utils/constants';
-import SEO from '@/components/SEO';
 
 const Home: React.FC = () => {
   const featuredServices = SERVICES.slice(0, 3);
@@ -68,76 +68,6 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <SEO
-        pageSEO={{
-          title: 'Web Development & SEO Agency India | Custom Website Design Services',
-          description: 'Top web development & SEO agency in India. Expert custom website design, AI integration, digital marketing & branding services. Boost your online presence today!',
-          keywords: [
-            'web development agency India',
-            'web design services',
-            'SEO company India',
-            'custom website development',
-            'AI integration services',
-            'digital marketing agency',
-            'logo design services',
-            'branding agency',
-            'React development',
-            'full stack development',
-            'e-commerce development',
-            'mobile app development',
-            'SEO optimization services',
-            'digital transformation',
-            'web application development',
-            'UI UX design',
-            'website maintenance services',
-            'online presence solutions',
-            'business website development',
-            'top web developers',
-            'professional web designers',
-            'affordable website design',
-            'enterprise web solutions'
-          ],
-          canonical: 'https://revonzastudio.com/',
-          ogImage: 'https://revonzastudio.com/og-home.jpg',
-          ogType: 'website',
-          structuredData: {
-            '@context': 'https://schema.org',
-            '@type': 'ProfessionalService',
-            'name': 'Revonza Studio',
-            'description': 'Leading web development & SEO agency in India. Expert custom website design, AI integration, digital marketing & branding services.',
-            'serviceType': [
-              'Web Development',
-              'SEO Services',
-              'AI Integration',
-              'Digital Marketing',
-              'Branding Agency',
-              'Custom Website Design',
-              'E-commerce Development',
-              'Mobile App Development'
-            ],
-            'areaServed': 'India',
-            'availableLanguage': 'en',
-            'award': [
-              'Top Web Development Agency India',
-              'Best SEO Services Provider',
-              'Leading Digital Marketing Agency'
-            ],
-            'aggregateRating': {
-              '@type': 'AggregateRating',
-              'ratingValue': '4.9',
-              'reviewCount': '50+'
-            },
-            'makesOffer': [
-              'Custom Website Development',
-              'SEO Optimization',
-              'AI Integration',
-              'Digital Marketing',
-              'Brand Identity Design',
-              'E-commerce Solutions'
-            ]
-          }
-        }}
-      />
       <div className="flex flex-col w-full overflow-hidden">
 
         {/* Hero Section */}

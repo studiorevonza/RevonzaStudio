@@ -2,42 +2,11 @@ import React from 'react';
 import { SERVICES } from '@/utils/constants';
 import * as LucideIcons from 'lucide-react';
 import { Link } from 'react-router-dom';
-import SEO from '@/components/SEO';
 
 const ServicesPage: React.FC = () => {
   return (
     <>
-      <SEO 
-        pageSEO={{
-          title: 'Web Development & SEO Services | Affordable Branding Agency | Revonza Studio',
-          description: 'Professional web development studio offering SEO services for startups, AI website development, and affordable branding agency solutions. Custom website development for small business growth.',
-          keywords: [
-            'web development services',
-            'SEO optimization services',
-            'AI integration services',
-            'branding agency services',
-            'custom website development',
-            'digital marketing services',
-            'startup web solutions',
-            'small business website development'
-          ],
-          canonical: 'https://revonzastudio.com/services',
-          ogImage: 'https://revonzastudio.com/og-services.jpg',
-          ogType: 'website',
-          structuredData: {
-            '@context': 'https://schema.org',
-            '@type': 'ItemList',
-            'name': 'Web Development & SEO Services',
-            'itemListElement': SERVICES.map((service, index) => ({
-              '@type': 'Service',
-              'position': index + 1,
-              'name': service.title,
-              'description': service.description
-            }))
-          }
-        }}
-      />
-      <div className="min-h-screen pt-36 pb-32 bg-revonza-base transition-colors duration-300">
+      <div className="min-h-screen pt-32 pb-20 bg-revonza-base transition-colors duration-300">
         <div className="container mx-auto px-4">
           
           {/* Header */}
