@@ -14,29 +14,23 @@ export default defineConfig(({ mode }) => {
         outDir: 'dist',
         sourcemap: false,
         minify: 'terser',
-        chunkSizeWarningLimit: 1000, // Increase limit to 1000kB
+        target: 'es2015',
+        cssCodeSplit: false, // Bundle CSS to avoid extra requests
         rollupOptions: {
           output: {
-            manualChunks(id) {
-              if (id.includes('node_modules')) {
-                if (id.includes('react') && !id.includes('react-dom')) {
-                  return 'react';
-                }
-                if (id.includes('react-dom')) {
-                  return 'react-dom';
-                }
-                if (id.includes('react-router')) {
-                  return 'react-router';
-                }
-                if (id.includes('lucide-react')) {
-                  return 'lucide-icons';
-                }
-                // Group other small dependencies together
-                return 'vendor';
+            manualChunks: undefined, // Disable manual chunks to create a single bundle
+            assetFileNames: (assetInfo) => {
+              if (assetInfo.name.endsWith('.css')) {
+                return 'assets/bundle.css';
               }
-            }
+              return 'assets/[name].[hash][extname]';
+            },
+            entryFileNames: 'assets/bundle.[hash].js'
           }
         }
+      },
+      optimizeDeps: {
+        include: ['react', 'react-dom', 'react-router-dom', 'lucide-react']
       },
       plugins: [react()],
       define: {},
