@@ -41,19 +41,32 @@ app.get('/health', (req, res) => {
   });
 });
 
-// Handle all routes and serve index.html for client-side routing
+// Catch-all handler for client-side routing
+// This ensures that all routes fall back to index.html for React Router to handle
 app.get('*', (req, res) => {
-  // Set appropriate headers for HTML response
-  res.setHeader('Content-Type', 'text/html; charset=utf-8');
+  // Check if the requested path corresponds to a static file
+  const requestedFilePath = path.join(__dirname, 'dist', req.path.substring(1));
   
-  // Serve index.html with proper cache control
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'), {
-    headers: {
-      'Cache-Control': 'no-cache, no-store, must-revalidate',
-      'Pragma': 'no-cache',
-      'Expires': '0'
-    }
-  });
+  // If it's an API call or specific file that doesn't exist, handle accordingly
+  if (req.path.startsWith('/api/') || req.path.includes('.')) {
+    // This is an API call or a file request, serve 404 if not found
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'), {
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      }
+    });
+  } else {
+    // This is a client-side route, serve index.html
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'), {
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      }
+    });
+  }
 });
 
 const server = app.listen(PORT, '0.0.0.0', () => {
