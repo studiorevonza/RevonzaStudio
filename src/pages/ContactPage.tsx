@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Clock, User, MessageSquare, Building2, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import SEO from '@/components/SEO';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -50,6 +51,29 @@ const ContactPage: React.FC = () => {
 
   return (
     <>
+      <SEO
+        pageSEO={{
+          title: 'Contact Us',
+          description: 'Get in touch with Revonza Studio. Contact us for web development, design, SEO, and digital marketing services.',
+          keywords: [
+            'contact us',
+            'get in touch',
+            'web development contact',
+            'design services contact',
+            'seo contact',
+            'digital marketing contact'
+          ],
+          canonical: 'https://www.revonzastudio.tech/contact',
+          ogImage: 'https://www.revonzastudio.tech/og-contact.jpg',
+          ogType: 'website',
+          structuredData: {
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contact Revonza Studio",
+            "description": "Get in touch with Revonza Studio. Contact us for web development, design, SEO, and digital marketing services."
+          }
+        }}
+      />
       <div className="min-h-screen pt-32 pb-20 bg-revonza-base flex flex-col justify-center relative overflow-hidden transition-colors duration-300">
       
       {/* Background Ambience */}

@@ -1,11 +1,34 @@
 import React, { useState } from 'react';
 import { Quote, Users, Globe, Award, Clock } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const AboutPage: React.FC = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <div className="min-h-screen pt-32 pb-20 bg-revonza-base transition-colors duration-300">
+      <SEO
+        pageSEO={{
+          title: 'About Us',
+          description: 'Learn more about Revonza Studio, our mission, vision, and the team behind our innovative web solutions.',
+          keywords: [
+            'about us',
+            'our company',
+            'web development team',
+            'studio information',
+            'company profile'
+          ],
+          canonical: 'https://www.revonzastudio.tech/about',
+          ogImage: 'https://www.revonzastudio.tech/og-about.jpg',
+          ogType: 'website',
+          structuredData: {
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "name": "About Revonza Studio",
+            "description": "Learn more about Revonza Studio, our mission, vision, and the team behind our innovative web solutions."
+          }
+        }}
+      />
       <div className="container mx-auto px-4">
         
         {/* Intro Section */}

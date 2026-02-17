@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Zap, Shield, Globe, Code, Palette, Cpu, Users, TrendingUp, Calendar, CheckCircle, Menu, X, ChevronDown, ChevronUp, MonitorSmartphone, ScanSearch, BrainCircuit, Fingerprint, Layers, DatabaseZap, Paintbrush, Wrench, Search, Lightbulb, Rocket, ChevronRight, ShieldCheck, ChevronLeft, ChevronRightIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SERVICES } from '@/utils/constants';
+import SEO from '@/components/SEO';
 
 const Home: React.FC = () => {
   const featuredServices = SERVICES.slice(0, 3);
@@ -68,6 +69,44 @@ const Home: React.FC = () => {
 
   return (
     <>
+      <SEO
+        pageSEO={{
+          title: 'Web Development & Design Services',
+          description: 'Professional web development and design services. Custom websites, SEO optimization, digital marketing, and branding solutions.',
+          keywords: [
+            'web development',
+            'web design',
+            'react development',
+            'typescript',
+            'vite',
+            'seo services',
+            'digital marketing',
+            'branding services'
+          ],
+          canonical: 'https://www.revonzastudio.tech/',
+          ogImage: 'https://www.revonzastudio.tech/og-home.jpg',
+          ogType: 'website',
+          structuredData: {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "Revonza Studio",
+            "description": "Professional web development and design services. Custom websites, SEO optimization, digital marketing, and branding solutions.",
+            "serviceType": [
+              "Web Development",
+              "Web Design",
+              "SEO Services",
+              "Digital Marketing",
+              "Branding"
+            ],
+            "areaServed": "Worldwide",
+            "availableLanguage": "English",
+            "provider": {
+              "@type": "Organization",
+              "name": "Revonza Studio"
+            }
+          }
+        }}
+      />
       <div className="flex flex-col w-full overflow-hidden">
 
         {/* Hero Section */}

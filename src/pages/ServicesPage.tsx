@@ -2,10 +2,38 @@ import React from 'react';
 import { SERVICES } from '@/utils/constants';
 import * as LucideIcons from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '@/components/SEO';
 
 const ServicesPage: React.FC = () => {
   return (
     <>
+      <SEO
+        pageSEO={{
+          title: 'Services',
+          description: 'Discover our range of professional services including web development, design, SEO, and digital marketing solutions.',
+          keywords: [
+            'web development services',
+            'design services',
+            'seo services',
+            'digital marketing',
+            'branding services'
+          ],
+          canonical: 'https://www.revonzastudio.tech/services',
+          ogImage: 'https://www.revonzastudio.tech/og-services.jpg',
+          ogType: 'website',
+          structuredData: {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Services",
+            "itemListElement": SERVICES.map((service, index) => ({
+              "@type": "Service",
+              "position": index + 1,
+              "name": service.title,
+              "description": service.description
+            }))
+          }
+        }}
+      />
       <div className="min-h-screen pt-32 pb-20 bg-revonza-base transition-colors duration-300">
         <div className="container mx-auto px-4">
           

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { ThemeProvider } from '@/contexts/ThemeContext';
@@ -32,53 +33,54 @@ const ScrollToTop = () => {
 
 const App: React.FC = () => {
   return (
-    <ThemeProvider>
-      <Router>
-        <ScrollToTop />
-        <div className="flex flex-col min-h-screen bg-revonza-base text-revonza-text transition-colors duration-300">
-          <Header />
-          <main className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/services" element={<ServicesPage />} />
-              <Route path="/projects" element={<ProjectsPage />} />
-              <Route path="/pricing" element={<PricingPage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/detailed-pricing" element={<DetailedPricingPage />} />
-              <Route path="/project-details" element={<ProjectDetailsPage />} />
-              <Route path="/project-details/:projectId" element={<ProjectDetailsPage />} />
-                            
-                            
-              {/* Individual Service Routes */}
-              <Route path="/services/website-development" element={<ComingSoonPage />} />
-              <Route path="/services/ai-integration" element={<ComingSoonPage />} />
-              <Route path="/services/logo-design" element={<ComingSoonPage />} />
-              <Route path="/services/thumbnail-design" element={<ComingSoonPage />} />
-              <Route path="/services/product-launching" element={<ComingSoonPage />} />
-              <Route path="/services/hosting-solutions" element={<ComingSoonPage />} />
-              <Route path="/services/graphic-design" element={<ComingSoonPage />} />
-              <Route path="/services/design-branding" element={<ComingSoonPage />} />
-              <Route path="/services/maintenance-modification" element={<ComingSoonPage />} />
-              
-              {/* Products Route */}
-              <Route path="/products" element={<ComingSoonPage />} />
-            </Routes>
-          </main>
-          <Footer />
-          
-          {/* Global Floating WhatsApp Button */}
-          <a 
-            href="https://wa.me/918851619647" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="fixed bottom-8 right-8 w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(34,197,94,0.5)] hover:shadow-[0_0_30px_rgba(34,197,94,0.7)] transition-all duration-300 z-50 hover:scale-110"
-          >
-            <FontAwesomeIcon icon={faWhatsapp} size="2x" className="text-white" />
-          </a>
-        </div>
-      </Router>
-    </ThemeProvider>
+    <HelmetProvider>
+      <ThemeProvider>
+        <Router>
+          <ScrollToTop />
+          <div className="flex flex-col min-h-screen bg-revonza-base text-revonza-text transition-colors duration-300">
+            <Header />
+            <main className="flex-grow">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/services" element={<ServicesPage />} />
+                <Route path="/projects" element={<ProjectsPage />} />
+                <Route path="/pricing" element={<PricingPage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/detailed-pricing" element={<DetailedPricingPage />} />
+                <Route path="/project-details" element={<ProjectDetailsPage />} />
+                <Route path="/project-details/:projectId" element={<ProjectDetailsPage />} />
+                
+                {/* Individual Service Routes */}
+                <Route path="/services/website-development" element={<ComingSoonPage />} />
+                <Route path="/services/ai-integration" element={<ComingSoonPage />} />
+                <Route path="/services/logo-design" element={<ComingSoonPage />} />
+                <Route path="/services/thumbnail-design" element={<ComingSoonPage />} />
+                <Route path="/services/product-launching" element={<ComingSoonPage />} />
+                <Route path="/services/hosting-solutions" element={<ComingSoonPage />} />
+                <Route path="/services/graphic-design" element={<ComingSoonPage />} />
+                <Route path="/services/design-branding" element={<ComingSoonPage />} />
+                <Route path="/services/maintenance-modification" element={<ComingSoonPage />} />
+                
+                {/* Products Route */}
+                <Route path="/products" element={<ComingSoonPage />} />
+              </Routes>
+            </main>
+            <Footer />
+            
+            {/* Global Floating WhatsApp Button */}
+            <a 
+              href="https://wa.me/918851619647" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="fixed bottom-8 right-8 w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(34,197,94,0.5)] hover:shadow-[0_0_30px_rgba(34,197,94,0.7)] transition-all duration-300 z-50 hover:scale-110"
+            >
+              <FontAwesomeIcon icon={faWhatsapp} size="2x" className="text-white" />
+            </a>
+          </div>
+        </Router>
+      </ThemeProvider>
+    </HelmetProvider>
   );
 };
 

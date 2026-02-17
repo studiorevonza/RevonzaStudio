@@ -15,10 +15,10 @@ export default defineConfig(({ mode }) => {
         sourcemap: false,
         minify: 'terser',
         target: 'es2015',
-        cssCodeSplit: false, // Bundle CSS to avoid extra requests
+        cssCodeSplit: false, 
         rollupOptions: {
           output: {
-            manualChunks: undefined, // Disable manual chunks to create a single bundle
+            manualChunks: undefined, 
             assetFileNames: (assetInfo) => {
               if (assetInfo.name.endsWith('.css')) {
                 return 'assets/bundle.css';
