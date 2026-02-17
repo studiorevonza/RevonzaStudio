@@ -22,16 +22,7 @@ app.use((req, res, next) => {
 });
 
 // Serve static files from the dist folder
-app.use(express.static(path.join(__dirname, 'dist'), {
-  // Disable cache for HTML files to ensure fresh content on navigation
-  setHeaders: (res, filePath) => {
-    if (filePath.endsWith('index.html')) {
-      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-      res.setHeader('Pragma', 'no-cache');
-      res.setHeader('Expires', '0');
-    }
-  }
-}));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // Health check endpoint
 app.get('/health', (req, res) => {
@@ -42,49 +33,15 @@ app.get('/health', (req, res) => {
   });
 });
 
-// More specific route handlers for known routes
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
+// API routes (if any) should be defined before the catch-all handler
+// Example:
+// app.get('/api/example', (req, res) => {
+//   res.json({ message: 'API endpoint' });
+// });
 
-app.get('/services', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-
-app.get('/products', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-
-app.get('/projects', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-
-app.get('/pricing', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-
-app.get('/about', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-
-app.get('/contact', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-
-app.get('/detailed-pricing', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-
-app.get('/project-details', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-
-app.get('/project-details/:projectId', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-
-// Catch-all handler for any other routes - this must be the last route
-app.get('*', (req, res) => {
+// Catch-all handler for client-side routing - this must be the last route
+// This handles ALL routes that aren't static files and serves index.html
+app.get(/.*/, (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
