@@ -15,13 +15,21 @@ app.use((req, res, next) => {
   res.setHeader('X-XSS-Protection', '1; mode=block');
   res.setHeader('Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload');
   res.setHeader('Permissions-Policy', 'geolocation=(), microphone=(), camera=()');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
 
-// Serve static files from the dist folder
+// Serve static files from the dist folder with proper MIME types
 app.use(express.static(path.join(__dirname, 'dist'), {
   maxAge: '1y',
-  etag: false
+  etag: false,
+  setHeaders: (res, filePath) => {
+    if (filePath.endsWith('.js') || filePath.endsWith('.css')) {
+      res.setHeader('Cache-Control', 'public, max-age=31536000');
+    }
+  }
 }));
 
 // Health check endpoint
@@ -33,8 +41,12 @@ app.get('/health', (req, res) => {
   });
 });
 
-// For client-side routing, serve index.html for any route that doesn't match a static file
+// Handle all routes and serve index.html for client-side routing
 app.get('*', (req, res) => {
+  // Set appropriate headers for HTML response
+  res.setHeader('Content-Type', 'text/html; charset=utf-8');
+  
+  // Serve index.html with proper cache control
   res.sendFile(path.join(__dirname, 'dist', 'index.html'), {
     headers: {
       'Cache-Control': 'no-cache, no-store, must-revalidate',
