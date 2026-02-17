@@ -43,6 +43,7 @@ This guide will help you deploy your React application to Render.
 - Static assets will be served from the `dist` folder after the build process
 - Client-side routing is handled by the Express server in `server.cjs`
 - The application will listen on the port specified by the `PORT` environment variable provided by Render
+- All dependencies are bundled into a single file to avoid external CDN issues
 
 ## Troubleshooting
 
@@ -52,6 +53,7 @@ If you encounter issues:
 2. Ensure all dependencies are listed in `package.json`
 3. Verify that the start command works locally: `npm start`
 4. Make sure the server listens on the `process.env.PORT` variable
+5. Confirm that no external CDN dependencies are blocking the site
 
 ## Custom Domain (Optional)
 
