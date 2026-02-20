@@ -147,7 +147,7 @@ const ContactPage: React.FC = () => {
                            value={formData.name}
                            onChange={handleChange}
                            required
-                           className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-current placeholder-revonza-textMuted focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface focus:shadow-[0_0_20px_rgba(139,92,246,0.2)] transition-all duration-300"
+                           className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-revonza-text placeholder-revonza-textMuted focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface focus:shadow-[0_0_20px_rgba(139,92,246,0.2)] transition-all duration-300"
                            placeholder="Your Full Name"
                         />
                       </div>
@@ -159,7 +159,7 @@ const ContactPage: React.FC = () => {
                            value={formData.email}
                            onChange={handleChange}
                            required
-                           className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-current placeholder-revonza-textMuted focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface focus:shadow-[0_0_20px_rgba(139,92,246,0.2)] transition-all duration-300"
+                           className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-revonza-text placeholder-revonza-textMuted focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface focus:shadow-[0_0_20px_rgba(139,92,246,0.2)] transition-all duration-300"
                            placeholder="your@email.com"
                         />
                       </div>
@@ -174,7 +174,7 @@ const ContactPage: React.FC = () => {
                            value={formData.phone}
                            onChange={handleChange}
                            required
-                           className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-current placeholder-revonza-textMuted focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface focus:shadow-[0_0_20px_rgba(139,92,246,0.2)] transition-all duration-300"
+                           className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-revonza-text placeholder-revonza-textMuted focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface focus:shadow-[0_0_20px_rgba(139,92,246,0.2)] transition-all duration-300"
                            placeholder="+91 XXXXXXXXXX"
                         />
                       </div>
@@ -185,7 +185,7 @@ const ContactPage: React.FC = () => {
                            name="company"
                            value={formData.company}
                            onChange={handleChange}
-                           className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-current placeholder-revonza-textMuted focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface focus:shadow-[0_0_20px_rgba(139,92,246,0.2)] transition-all duration-300"
+                           className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-revonza-text placeholder-revonza-textMuted focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface focus:shadow-[0_0_20px_rgba(139,92,246,0.2)] transition-all duration-300"
                            placeholder="Your Company Name"
                         />
                       </div>
@@ -199,7 +199,7 @@ const ContactPage: React.FC = () => {
                           value={formData.service}
                           onChange={handleChange}
                           required
-                          className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-current appearance-none cursor-pointer focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface transition-all duration-300"
+                          className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-revonza-text appearance-none cursor-pointer focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface transition-all duration-300"
                         >
                           <option value="" className="text-revonza-text bg-revonza-base">Select Service...</option>
                           <option value="web-development" className="text-revonza-text bg-revonza-base">Website Development</option>
@@ -226,7 +226,7 @@ const ContactPage: React.FC = () => {
                             name="budget"
                             value={formData.budget}
                             onChange={handleChange}
-                            className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-current appearance-none cursor-pointer focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface transition-all duration-300"
+                            className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-revonza-text appearance-none cursor-pointer focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface transition-all duration-300"
                           >
                             <option value="" className="text-revonza-text bg-revonza-base">Select Budget Range</option>
                             <option value="5000-20000" className="text-revonza-text bg-revonza-base">₹5,000 - ₹20,000</option>
@@ -245,7 +245,7 @@ const ContactPage: React.FC = () => {
                             name="timeline"
                             value={formData.timeline}
                             onChange={handleChange}
-                            className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-current appearance-none cursor-pointer focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface transition-all duration-300"
+                            className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-revonza-text appearance-none cursor-pointer focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface transition-all duration-300"
                           >
                             <option value="" className="text-revonza-text bg-revonza-base">Select Timeline</option>
                             <option value="urgent" className="text-revonza-text bg-revonza-base">Urgent (1-2 weeks)</option>
@@ -267,7 +267,7 @@ const ContactPage: React.FC = () => {
                          onChange={handleChange}
                          required
                          rows={5}
-                         className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-current placeholder-revonza-textMuted focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface focus:shadow-[0_0_20px_rgba(139,92,246,0.2)] transition-all duration-300 resize-none"
+                         className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-revonza-text placeholder-revonza-textMuted focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface focus:shadow-[0_0_20px_rgba(139,92,246,0.2)] transition-all duration-300 resize-none"
                          placeholder="Please share details about your project, requirements, goals, and any specific features you're looking for..."
                       />
                    </div>
