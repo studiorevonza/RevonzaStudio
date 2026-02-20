@@ -71,17 +71,29 @@ const Home: React.FC = () => {
     <>
       <SEO
         pageSEO={{
-          title: 'Web Development & Design Services',
-          description: 'Professional web development and design services. Custom websites, SEO optimization, digital marketing, and branding solutions.',
+          title: 'Web Development & Design Services | Revonza Studio',
+          description: 'Professional web development, SEO services, and digital marketing solutions for startups and businesses. Affordable custom websites, AI integration, branding, and digital transformation services.',
           keywords: [
-            'web development',
-            'web design',
+            'web development services',
+            'web design company',
+            'seo services india',
+            'digital marketing agency',
+            'custom website development',
             'react development',
-            'typescript',
-            'vite',
-            'seo services',
-            'digital marketing',
-            'branding services'
+            'typescript development',
+            'vite framework',
+            'ai integration services',
+            'branding agency',
+            'logo design services',
+            'graphic design company',
+            'website maintenance',
+            'hosting solutions',
+            'startup web development',
+            'small business website',
+            'affordable web design',
+            'professional web services',
+            'digital transformation',
+            'ui ux design services'
           ],
           canonical: 'https://www.revonzastudio.tech/',
           ogImage: 'https://www.revonzastudio.tech/og-home.jpg',
@@ -90,19 +102,41 @@ const Home: React.FC = () => {
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
             "name": "Revonza Studio",
-            "description": "Professional web development and design services. Custom websites, SEO optimization, digital marketing, and branding solutions.",
+            "description": "Professional web development and design services. Custom websites, SEO optimization, digital marketing, and branding solutions for startups and businesses.",
+            "url": "https://www.revonzastudio.tech",
+            "logo": "https://www.revonzastudio.tech/favicon-light.png",
             "serviceType": [
               "Web Development",
               "Web Design",
               "SEO Services",
               "Digital Marketing",
-              "Branding"
+              "Branding",
+              "AI Integration",
+              "Logo Design",
+              "Graphic Design",
+              "Website Maintenance",
+              "Hosting Solutions"
             ],
-            "areaServed": "Worldwide",
+            "areaServed": {
+              "@type": "Place",
+              "name": "Worldwide"
+            },
             "availableLanguage": "English",
+            "priceRange": "$$",
+            "telephone": "+919714407181",
+            "email": "studiorevonza@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "IN"
+            },
             "provider": {
               "@type": "Organization",
-              "name": "Revonza Studio"
+              "name": "Revonza Studio",
+              "sameAs": [
+                "https://www.linkedin.com/company/revonza-studio",
+                "https://twitter.com/revonzastudio",
+                "https://instagram.com/revonzastudio"
+              ]
             }
           }
         }}
@@ -127,13 +161,13 @@ const Home: React.FC = () => {
             </div>
 
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-revonza-text leading-[1.05] tracking-tight mb-8 animate-fade-in-up delay-100 drop-shadow-2xl">
-              Web Development<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-revonza-accentOld via-purple-400 to-pink-500">& AI Solutions</span><br />
-              <span className="text-3xl md:text-4xl lg:text-5xl font-normal">for Modern Businesses</span>
+              Professional Web Development<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-revonza-accentOld via-purple-400 to-pink-500">& Digital Design Services</span><br />
+              <span className="text-3xl md:text-4xl lg:text-5xl font-normal">for Startups & Businesses</span>
             </h1>
 
             <p className="text-xl md:text-2xl text-revonza-textMuted max-w-3xl mx-auto mb-14 font-light leading-relaxed animate-fade-in-up delay-200">
-              Revonza Studio offers affordable web development, SEO services for startups, and AI-powered digital solutions. Build faster. Rank smarter. Perfect for small business website development and branding agency needs.
+              Revonza Studio provides affordable web development services, SEO optimization, and AI-powered digital solutions for startups and businesses. Build faster websites, rank higher on search engines, and grow your online presence with our professional web design and digital marketing services.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up delay-300">
@@ -155,8 +189,8 @@ const Home: React.FC = () => {
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row justify-between items-end mb-16 animate-fade-in-up">
               <div>
-                <h2 className="text-5xl font-bold text-revonza-text mb-4">Web Development & SEO Studio Services</h2>
-                <p className="text-revonza-textMuted text-lg">Mastery across web development, SEO optimization, and AI integration for startups and small businesses.</p>
+                <h2 className="text-5xl font-bold text-revonza-text mb-4">Professional Web Development & SEO Services</h2>
+                <p className="text-revonza-textMuted text-lg">Expert web development, SEO optimization, and digital marketing services for startups, small businesses, and enterprises. Comprehensive solutions including website design, AI integration, and branding services.</p>
               </div>
               <Link to="/services" className="text-revonza-accent hover:text-revonza-text transition-colors flex items-center gap-2 mt-6 md:mt-0 font-semibold group">
                 View all services <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -261,8 +295,8 @@ const Home: React.FC = () => {
 
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-20 animate-fade-in-up">
-              <h2 className="text-4xl md:text-5xl font-bold text-revonza-text">The Revonza Advantage</h2>
-              <p className="text-revonza-textMuted text-lg max-w-2xl mx-auto">Built on a foundation of data, security, and intelligence.</p>
+              <h2 className="text-4xl md:text-5xl font-bold text-revonza-text">Why Choose Revonza Studio</h2>
+              <p className="text-revonza-textMuted text-lg max-w-2xl mx-auto">Professional web development and digital marketing services built on data-driven strategies, security, and AI intelligence for business growth.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -364,8 +398,8 @@ const Home: React.FC = () => {
         <section className="py-32 relative bg-revonza-base transition-colors duration-300">
           <div className="container mx-auto px-4">
             <div className="text-center mb-24 animate-fade-in-up">
-              <h2 className="text-5xl font-bold text-revonza-text">The Process</h2>
-              <p className="text-revonza-textMuted mt-4 text-lg">From concept to reality, orchestrated perfectly.</p>
+              <h2 className="text-5xl font-bold text-revonza-text">Our Web Development Process</h2>
+              <p className="text-revonza-textMuted mt-4 text-lg">Professional web development services from strategy to launch, designed for business success.</p>
             </div>
 
             <div className="relative max-w-5xl mx-auto">
@@ -411,8 +445,8 @@ const Home: React.FC = () => {
         <section className="py-32 bg-revonza-surface relative overflow-hidden transition-colors duration-300">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16 animate-fade-in-up">
-              <h2 className="text-4xl md:text-5xl font-bold text-revonza-text mb-4">Client Feedback</h2>
-              <p className="text-revonza-textMuted text-lg max-w-2xl mx-auto">What our clients say about our services</p>
+              <h2 className="text-4xl md:text-5xl font-bold text-revonza-text mb-4">Client Testimonials</h2>
+              <p className="text-revonza-textMuted text-lg max-w-2xl mx-auto">What our clients say about our web development and digital marketing services</p>
             </div>
 
             <div className="relative max-w-6xl mx-auto">

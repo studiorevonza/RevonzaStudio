@@ -34,10 +34,10 @@ Disallow: /admin/
 Disallow: /private/
 
 # Sitemap
-Sitemap: https://revonzastudio.com/sitemap.xml
+Sitemap: https://www.revonzastudio.tech/sitemap.xml
 
 # Crawl-delay for slower bots
 Crawl-delay: 1
 
 # Host directive
-Host: https://revonzastudio.com
+Host: https://www.revonzastudio.tech

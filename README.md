@@ -12,6 +12,7 @@ Welcome to Revonza Studio, a modern digital agency website showcasing web develo
 - **Theme Support**: Custom dark/light theme context
 - **Production Ready**: Express server with compression and security headers
 - **WhatsApp Integration**: Direct contact form integration with WhatsApp
+- **Privacy Focused**: Automatic cookie and site data removal for user privacy
 - **Professional UI**: Glass morphism design with modern aesthetics
 
 ## 🛠️ Technology Stack
@@ -142,7 +143,7 @@ revonza-studio/
 │   │   ├── constants.ts   # Application constants
 │   │   └── seo-config.ts  # SEO configuration
 │   ├── App.tsx            # Main application component
-│   └── main.tsx           # Application entry point
+│   └── main.tsx           # Application entry point (includes privacy features)
 ├── dist/                  # Production build output
 ├── server.cjs             # Production Express server
 ├── vite.config.ts         # Vite configuration
@@ -159,6 +160,8 @@ revonza-studio/
 | `npm run serve` | Start preview server with network access |
 | `npm start` | Start production Express server |
 
+> **Note**: The auto cookie removal feature works automatically in production builds and enhances user privacy without requiring additional scripts.
+
 ## 🌐 Environment Variables
 
 Configure the application using these environment variables:
@@ -173,15 +176,18 @@ VITE_API_URL=http://localhost:3001  # API endpoint
 VITE_APP_NAME=Revonza Studio        # Application name
 ```
 
-## 🔒 Security Features
+## 🔒 Security & Privacy Features
 
-The application includes built-in security measures:
+The application includes comprehensive security and privacy measures:
 
 - **HTTP Headers**: XSS protection, Content Security Policy
 - **Transport Security**: Strict Transport Security (HSTS)
 - **Frame Protection**: X-Frame-Options header
 - **Permissions Policy**: Controlled browser features
 - **Compression**: Gzip compression for efficient delivery
+- **Auto Data Cleanup**: Automatic removal of cookies and site data after session
+- **Inactivity Protection**: Data cleared after 30 minutes of inactivity
+- **Privacy First**: No persistent tracking or data retention
 
 ## 📱 Browser Compatibility
 
@@ -192,6 +198,12 @@ Fully compatible with modern browsers:
 - **Safari**: Latest version
 - **Edge**: Latest version
 - **Mobile Browsers**: iOS Safari, Android Chrome
+
+**Privacy Features Support**:
+- Automatic cookie clearing
+- Session storage cleanup
+- Cache management
+- Inactivity detection
 
 ## 🤝 Contributing
 
@@ -214,7 +226,7 @@ We welcome contributions to improve Revonza Studio!
    ```
 5. **Push** to your fork:
    ```bash
-   git push origin feature/your-feature-name
+   git push origin feature main
    ```
 6. **Create a Pull Request** with a detailed description
 

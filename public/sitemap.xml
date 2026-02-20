@@ -5,178 +5,178 @@
   http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   
   <url>
-    <loc>https://revonzastudio.com/</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/about</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/about</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/services</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/services</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/projects</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/projects</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/pricing</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/pricing</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/contact</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/contact</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/detailed-pricing</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/detailed-pricing</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <!-- Individual Service Pages -->
   <url>
-    <loc>https://revonzastudio.com/services/website-development</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/services/website-development</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/services/ai-integration</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/services/ai-integration</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/services/logo-design</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/services/logo-design</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/services/thumbnail-design</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/services/thumbnail-design</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/services/product-launching</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/services/product-launching</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/services/hosting-solutions</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/services/hosting-solutions</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/services/graphic-design</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/services/graphic-design</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/services/design-branding</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/services/design-branding</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/services/maintenance-modification</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/services/maintenance-modification</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <!-- Individual Service Project Pages -->
   <url>
-    <loc>https://revonzastudio.com/services/website-development/projects</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/services/website-development/projects</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/services/ai-integration/projects</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/services/ai-integration/projects</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/services/logo-design/projects</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/services/logo-design/projects</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/services/thumbnail-design/projects</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/services/thumbnail-design/projects</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/services/product-launching/projects</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/services/product-launching/projects</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/services/hosting-solutions/projects</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/services/hosting-solutions/projects</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/services/graphic-design/projects</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/services/graphic-design/projects</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/services/design-branding/projects</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/services/design-branding/projects</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://revonzastudio.com/services/maintenance-modification/projects</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://www.revonzastudio.tech/services/maintenance-modification/projects</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
