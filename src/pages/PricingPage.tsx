@@ -107,21 +107,21 @@ const PricingPage: React.FC = () => {
               {
                 "@type": "Offer",
                 "name": "Starter Package",
-                "price": "₹20000",
+                "price": "₹12999",
                 "priceCurrency": "INR",
                 "description": "Basic Website (5–7 Pages) with Responsive Design, Contact Forms, Basic SEO Setup, and 1 Month Support"
               },
               {
                 "@type": "Offer",
                 "name": "Professional Package",
-                "price": "₹40000",
+                "price": "₹24999",
                 "priceCurrency": "INR",
                 "description": "Advanced Website with CMS, Advanced SEO Structure, Branding Kit, Social Media Integration, and 3 Months Support"
               },
               {
                 "@type": "Offer",
                 "name": "Enterprise Package",
-                "price": "Custom",
+                "price": "₹34999",
                 "priceCurrency": "INR",
                 "description": "Fully Custom Website/Web Application with Dashboards, AI Integration, CRM Integrations, and 24/7 Priority Support"
               }
@@ -191,8 +191,15 @@ const PricingPage: React.FC = () => {
 
               <h6 className={`text-2xl font-bold mb-6 ${tier.recommended ? 'text-revonza-accent' : 'text-revonza-text'}`}>{tier.name}</h6>
               <div className="mb-10">
-                <span className="text-6xl font-bold text-revonza-text tracking-tighter">{convertPrice(tier.price)}</span>
-                {(tier.price !== 'Custom Price' && !tier.price.includes('Free')) && <span className="text-gray-500 ml-2 font-small"></span>}
+                {tier.discountedPrice ? (
+                  <div className="price">
+                    <span className="old-price inline-block text-3xl text-gray-500 line-through mr-4">{convertPrice(tier.price)}</span>
+                    <span className="new-price inline-block text-6xl font-bold text-revonza-text tracking-tighter">{convertPrice(tier.discountedPrice)}</span>
+                  </div>
+                ) : (
+                  <span className="text-6xl font-bold text-revonza-text tracking-tighter">{convertPrice(tier.price)}</span>
+                )}
+                {(tier.price !== 'Custom Price' && !tier.price.includes('Free') && !tier.discountedPrice) && <span className="text-gray-500 ml-2 font-small"></span>}
               </div>
 
               <div className={`h-[1px] w-full mb-10 ${tier.recommended ? 'bg-gradient-to-r from-revonza-accent/50 to-transparent' : 'bg-revonza-border'}`}></div>

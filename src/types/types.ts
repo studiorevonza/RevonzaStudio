@@ -19,6 +19,7 @@ export interface Project {
 export interface PricingTier {
   name: string;
   price: string;
+  discountedPrice?: string;
   features: string[];
   recommended?: boolean;
 }
