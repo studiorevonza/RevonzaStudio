@@ -161,7 +161,7 @@ const Home: React.FC = () => {
             </div>
 
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-revonza-text leading-[1.05] tracking-tight mb-8 animate-fade-in-up delay-100 drop-shadow-2xl">
-              Professional Web Development<br />
+               Web Development<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-revonza-accentOld via-purple-400 to-pink-500">& Digital Design Services</span><br />
               <span className="text-3xl md:text-4xl lg:text-5xl font-normal">for Startups & Businesses</span>
             </h1>
