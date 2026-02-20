@@ -95,7 +95,7 @@ const PricingPage: React.FC = () => {
         discounted: tier.usdDiscountedPrice
       } : {
         original: undefined,
-        discounted: tier.usdPrice || tier.price // fallback to original price if no USD price
+        discounted: tier.usdPrice || convertPrice(tier.price) // fallback to converted price if no USD price
       };
     }
   };
@@ -213,14 +213,29 @@ const PricingPage: React.FC = () => {
                       <span className="text-6xl font-bold text-revonza-text tracking-tighter">{currency === 'INR' ? tier.price : tier.usdPrice || tier.price}</span>
                     );
                   }
-                  return displayPrice.original ? (
-                    <div className="price">
-                      <span className="old-price inline-block text-3xl text-gray-500 line-through mr-4">{convertPrice(displayPrice.original)}</span>
-                      <span className="new-price inline-block text-6xl font-bold text-revonza-text tracking-tighter">{convertPrice(displayPrice.discounted)}</span>
-                    </div>
-                  ) : (
-                    <span className="text-6xl font-bold text-revonza-text tracking-tighter">{convertPrice(displayPrice.discounted)}</span>
-                  );
+                  if (currency === 'USD') {
+                    // For USD, use the USD prices directly without conversion
+                    const usdOriginal = tier.usdPrice;
+                    const usdDiscounted = tier.usdDiscountedPrice;
+                    return usdOriginal ? (
+                      <div className="price">
+                        <span className="old-price inline-block text-3xl text-gray-500 line-through mr-4">{usdOriginal}</span>
+                        <span className="new-price inline-block text-6xl font-bold text-revonza-text tracking-tighter">{usdDiscounted}</span>
+                      </div>
+                    ) : (
+                      <span className="text-6xl font-bold text-revonza-text tracking-tighter">{usdDiscounted || tier.usdPrice || tier.price}</span>
+                    );
+                  } else {
+                    // For INR, use the converted prices
+                    return displayPrice.original ? (
+                      <div className="price">
+                        <span className="old-price inline-block text-3xl text-gray-500 line-through mr-4">{convertPrice(displayPrice.original)}</span>
+                        <span className="new-price inline-block text-6xl font-bold text-revonza-text tracking-tighter">{convertPrice(displayPrice.discounted)}</span>
+                      </div>
+                    ) : (
+                      <span className="text-6xl font-bold text-revonza-text tracking-tighter">{convertPrice(displayPrice.discounted)}</span>
+                    );
+                  }
                 })()}
                 {(tier.price !== 'Custom Price' && !tier.price.includes('Free') && tier.name !== 'Enterprise') && <span className="text-gray-500 ml-2 font-small"></span>}
               </div>
