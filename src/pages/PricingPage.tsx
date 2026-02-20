@@ -6,7 +6,7 @@ import { PRICING } from '@/utils/constants';
 import SEO from '@/components/SEO';
 
 const PricingPage: React.FC = () => {
-  const [currency, setCurrency] = useState<'INR' | 'USD' | 'AUTO'>('AUTO');
+  const [currency, setCurrency] = useState<'INR' | 'USD'>('INR');
 
   // Exchange rate: 1 USD = 83.50 INR (approximate)
   const exchangeRate = 83.50;
@@ -79,6 +79,27 @@ const PricingPage: React.FC = () => {
     }
   };
 
+  // Get the appropriate price based on currency
+  const getDisplayPrice = (tier: typeof PRICING[0]) => {
+    if (currency === 'INR') {
+      return tier.discountedPrice ? {
+        original: tier.price,
+        discounted: tier.discountedPrice
+      } : {
+        original: undefined,
+        discounted: tier.price
+      };
+    } else { // USD
+      return tier.usdDiscountedPrice ? {
+        original: tier.usdPrice,
+        discounted: tier.usdDiscountedPrice
+      } : {
+        original: undefined,
+        discounted: tier.usdPrice || tier.price // fallback to original price if no USD price
+      };
+    }
+  };
+
   return (
     <>
       <SEO
@@ -107,22 +128,22 @@ const PricingPage: React.FC = () => {
               {
                 "@type": "Offer",
                 "name": "Starter Package",
-                "price": "₹12999",
-                "priceCurrency": "INR",
+                "price": currency === 'INR' ? "₹12999" : "$156",
+                "priceCurrency": currency === 'INR' ? "INR" : "USD",
                 "description": "Basic Website (5–7 Pages) with Responsive Design, Contact Forms, Basic SEO Setup, and 1 Month Support"
               },
               {
                 "@type": "Offer",
                 "name": "Professional Package",
-                "price": "₹24999",
-                "priceCurrency": "INR",
+                "price": currency === 'INR' ? "₹24999" : "$300",
+                "priceCurrency": currency === 'INR' ? "INR" : "USD",
                 "description": "Advanced Website with CMS, Advanced SEO Structure, Branding Kit, Social Media Integration, and 3 Months Support"
               },
               {
                 "@type": "Offer",
                 "name": "Enterprise Package",
-                "price": "Custom",
-                "priceCurrency": "INR",
+                "price": currency === 'INR' ? "Custom" : "Custom",
+                "priceCurrency": currency === 'INR' ? "INR" : "USD",
                 "description": "Fully Custom Website/Web Application with Dashboards, AI Integration, CRM Integrations, and 24/7 Priority Support"
               }
             ],
@@ -164,12 +185,6 @@ const PricingPage: React.FC = () => {
             >
               USD ($)
             </button>
-            <button
-              className={`px-6 py-2 rounded-full text-sm font-medium ${currency === 'AUTO' ? 'bg-revonza-accent text-white' : ''}`}
-              onClick={() => setCurrency('AUTO')}
-            >
-              Auto
-            </button>
           </div>
         </div>
 
@@ -191,15 +206,23 @@ const PricingPage: React.FC = () => {
 
               <h6 className={`text-2xl font-bold mb-6 ${tier.recommended ? 'text-revonza-accent' : 'text-revonza-text'}`}>{tier.name}</h6>
               <div className="mb-10">
-                {tier.discountedPrice ? (
-                  <div className="price">
-                    <span className="old-price inline-block text-3xl text-gray-500 line-through mr-4">{convertPrice(tier.price)}</span>
-                    <span className="new-price inline-block text-6xl font-bold text-revonza-text tracking-tighter">{convertPrice(tier.discountedPrice)}</span>
-                  </div>
-                ) : (
-                  <span className="text-6xl font-bold text-revonza-text tracking-tighter">{convertPrice(tier.price)}</span>
-                )}
-                {(tier.price !== 'Custom Price' && !tier.price.includes('Free') && !tier.discountedPrice) && <span className="text-gray-500 ml-2 font-small"></span>}
+                {(() => {
+                  const displayPrice = getDisplayPrice(tier);
+                  if (tier.name === 'Enterprise') {
+                    return (
+                      <span className="text-6xl font-bold text-revonza-text tracking-tighter">{currency === 'INR' ? tier.price : tier.usdPrice || tier.price}</span>
+                    );
+                  }
+                  return displayPrice.original ? (
+                    <div className="price">
+                      <span className="old-price inline-block text-3xl text-gray-500 line-through mr-4">{convertPrice(displayPrice.original)}</span>
+                      <span className="new-price inline-block text-6xl font-bold text-revonza-text tracking-tighter">{convertPrice(displayPrice.discounted)}</span>
+                    </div>
+                  ) : (
+                    <span className="text-6xl font-bold text-revonza-text tracking-tighter">{convertPrice(displayPrice.discounted)}</span>
+                  );
+                })()}
+                {(tier.price !== 'Custom Price' && !tier.price.includes('Free') && tier.name !== 'Enterprise') && <span className="text-gray-500 ml-2 font-small"></span>}
               </div>
 
               <div className={`h-[1px] w-full mb-10 ${tier.recommended ? 'bg-gradient-to-r from-revonza-accent/50 to-transparent' : 'bg-revonza-border'}`}></div>

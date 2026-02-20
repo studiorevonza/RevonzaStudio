@@ -133,6 +133,8 @@ export const PRICING: PricingTier[] = [
     name: 'Starter',
     price: '₹20,000',
     discountedPrice: '₹12,999',
+    usdPrice: '$240',
+    usdDiscountedPrice: '$156',
     features: [
       'Basic Website (5–7 Pages)',
       'Responsive Design (Mobile + Tablet)',
@@ -148,6 +150,8 @@ export const PRICING: PricingTier[] = [
     name: 'Professional',
     price: '₹40,000',
     discountedPrice: '₹24,999',
+    usdPrice: '$480',
+    usdDiscountedPrice: '$300',
     features: [
       'Advanced Website (Custom UI)',
       'CMS / Admin Panel',
@@ -165,6 +169,7 @@ export const PRICING: PricingTier[] = [
   {
     name: 'Enterprise',
     price: 'Custom Price',
+    usdPrice: 'Custom Price',
     features: [
       'Fully Custom Website / Web Application',
       'Dashboards & Role-based Access',
