@@ -1,75 +1,93 @@
-# Revonza Studio - Web Development & Design Services
+# Revonza Studio - Digital Agency Website
 
-Welcome to Revonza Studio, a modern web development and design services platform built with React, TypeScript, and Vite.
+Welcome to Revonza Studio, a modern digital agency website showcasing web development, design, and digital marketing services. Built with React, TypeScript, and Vite for optimal performance and developer experience.
 
-## 🚀 Features
+## 🚀 Key Features
 
-- **Modern Tech Stack**: Built with React 18, TypeScript, and Vite
-- **Responsive Design**: Mobile-first responsive layout
-- **Performance Optimized**: Tree shaking, code splitting, and lazy loading
-- **Styling**: Tailwind CSS with custom themes
-- **Animations**: Framer Motion for smooth animations
-- **Icons**: Lucide React for consistent iconography
-- **Routing**: React Router DOM for navigation
+- **Modern Tech Stack**: React 18, TypeScript, Vite with lightning-fast development
+- **Responsive Design**: Fully responsive mobile-first design with Tailwind CSS
+- **Performance Optimized**: Code splitting, tree shaking, and lazy loading
+- **Smooth Animations**: Framer Motion for engaging user interactions
+- **SEO Optimized**: Dynamic SEO component with meta tags and structured data
+- **Theme Support**: Custom dark/light theme context
 - **Production Ready**: Express server with compression and security headers
+- **WhatsApp Integration**: Direct contact form integration with WhatsApp
+- **Professional UI**: Glass morphism design with modern aesthetics
 
-## 🛠️ Tech Stack
+## 🛠️ Technology Stack
 
-- **Frontend**: React 18, TypeScript, Vite
-- **Styling**: Tailwind CSS, CSS Modules
-- **UI Components**: React + Custom Components
-- **Icons**: Lucide React
-- **Animations**: Framer Motion
-- **Routing**: React Router DOM
-- **Server**: Express.js with compression middleware
-- **Build Tool**: Vite
+### Frontend
+- **Core**: React 18, TypeScript
+- **Build Tool**: Vite 6.x
+- **Styling**: Tailwind CSS 3.x
+- **Routing**: React Router DOM 7.x
+- **Animations**: Framer Motion 12.x
+- **Icons**: Lucide React, Font Awesome
+- **State Management**: React Context API
+
+### Backend
+- **Server**: Express.js 4.x
+- **Compression**: compression middleware
+- **Image Processing**: Sharp
+
+### Development
+- **Type Checking**: TypeScript 5.x
+- **Bundling**: Vite with Terser
+- **SSL**: Vite SSL plugin for local development
 
 ## 📋 Prerequisites
 
-- Node.js (v18 or higher)
-- npm or yarn package manager
+- **Node.js**: v18 or higher
+- **npm**: v8 or higher (comes with Node.js)
+- **Git**: For version control
+- **Modern Browser**: Chrome, Firefox, Safari, or Edge (latest versions)
 
 ## 🚀 Getting Started
 
-### Installation
+### Quick Setup
 
-1. Clone the repository:
+1. **Clone the repository**:
 ```bash
 git clone https://github.com/studiorevonza/RevonzaStudio.git
 cd revonza-studio
 ```
 
-2. Install dependencies:
+2. **Install dependencies**:
 ```bash
 npm install
 ```
 
-### Development
-
-To run the application in development mode:
-
+3. **Start development server**:
 ```bash
 npm run dev
 ```
 
-This will start the development server on `http://localhost:3000`.
+The application will be available at `http://localhost:5173` (Vite's default port).
 
-### Production Build
-
-To create a production build:
+### Available Scripts
 
 ```bash
-npm run build
+# Development
+npm run dev          # Start development server
+npm run serve        # Preview with network access
+
+# Production
+npm run build        # Create production build
+npm run preview      # Preview production build locally
+npm start            # Start production server
 ```
 
-This will create a `dist` folder with the optimized production-ready files.
+### Environment Setup
 
-### Preview Production Build
+Create a `.env.local` file in the root directory for environment variables:
 
-To preview the production build locally:
+```env
+# Server Configuration
+PORT=3000
+NODE_ENV=development
 
-```bash
-npm run preview
+# Optional: Custom configuration
+# VITE_API_URL=http://localhost:3001
 ```
 
 ## 🚢 Deployment
@@ -101,64 +119,139 @@ If deploying manually to a server:
 ## 🏗️ Project Structure
 
 ```
-src/
-├── assets/          # Static assets
-├── components/      # Reusable components
-│   ├── Layout/      # Header, Footer components
-│   └── SEO.tsx      # SEO component (removed in production builds)
-├── contexts/        # React Context providers
-├── pages/           # Route components
-├── types/           # TypeScript type definitions
-├── utils/           # Utility functions and constants
-├── App.tsx          # Main application component
-└── main.tsx         # Entry point
+revonza-studio/
+├── public/                 # Static assets and public files
+│   ├── ProjectImage/      # Project images and logos
+│   └── feedback/          # Client testimonials
+├── src/
+│   ├── assets/            # Application assets
+│   ├── components/        # Reusable UI components
+│   │   ├── Layout/        # Header, Footer, and layout components
+│   │   └── SEO.tsx        # Dynamic SEO component
+│   ├── contexts/          # React Context providers
+│   │   └── ThemeContext.tsx # Theme management
+│   ├── pages/             # Page components
+│   │   ├── services/      # Service-specific pages
+│   │   ├── AboutPage.tsx
+│   │   ├── ContactPage.tsx
+│   │   ├── Home.tsx
+│   │   ├── ProjectsPage.tsx
+│   │   └── ServicesPage.tsx
+│   ├── types/             # TypeScript interfaces and types
+│   ├── utils/             # Utility functions and configurations
+│   │   ├── constants.ts   # Application constants
+│   │   └── seo-config.ts  # SEO configuration
+│   ├── App.tsx            # Main application component
+│   └── main.tsx           # Application entry point
+├── dist/                  # Production build output
+├── server.cjs             # Production Express server
+├── vite.config.ts         # Vite configuration
+└── package.json           # Project dependencies and scripts
 ```
 
-## 📁 Scripts
+## 📁 Available Scripts
 
-- `npm run dev` - Start development server
-- `npm run build` - Create production build
-- `npm run preview` - Preview production build locally
-- `npm start` - Start production server
+| Script | Description |
+|--------|-------------|
+| `npm run dev` | Start development server with hot reload |
+| `npm run build` | Create optimized production build |
+| `npm run preview` | Preview production build locally |
+| `npm run serve` | Start preview server with network access |
+| `npm start` | Start production Express server |
 
 ## 🌐 Environment Variables
 
-The application can be configured using the following environment variables:
+Configure the application using these environment variables:
 
-- `PORT` - Port number for the server (defaults to 3000)
-- `NODE_ENV` - Environment mode (development/production)
+```env
+# Server Configuration
+PORT=3000                    # Server port (default: 3000)
+NODE_ENV=development         # Environment mode
+
+# Optional Variables
+VITE_API_URL=http://localhost:3001  # API endpoint
+VITE_APP_NAME=Revonza Studio        # Application name
+```
 
 ## 🔒 Security Features
 
-- XSS Protection Headers
-- Content Security Policy
-- Strict Transport Security
-- Frame Options Protection
-- Permissions Policy
+The application includes built-in security measures:
 
-## 📱 Browser Support
+- **HTTP Headers**: XSS protection, Content Security Policy
+- **Transport Security**: Strict Transport Security (HSTS)
+- **Frame Protection**: X-Frame-Options header
+- **Permissions Policy**: Controlled browser features
+- **Compression**: Gzip compression for efficient delivery
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+## 📱 Browser Compatibility
+
+Fully compatible with modern browsers:
+
+- **Chrome**: Latest version
+- **Firefox**: Latest version
+- **Safari**: Latest version
+- **Edge**: Latest version
+- **Mobile Browsers**: iOS Safari, Android Chrome
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+We welcome contributions to improve Revonza Studio!
+
+### Steps to Contribute
+
+1. **Fork** the repository
+2. **Clone** your fork:
+   ```bash
+   git clone https://github.com/your-username/RevonzaStudio.git
+   ```
+3. **Create a branch** for your feature:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+4. **Make your changes** and commit:
+   ```bash
+   git commit -m "Add your feature description"
+   ```
+5. **Push** to your fork:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+6. **Create a Pull Request** with a detailed description
+
+### Development Guidelines
+
+- Follow existing code style and conventions
+- Write meaningful commit messages
+- Test your changes thoroughly
+- Update documentation if needed
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📞 Support
+## 📞 Support & Contact
 
-For support, please contact the development team through the GitHub repository issues.
+For support, questions, or collaboration opportunities:
+
+- **Email**: studiorevonza@gmail.com
+- **Phone**: +91 9714407181, +91 8851619647
+- **GitHub Issues**: [Repository Issues](https://github.com/studiorevonza/RevonzaStudio/issues)
+- **WhatsApp**: Direct messaging via contact form
+
+## 🌟 Acknowledgments
+
+- Built with modern web technologies
+- Inspired by contemporary digital agency designs
+- Special thanks to the open-source community
 
 ---
 
-Built with ❤️ by Revonza Studio
+<p align="center">
+  <strong>Built with ❤️ by Revonza Studio</strong>
+</p>
+
+<p align="center">
+  <a href="https://www.revonzastudio.tech">Visit Our Website</a> •
+  <a href="https://wa.me/919714407181">Contact Us</a> •
+  <a href="mailto:studiorevonza@gmail.com">Email Us</a>
+</p>
