@@ -121,7 +121,7 @@ const PricingPage: React.FC = () => {
               {
                 "@type": "Offer",
                 "name": "Enterprise Package",
-                "price": "₹34999",
+                "price": "Custom",
                 "priceCurrency": "INR",
                 "description": "Fully Custom Website/Web Application with Dashboards, AI Integration, CRM Integrations, and 24/7 Priority Support"
               }

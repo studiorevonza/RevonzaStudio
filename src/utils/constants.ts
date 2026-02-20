@@ -165,7 +165,6 @@ export const PRICING: PricingTier[] = [
   {
     name: 'Enterprise',
     price: 'Custom Price',
-    discountedPrice: 'Starting ₹34,999',
     features: [
       'Fully Custom Website / Web Application',
       'Dashboards & Role-based Access',
