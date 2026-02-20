@@ -98,9 +98,9 @@ const Footer: React.FC = () => {
               <div className="flex items-start gap-3">
                 <Phone className="text-revonza-accent mt-1" size={18} />
                 <div>
-                  <p className="text-revonza-text font-medium">Phone</p>
-                  <p className="text-revonza-textMuted">+91 9714407181</p>
-                  <p className="text-revonza-textMuted">+91 8851619647</p>
+                  <p className="text-revonza-text font-medium">Founders</p>
+                  <p className="text-revonza-textMuted"><span className="font-medium">Utsav (Founder):</span> +91 9714407181</p>
+                  <p className="text-revonza-textMuted"><span className="font-medium">Tushar (Co-Founder):</span> +91 8851619647</p>
                 </div>
               </div>
 
