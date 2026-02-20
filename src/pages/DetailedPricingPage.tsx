@@ -189,7 +189,7 @@ const DetailedPricingPage: React.FC = () => {
                   >
                     <td className="py-4 px-6 text-revonza-text font-medium">{item.service}</td>
                     <td className="py-4 px-6 text-center">
-                      <span className="text-2xl font-bold text-revonza-accent">
+                      <span className="text-xl font-bold text-revonza-accent">
                         {currency === 'INR' ? item.inrPrice : item.usdPrice}
                       </span>
                     </td>
