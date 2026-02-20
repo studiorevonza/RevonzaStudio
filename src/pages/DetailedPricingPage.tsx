@@ -1,243 +1,218 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Check, X, ArrowLeft, Zap, Shield, Globe, Code, Palette, Cpu, Users, TrendingUp, Calendar, Star } from 'lucide-react';
-import { motion } from 'framer-motion';
+import SEO from '@/components/SEO';
 
 const DetailedPricingPage: React.FC = () => {
-  const [currency, setCurrency] = useState<'INR' | 'USD' | 'AUTO'>('AUTO');
+  const [currency, setCurrency] = useState<'INR' | 'USD'>('INR');
 
-  // Exchange rate: 1 USD = 83.50 INR (approximate)
-  const exchangeRate = 83.50;
-
-  const convertPrice = (price: string): string => {
-    if (price.includes('Custom') || price.includes('Free')) {
-      return price;
+  // Pricing data
+  const pricingData = [
+    {
+      service: 'Website Development – Basic',
+      inrPrice: '₹10,000 – ₹17,500',
+      usdPrice: '$120 – $210',
+      included: '5–7 pages, responsive, template-based, contact form'
+    },
+    {
+      service: 'Website Development – Advanced',
+      inrPrice: '₹20,000 – ₹45,000',
+      usdPrice: '$240 – $540',
+      included: 'Custom UI, CMS, animations, performance optimization'
+    },
+    {
+      service: 'Website / Web App – Premium',
+      inrPrice: '₹60,000 – ₹1,50,000',
+      usdPrice: '$720 – $1,800',
+      included: 'Full custom build, dashboards, APIs, integrations'
+    },
+    {
+      service: 'SEO – Basic',
+      inrPrice: '₹6,000 – ₹9,000',
+      usdPrice: '$72 – $108',
+      included: 'On-page SEO, GSC setup, keywords'
+    },
+    {
+      service: 'SEO – Advanced',
+      inrPrice: '₹12,500 – ₹22,500',
+      usdPrice: '$150 – $270',
+      included: 'Content SEO, backlinks, audits'
+    },
+    {
+      service: 'AI Integration – Basic',
+      inrPrice: '₹12,500 – ₹22,500',
+      usdPrice: '$150 – $270',
+      included: 'Chatbot, lead automation'
+    },
+    {
+      service: 'AI Integration – Advanced',
+      inrPrice: '₹30,000 – ₹60,000',
+      usdPrice: '$360 – $720',
+      included: 'CRM, workflows, custom AI logic'
+    },
+    {
+      service: 'Logo – Basic',
+      inrPrice: '₹3,000 – ₹5,000',
+      usdPrice: '$36 – $60',
+      included: '2 concepts, revisions'
+    },
+    {
+      service: 'Logo – Professional',
+      inrPrice: '₹6,000 – ₹15,000',
+      usdPrice: '$72 – $180',
+      included: 'Brand-ready logo system'
+    },
+    {
+      service: 'Thumbnail (Per Design)',
+      inrPrice: '₹250 – ₹1,000',
+      usdPrice: '$3 – $12',
+      included: 'YouTube / Ads / Social'
+    },
+    {
+      service: 'Thumbnail Pack (10)',
+      inrPrice: '₹2,000 – ₹6,000',
+      usdPrice: '$24 – $72',
+      included: 'Consistent visual style'
+    },
+    {
+      service: 'Graphic Design (Per Creative)',
+      inrPrice: '₹750 – ₹3,000',
+      usdPrice: '$9 – $36',
+      included: 'Posters, banners, ads'
+    },
+    {
+      service: 'Design Retainer (Monthly)',
+      inrPrice: '₹5,000 – ₹15,000',
+      usdPrice: '$60 – $180',
+      included: '10–30 creatives'
+    },
+    {
+      service: 'Branding & Identity Package',
+      inrPrice: '₹15,000 – ₹60,000',
+      usdPrice: '$180 – $720',
+      included: 'Logo, colors, fonts, guidelines'
+    },
+    {
+      service: 'Maintenance & Modification (Monthly)',
+      inrPrice: '₹3,000 – ₹17,500',
+      usdPrice: '$36 – $210',
+      included: 'Updates, fixes, backups'
+    },
+    {
+      service: 'Urgent Delivery (Add-On)',
+      inrPrice: '+20% – 30%',
+      usdPrice: '+25% – 40%',
+      included: 'Priority execution'
     }
-
-    // Handle percentage values
-    if (price.includes('%')) {
-      return price; // Percentages don't need conversion
-    }
-
-    // Handle price ranges (e.g., "₹10,000 – ₹17,500" or "$400 – $600")
-    if (price.includes('–')) {
-      const parts = price.split(' – ');
-      if (parts.length === 2) {
-        const firstValue = parts[0];
-        const secondValue = parts[1];
-
-        if (firstValue.startsWith('₹')) {
-          const firstNumeric = parseFloat(firstValue.replace(/[₹$,]/g, '').replace(/\s/g, ''));
-          const secondNumeric = parseFloat(secondValue.replace(/[₹$,]/g, '').replace(/\s/g, ''));
-
-          if (currency === 'INR') {
-            return `₹${firstNumeric.toLocaleString('en-IN')} – ₹${secondNumeric.toLocaleString('en-IN')}`;
-          } else if (currency === 'USD') {
-            const firstConverted = firstNumeric / exchangeRate;
-            const secondConverted = secondNumeric / exchangeRate;
-            return `$${firstConverted.toFixed(2)} – $${secondConverted.toFixed(2)}`;
-          } else {
-            // AUTO: Default to INR
-            return `₹${firstNumeric.toLocaleString('en-IN')} – ₹${secondNumeric.toLocaleString('en-IN')}`;
-          }
-        } else if (firstValue.startsWith('$')) {
-          const firstNumeric = parseFloat(firstValue.replace(/[₹$,]/g, '').replace(/\s/g, ''));
-          const secondNumeric = parseFloat(secondValue.replace(/[₹$,]/g, '').replace(/\s/g, ''));
-
-          if (currency === 'INR') {
-            const firstConverted = firstNumeric * exchangeRate;
-            const secondConverted = secondNumeric * exchangeRate;
-            return `₹${firstConverted.toFixed(0)} – ₹${secondConverted.toFixed(0)}`;
-          } else if (currency === 'USD') {
-            return `$${firstNumeric.toFixed(2)} – $${secondNumeric.toFixed(2)}`;
-          } else {
-            // AUTO: Default to INR
-            const firstConverted = firstNumeric * exchangeRate;
-            const secondConverted = secondNumeric * exchangeRate;
-            return `₹${Math.round(firstConverted)} – ₹${Math.round(secondConverted)}`;
-          }
-        }
-      }
-    }
-
-    // Handle single values
-    const numericValue = parseFloat(price.replace(/[₹$,]/g, '').replace(/\s/g, ''));
-
-    if (isNaN(numericValue)) {
-      return price;
-    }
-
-    if (currency === 'INR') {
-      return `₹${numericValue.toLocaleString('en-IN')}`;
-    } else if (currency === 'USD') {
-      const convertedValue = numericValue / exchangeRate;
-      return `$${convertedValue.toFixed(2)}`;
-    } else {
-      // AUTO: Default to INR
-      return `₹${numericValue.toLocaleString('en-IN')}`;
-    }
-  };
+  ];
 
   return (
     <>
+      <SEO
+        pageSEO={{
+          title: 'Detailed Pricing',
+          description: 'Transparent and comprehensive pricing breakdown for all our services. No hidden fees, clear scope of work.',
+          keywords: [
+            'detailed pricing',
+            'service pricing',
+            'web development pricing',
+            'seo pricing',
+            'ai integration pricing',
+            'logo design pricing',
+            'graphic design pricing',
+            'transparent pricing'
+          ],
+          canonical: 'https://www.revonzastudio.tech/detailed-pricing',
+          ogImage: 'https://www.revonzastudio.tech/og-detailed-pricing.jpg',
+          ogType: 'website',
+          structuredData: {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": pricingData.map((item, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "name": item.service,
+              "description": item.included
+            }))
+          }
+        }}
+      />
       <div className="min-h-screen pt-32 pb-20 bg-revonza-base transition-colors duration-300">
         <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-7xl font-bold text-revonza-text mb-8">Transparent & Comprehensive Pricing</h1>
-          <p className="text-xl text-revonza-textMuted max-w-2xl mx-auto font-light leading-relaxed">
-            Complete pricing breakdown for all our services. No hidden fees, clear scope of work.
-          </p>
-        </div>
-
-        {/* Currency Selector */}
-        <div className="flex justify-center mb-16">
-          <div className="inline-flex items-center bg-revonza-surface rounded-full p-1 border border-revonza-border">
-            <button 
-              className={`px-6 py-2 rounded-full text-sm font-medium ${currency === 'INR' ? 'bg-revonza-accent text-white' : ''}`}
-              onClick={() => setCurrency('INR')}
+          <div className="text-center mb-16 animate-fade-in-up">
+            <Link
+              to="/pricing"
+              className="inline-block mb-6 px-5 py-2 bg-revonza-accent text-white rounded-full font-bold text-sm hover:bg-revonza-text hover:text-revonza-base hover:scale-105 transition-all shadow-xl hover:shadow-[0_0_30px_rgba(139,92,246,0.5)]"
             >
-              INR (₹)
-            </button>
-            <button 
-              className={`px-6 py-2 rounded-full text-sm font-medium ${currency === 'USD' ? 'bg-revonza-accent text-white' : ''}`}
-              onClick={() => setCurrency('USD')}
-            >
-              USD ($)
-            </button>
-            <button 
-              className={`px-6 py-2 rounded-full text-sm font-medium ${currency === 'AUTO' ? 'bg-revonza-accent text-white' : ''}`}
-              onClick={() => setCurrency('AUTO')}
-            >
-              Auto
-            </button>
+              ← Back to Pricing
+            </Link>
+            <h1 className="text-4xl md:text-5xl font-bold text-revonza-text mb-6">Transparent & Comprehensive Pricing</h1>
+            <p className="text-xl text-revonza-textMuted max-w-2xl mx-auto font-light">
+              Complete pricing breakdown for all our services. No hidden fees, clear scope of work.
+            </p>
           </div>
-        </div>
 
-        {/* Detailed Pricing Table */}
-        <div className="max-w-7xl mx-auto">
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="border-b border-revonza-border">
-                  <th className="pb-6 text-revonza-text font-bold text-lg">Service</th>
-                  <th className="pb-6 text-revonza-text font-bold text-lg">India Price</th>
-                  <th className="pb-6 text-revonza-text font-bold text-lg">International Price</th>
-                  <th className="pb-6 text-revonza-text font-bold text-lg">What's Included</th>
+          {/* Currency Selector */}
+          <div className="flex justify-center mb-16">
+            <div className="inline-flex items-center bg-revonza-surface rounded-full p-1 border border-revonza-border">
+              <button
+                className={`px-8 py-3 rounded-full text-sm font-medium ${currency === 'INR' ? 'bg-revonza-accent text-white' : 'text-revonza-text'}`}
+                onClick={() => setCurrency('INR')}
+              >
+                INR (₹)
+              </button>
+              <button
+                className={`px-8 py-3 rounded-full text-sm font-medium ${currency === 'USD' ? 'bg-revonza-accent text-white' : 'text-revonza-text'}`}
+                onClick={() => setCurrency('USD')}
+              >
+                USD ($)
+              </button>
+            </div>
+          </div>
+
+          {/* Pricing Table */}
+          <div className="overflow-x-auto rounded-2xl border border-revonza-border">
+            <table className="min-w-full bg-revonza-surface">
+              <thead className="bg-revonza-base">
+                <tr>
+                  <th className="py-4 px-6 text-left text-revonza-text font-bold">Service</th>
+                  <th className="py-4 px-6 text-center text-revonza-text font-bold">
+                    {currency === 'INR' ? 'India Price' : 'International Price'}
+                  </th>
+                  <th className="py-4 px-6 text-left text-revonza-text font-bold">What's Included</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-revonza-border">
-                <tr className="py-6">
-                  <td className="py-6 text-revonza-text font-medium">Website Development – Basic</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('₹10,000 – ₹17,500')}</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('$400.00 – $600.00')}</td>
-                  <td className="py-6 text-revonza-textMuted">5–7 pages, responsive, template-based, contact form</td>
-                </tr>
-                <tr className="py-6">
-                  <td className="py-6 text-revonza-text font-medium">Website Development – Advanced</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('₹20,000 – ₹45,000')}</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('$750.00 – $1250.00')}</td>
-                  <td className="py-6 text-revonza-textMuted">Custom UI, CMS, animations, performance optimization</td>
-                </tr>
-                <tr className="py-6">
-                  <td className="py-6 text-revonza-text font-medium">Website / Web App – Premium</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('₹60,000 – ₹1,50,000+')}</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('$1500.00 – $3250.00')}</td>
-                  <td className="py-6 text-revonza-textMuted">Full custom build, dashboards, APIs, integrations</td>
-                </tr>
-                <tr className="py-6">
-                  <td className="py-6 text-revonza-text font-medium">SEO – Basic</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('₹6,000 – ₹9,000')}</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('$175.00 – $275.00')}</td>
-                  <td className="py-6 text-revonza-textMuted">On-page SEO, GSC setup, keywords</td>
-                </tr>
-                <tr className="py-6">
-                  <td className="py-6 text-revonza-text font-medium">SEO – Advanced</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('₹12,500 – ₹22,500')}</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('$400.00 – $800.00')}</td>
-                  <td className="py-6 text-revonza-textMuted">Content SEO, backlinks, audits</td>
-                </tr>
-                <tr className="py-6">
-                  <td className="py-6 text-revonza-text font-medium">AI Integration – Basic</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('₹12,500 – ₹22,500')}</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('$450.00 – $750.00')}</td>
-                  <td className="py-6 text-revonza-textMuted">Chatbot, lead automation</td>
-                </tr>
-                <tr className="py-6">
-                  <td className="py-6 text-revonza-text font-medium">AI Integration – Advanced</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('₹30,000 – ₹60,000+')}</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('$1000.00 – $2250.00')}</td>
-                  <td className="py-6 text-revonza-textMuted">CRM, workflows, custom AI logic</td>
-                </tr>
-                <tr className="py-6">
-                  <td className="py-6 text-revonza-text font-medium">Logo – Basic</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('₹3,000 – ₹5,000')}</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('$100.00 – $175.00')}</td>
-                  <td className="py-6 text-revonza-textMuted">2 concepts, revisions</td>
-                </tr>
-                <tr className="py-6">
-                  <td className="py-6 text-revonza-text font-medium">Logo – Professional</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('₹6,000 – ₹15,000')}</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('$250.00 – $600.00')}</td>
-                  <td className="py-6 text-revonza-textMuted">Brand-ready logo system</td>
-                </tr>
-                <tr className="py-6">
-                  <td className="py-6 text-revonza-text font-medium">Thumbnail (Per Design)</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('₹250 – ₹1,000')}</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('$12.00 – $30.00')}</td>
-                  <td className="py-6 text-revonza-textMuted">YouTube / Ads / Social</td>
-                </tr>
-                <tr className="py-6">
-                  <td className="py-6 text-revonza-text font-medium">Thumbnail Pack (10)</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('₹2,000 – ₹6,000')}</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('$90.00 – $175.00')}</td>
-                  <td className="py-6 text-revonza-textMuted">Consistent visual style</td>
-                </tr>
-                <tr className="py-6">
-                  <td className="py-6 text-revonza-text font-medium">Graphic Design (Per Creative)</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('₹750 – ₹3,000')}</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('$25.00 – $75.00')}</td>
-                  <td className="py-6 text-revonza-textMuted">Posters, banners, ads</td>
-                </tr>
-                <tr className="py-6">
-                  <td className="py-6 text-revonza-text font-medium">Design Retainer (Monthly)</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('₹5,000 – ₹15,000')}</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('$175.00 – $450.00')}</td>
-                  <td className="py-6 text-revonza-textMuted">10–30 creatives</td>
-                </tr>
-                <tr className="py-6">
-                  <td className="py-6 text-revonza-text font-medium">Branding & Identity Package</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('₹15,000 – ₹60,000')}</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('$600.00 – $1750.00')}</td>
-                  <td className="py-6 text-revonza-textMuted">Logo, colors, fonts, guidelines</td>
-                </tr>
-                <tr className="py-6">
-                  <td className="py-6 text-revonza-text font-medium">Maintenance & Modification (Monthly)</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('₹3,000 – ₹17,500')}</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('$125.00 – $450.00')}</td>
-                  <td className="py-6 text-revonza-textMuted">Updates, fixes, backups</td>
-                </tr>
-                <tr className="py-6">
-                  <td className="py-6 text-revonza-text font-medium">Urgent Delivery (Add-On)</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('+20% – 30%')}</td>
-                  <td className="py-6 text-revonza-text">{convertPrice('+25% – 40%')}</td>
-                  <td className="py-6 text-revonza-textMuted">Priority execution</td>
-                </tr>
+              <tbody>
+                {pricingData.map((item, index) => (
+                  <tr 
+                    key={index} 
+                    className={`border-t border-revonza-border ${index % 2 === 0 ? 'bg-revonza-base' : 'bg-revonza-surface'}`}
+                  >
+                    <td className="py-4 px-6 text-revonza-text font-medium">{item.service}</td>
+                    <td className="py-4 px-6 text-center">
+                      <span className="text-2xl font-bold text-revonza-accent">
+                        {currency === 'INR' ? item.inrPrice : item.usdPrice}
+                      </span>
+                    </td>
+                    <td className="py-4 px-6 text-revonza-textMuted">{item.included}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
-        </div>
 
-        {/* Back to Pricing Button */}
-        <div className="mt-32 max-w-5xl mx-auto text-center">
-          <Link 
-            to="/pricing"
-            className="px-10 py-4 bg-revonza-accent text-white rounded-full font-bold text-lg hover:bg-revonza-text hover:text-revonza-base hover:scale-105 transition-all shadow-xl hover:shadow-[0_0_30px_rgba(139,92,246,0.5)]"
-          >
-            Back to Pricing
-          </Link>
+          {/* CTA Section */}
+          <div className="mt-20 max-w-5xl mx-auto text-center glass-panel rounded-[3rem] p-16 border border-revonza-border relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-revonza-accent/10 to-transparent rounded-[3rem] blur-2xl opacity-50"></div>
+            <div className="relative z-10">
+              <h2 className="text-4xl font-bold text-revonza-text mb-6">Ready to get started?</h2>
+              <p className="text-xl text-revonza-textMuted mb-12 max-w-2xl mx-auto">Have specific requirements? We offer custom solutions tailored to your unique needs.</p>
+              <Link to="/contact" className="inline-block px-10 py-4 bg-revonza-text text-revonza-base rounded-full font-bold text-lg hover:bg-revonza-accent hover:text-white hover:scale-105 transition-all shadow-xl hover:shadow-[0_0_30px_rgba(139,92,246,0.5)]">
+                Contact Us
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 };
