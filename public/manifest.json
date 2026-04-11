@@ -1,0 +1,38 @@
+{
+  "short_name": "Revonza Studio",
+  "name": "Revonza Studio - Web Development & SEO Agency",
+  "description": "Leading web development & SEO agency in India. Expert custom website design, AI integration, digital marketing & branding services.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#8b5cf6",
+  "background_color": "#1e202c",
+  "lang": "en-IN",
+  "dir": "ltr",
+  "orientation": "any",
+  "categories": [
+    "business",
+    "utilities",
+    "technology"
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot-home.jpg",
+      "type": "image/jpeg",
+      "sizes": "1280x720",
+      "form_factor": "wide"
+    },
+    {
+      "src": "screenshot-mobile.jpg",
+      "type": "image/jpeg",
+      "sizes": "360x720",
+      "form_factor": "narrow"
+    }
+  ]
+}

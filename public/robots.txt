@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block specific admin/system paths if any
+Disallow: /api/
+
+Sitemap: https://www.revonzastudio.tech/sitemap.xml
