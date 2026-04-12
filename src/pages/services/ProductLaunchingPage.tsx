@@ -238,28 +238,36 @@ const AccordionItem: React.FC<{ question: string, answer: string }> = ({ questio
   );
 };
 
+// Standalone WhatsApp share function (passed as prop to PaymentReceipt)
+function handleWhatsAppShare(receiptData: ReceiptData) {
+  const message =
+`🧾 *Payment Receipt - Revonza Studio*
+
+✅ Payment Successful!
+
+📦 *Product:* ${receiptData.productName}
+💰 *Amount:* ₹${receiptData.amount}
+🆔 *Order ID:* ${receiptData.orderId}
+💳 *Payment ID:* ${receiptData.paymentId}
+📧 *Email:* ${receiptData.email}
+📅 *Date:* ${receiptData.date}
+🔖 *Receipt No:* REC-${receiptData.paymentId.slice(-6)}
+
+Please confirm my purchase. Thank you! 🙏`;
+
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+}
+
 // --- PaymentReceipt Component ---
 interface PaymentReceiptProps {
   receiptData: ReceiptData;
   onClose: () => void;
+  onWhatsAppShare: (receiptData: ReceiptData) => void;
 }
 
-const PaymentReceipt: React.FC<PaymentReceiptProps> = ({ receiptData, onClose }) => {
+const PaymentReceipt: React.FC<PaymentReceiptProps> = ({ receiptData, onClose, onWhatsAppShare }) => {
   const receiptNumber = `REC-${receiptData.paymentId.slice(-6).toUpperCase()}`;
-
-  const handleWhatsAppShare = () => {
-    const msg = encodeURIComponent(
-      `Hi Revonza Studio! 👋\n\nI just made a payment. Here's my receipt:\n\n` +
-      `📦 Product: ${receiptData.productName}\n` +
-      `💳 Payment ID: ${receiptData.paymentId}\n` +
-      `🆔 Order ID: ${receiptData.orderId}\n` +
-      `💰 Amount: ₹${receiptData.amount}\n` +
-      `📅 Date: ${receiptData.date}\n` +
-      `✅ Status: PAID\n\n` +
-      `Please confirm my order. Thank you!`
-    );
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
-  };
 
   const DetailRow = ({ label, children }: { label: string; children: React.ReactNode }) => (
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
@@ -364,7 +372,7 @@ const PaymentReceipt: React.FC<PaymentReceiptProps> = ({ receiptData, onClose })
 
         {/* Button 1: WhatsApp share */}
         <button
-          onClick={handleWhatsAppShare}
+          onClick={() => onWhatsAppShare(receiptData)}
           style={{
             width: '100%', padding: '14px', borderRadius: '12px',
             background: 'linear-gradient(135deg, #7c3aed, #6d28d9)',
@@ -758,6 +766,7 @@ const ProductLaunchingPage: React.FC = () => {
           {showReceipt && receiptData && (
             <PaymentReceipt
               receiptData={receiptData}
+              onWhatsAppShare={handleWhatsAppShare}
               onClose={() => {
                 setShowReceipt(false);
                 setReceiptData(null);
