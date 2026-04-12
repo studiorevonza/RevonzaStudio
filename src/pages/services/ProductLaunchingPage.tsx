@@ -269,6 +269,21 @@ interface PaymentReceiptProps {
 const PaymentReceipt: React.FC<PaymentReceiptProps> = ({ receiptData, onClose, onWhatsAppShare }) => {
   const receiptNumber = `REC-${receiptData.paymentId.slice(-6).toUpperCase()}`;
 
+  const [timeLeft, setTimeLeft] = useState(600); // 10 minutes
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   useEffect(() => {
     const colors = ['#6366f1', '#f59e0b', '#10b981', '#ec4899', '#3b82f6'];
     const confettiCount = 30;
@@ -421,6 +436,25 @@ const PaymentReceipt: React.FC<PaymentReceiptProps> = ({ receiptData, onClose, o
           💡 Screenshot the receipt above, then tap the WhatsApp button to send it to us for confirmation!
         </div>
 
+        {/* Countdown Timer Warning */}
+        <div style={{ textAlign: 'center', marginBottom: '8px' }}>
+          {timeLeft > 60 && (
+            <span style={{ color: '#6b7280', fontSize: '13px', fontWeight: 600 }}>
+              ⏱️ Receipt visible for: {Math.floor(timeLeft / 60)}:{(timeLeft % 60).toString().padStart(2, '0')} min
+            </span>
+          )}
+          {timeLeft <= 60 && timeLeft > 0 && (
+            <span style={{ color: '#ef4444', fontSize: '14px', fontWeight: 800, animation: 'pulse 1s infinite' }}>
+              ⚠️ Please take a screenshot now! {timeLeft}s left
+            </span>
+          )}
+          {timeLeft === 0 && (
+            <span style={{ color: '#dc2626', fontSize: '16px', fontWeight: 900 }}>
+              📸 PLEASE SCREENSHOT NOW!
+            </span>
+          )}
+        </div>
+
         {/* Button 1: WhatsApp share */}
         <button
           onClick={() => onWhatsAppShare(receiptData)}
@@ -462,7 +496,10 @@ const PaymentReceipt: React.FC<PaymentReceiptProps> = ({ receiptData, onClose, o
 
         {/* Button 4: Close */}
         <button
-          onClick={onClose}
+          onClick={() => {
+            document.body.style.overflow = 'unset';
+            onClose();
+          }}
           style={{
             width: '100%', padding: '14px', borderRadius: '12px',
             background: 'transparent', color: '#9ca3af',
@@ -860,7 +897,7 @@ const ProductLaunchingPage: React.FC = () => {
                 setShowReceipt(false);
                 setReceiptData(null);
                 setPaymentStatus('idle');
-                document.body.style.overflow = '';
+                document.body.style.overflow = 'unset';
               }}
             />
           )}
