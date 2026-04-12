@@ -19,11 +19,19 @@ const razorpay = new Razorpay({
 // Configure Nodemailer with Gmail
 const transporter = nodemailer.createTransport({
   service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.GMAIL_USER,
     pass: process.env.GMAIL_PASS,
   },
 });
+
+// Force Node.js to prioritize IPv4 over IPv6 for outgoing connections like Nodemailer
+// This fixes the ENETUNREACH errors on platforms like Render that might not have full IPv6 outbound routing.
+require('dns').setDefaultResultOrder('ipv4first');
+
 
 // Middleware
 app.use(cors({ 
