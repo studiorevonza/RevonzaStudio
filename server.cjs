@@ -25,17 +25,24 @@ const razorpay = new Razorpay({
   key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
-// Configure Nodemailer with Gmail
+// Configure Nodemailer with Gmail - using port 587 (STARTTLS) as Render may block port 465
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
   host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
+  port: 587,
+  secure: false, // STARTTLS (not SSL)
   auth: {
     user: process.env.GMAIL_USER,
     pass: process.env.GMAIL_PASS,
   },
+  tls: {
+    rejectUnauthorized: false,
+    ciphers: 'SSLv3'
+  },
+  connectionTimeout: 10000,
+  greetingTimeout: 10000,
+  socketTimeout: 10000,
 });
+
 
 // Middleware
 app.use(cors({ 
