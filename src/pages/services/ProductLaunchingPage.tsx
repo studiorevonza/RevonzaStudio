@@ -269,6 +269,57 @@ interface PaymentReceiptProps {
 const PaymentReceipt: React.FC<PaymentReceiptProps> = ({ receiptData, onClose, onWhatsAppShare }) => {
   const receiptNumber = `REC-${receiptData.paymentId.slice(-6).toUpperCase()}`;
 
+  useEffect(() => {
+    const colors = ['#6366f1', '#f59e0b', '#10b981', '#ec4899', '#3b82f6'];
+    const confettiCount = 30;
+    const container = document.createElement('div');
+    container.id = 'confetti-container';
+    container.style.position = 'fixed';
+    container.style.inset = '0';
+    container.style.pointerEvents = 'none';
+    container.style.zIndex = '10000';
+    document.body.appendChild(container);
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+      .confetti-piece {
+        position: absolute;
+        width: 10px;
+        height: 20px;
+        top: -20px;
+        opacity: 0;
+        animation: fall 3s ease-in forwards;
+      }
+      @keyframes fall {
+        0% { opacity: 1; top: -20px; transform: rotate(0deg); }
+        100% { opacity: 1; top: 100vh; transform: rotate(360deg); }
+      }
+    `;
+    document.head.appendChild(style);
+
+    const pieces: HTMLDivElement[] = [];
+    for (let i = 0; i < confettiCount; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti-piece');
+      confetti.style.left = `${Math.random() * 100}%`;
+      confetti.style.animationDelay = `${Math.random() * 2}s`;
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      container.appendChild(confetti);
+      pieces.push(confetti);
+    }
+
+    const timeout = setTimeout(() => {
+      if (document.body.contains(container)) document.body.removeChild(container);
+      if (document.head.contains(style)) document.head.removeChild(style);
+    }, 6000);
+
+    return () => {
+      clearTimeout(timeout);
+      if (document.body.contains(container)) document.body.removeChild(container);
+      if (document.head.contains(style)) document.head.removeChild(style);
+    };
+  }, []);
+
   const DetailRow = ({ label, children }: { label: string; children: React.ReactNode }) => (
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
       <span style={{ color: '#6b7280', fontSize: '13px' }}>{label}</span>
