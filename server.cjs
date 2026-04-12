@@ -3,6 +3,10 @@ const dns = require('dns');
 // Force Node.js to prioritize IPv4 over IPv6 for outgoing connections (Gmail SMTP & Razorpay API)
 dns.setDefaultResultOrder('ipv4first');
 console.log('✅ DNS resolution order set to IPv4 first');
+console.log('📧 GMAIL_USER:', process.env.GMAIL_USER ? process.env.GMAIL_USER : '❌ NOT SET');
+console.log('🔑 GMAIL_PASS:', process.env.GMAIL_PASS ? '✅ SET (length: ' + process.env.GMAIL_PASS.replace(/\s/g,'').length + ')' : '❌ NOT SET');
+console.log('💳 RAZORPAY_KEY_ID:', process.env.RAZORPAY_KEY_ID ? '✅ SET' : '❌ NOT SET');
+
 
 const express = require('express');
 const path = require('path');
