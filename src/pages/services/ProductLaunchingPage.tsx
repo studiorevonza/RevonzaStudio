@@ -247,6 +247,20 @@ interface PaymentReceiptProps {
 const PaymentReceipt: React.FC<PaymentReceiptProps> = ({ receiptData, onClose }) => {
   const receiptNumber = `REC-${receiptData.paymentId.slice(-6).toUpperCase()}`;
 
+  const handleWhatsAppShare = () => {
+    const msg = encodeURIComponent(
+      `Hi Revonza Studio! 👋\n\nI just made a payment. Here's my receipt:\n\n` +
+      `📦 Product: ${receiptData.productName}\n` +
+      `💳 Payment ID: ${receiptData.paymentId}\n` +
+      `🆔 Order ID: ${receiptData.orderId}\n` +
+      `💰 Amount: ₹${receiptData.amount}\n` +
+      `📅 Date: ${receiptData.date}\n` +
+      `✅ Status: PAID\n\n` +
+      `Please confirm my order. Thank you!`
+    );
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
+  };
+
   const DetailRow = ({ label, children }: { label: string; children: React.ReactNode }) => (
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
       <span style={{ color: '#6b7280', fontSize: '13px' }}>{label}</span>
@@ -258,105 +272,140 @@ const PaymentReceipt: React.FC<PaymentReceiptProps> = ({ receiptData, onClose })
     <div style={{
       position: 'fixed', inset: 0, zIndex: 9999,
       background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(6px)',
-      display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px'
+      display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px',
+      overflowY: 'auto'
     }}>
-      <div id="payment-receipt" style={{
-        background: '#fff', color: '#111', borderRadius: '20px',
-        width: '100%', maxWidth: '420px', overflow: 'hidden',
-        boxShadow: '0 25px 60px rgba(0,0,0,0.5)',
-        fontFamily: "'Segoe UI', sans-serif"
-      }}>
+      <div style={{ width: '100%', maxWidth: '420px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
 
-        {/* 1. Purple header bar */}
-        <div style={{
-          background: 'linear-gradient(135deg, #7c3aed, #6d28d9)',
-          padding: '16px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center'
+        {/* ===== RECEIPT CARD (screenshots include only this) ===== */}
+        <div id="payment-receipt" style={{
+          background: '#fff', color: '#111', borderRadius: '20px',
+          overflow: 'hidden', boxShadow: '0 25px 60px rgba(0,0,0,0.5)',
+          fontFamily: "'Segoe UI', sans-serif"
         }}>
-          <span style={{ color: '#fff', fontWeight: 800, fontSize: '15px', letterSpacing: '1.5px' }}>REVONZA STUDIO</span>
-          <span style={{ color: '#c4b5fd', fontWeight: 700, fontSize: '13px', letterSpacing: '2px' }}>RECEIPT</span>
-        </div>
+          {/* 1. Purple header bar */}
+          <div style={{
+            background: 'linear-gradient(135deg, #7c3aed, #6d28d9)',
+            padding: '16px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center'
+          }}>
+            <span style={{ color: '#fff', fontWeight: 800, fontSize: '15px', letterSpacing: '1.5px' }}>REVONZA STUDIO</span>
+            <span style={{ color: '#c4b5fd', fontWeight: 700, fontSize: '13px', letterSpacing: '2px' }}>RECEIPT</span>
+          </div>
 
-        <div style={{ padding: '24px 24px 20px' }}>
-
-          {/* 2. Green checkmark */}
-          <div style={{ textAlign: 'center', marginBottom: '12px' }}>
-            <div style={{
-              width: '60px', height: '60px', borderRadius: '50%',
-              background: '#dcfce7', display: 'flex', alignItems: 'center',
-              justifyContent: 'center', margin: '0 auto 12px'
-            }}>
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
+          <div style={{ padding: '24px 24px 20px' }}>
+            {/* 2. Green checkmark */}
+            <div style={{ textAlign: 'center', marginBottom: '12px' }}>
+              <div style={{
+                width: '60px', height: '60px', borderRadius: '50%',
+                background: '#dcfce7', display: 'flex', alignItems: 'center',
+                justifyContent: 'center', margin: '0 auto 12px'
+              }}>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              {/* 3. Payment Successful */}
+              <h2 style={{ margin: '0 0 4px', fontSize: '20px', fontWeight: 800, color: '#111' }}>Payment Successful!</h2>
+              {/* 4. Receipt number */}
+              <p style={{ margin: 0, color: '#7c3aed', fontSize: '13px', fontWeight: 600 }}>{receiptNumber}</p>
             </div>
 
-            {/* 3. Payment Successful */}
-            <h2 style={{ margin: '0 0 4px', fontSize: '20px', fontWeight: 800, color: '#111' }}>Payment Successful!</h2>
+            {/* 5. Dashed divider */}
+            <div style={{ borderTop: '2px dashed #e5e7eb', margin: '16px 0' }} />
 
-            {/* 4. Receipt number */}
-            <p style={{ margin: 0, color: '#7c3aed', fontSize: '13px', fontWeight: 600 }}>{receiptNumber}</p>
+            {/* 6. Detail rows */}
+            <DetailRow label="Product">{receiptData.productName}</DetailRow>
+            <DetailRow label="Amount">
+              <span style={{ color: '#7c3aed', fontSize: '16px' }}>₹{receiptData.amount}</span>
+            </DetailRow>
+            <DetailRow label="Order ID">{receiptData.orderId}</DetailRow>
+            <DetailRow label="Payment ID">{receiptData.paymentId}</DetailRow>
+            <DetailRow label="Email">{receiptData.email}</DetailRow>
+            <DetailRow label="Date">{receiptData.date}</DetailRow>
+            <DetailRow label="Status">
+              <span style={{
+                background: '#dcfce7', color: '#15803d',
+                padding: '2px 10px', borderRadius: '999px', fontSize: '12px', fontWeight: 700
+              }}>PAID</span>
+            </DetailRow>
+
+            {/* 7. Dashed divider */}
+            <div style={{ borderTop: '2px dashed #e5e7eb', margin: '16px 0' }} />
+
+            {/* 8. Download link */}
+            <div style={{ textAlign: 'center', marginBottom: '16px' }}>
+              <p style={{ color: '#6b7280', fontSize: '12px', margin: '0 0 8px' }}>Your download link:</p>
+              <a
+                href={receiptData.downloadLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: '#7c3aed', fontWeight: 700, fontSize: '14px', wordBreak: 'break-all', textDecoration: 'underline' }}
+              >
+                Click here to download your files
+              </a>
+            </div>
+
+            {/* 9. Thank you */}
+            <p style={{ textAlign: 'center', color: '#374151', fontWeight: 600, fontSize: '14px', margin: 0 }}>
+              Thank you for your purchase! 🎉
+            </p>
           </div>
-
-          {/* 5. Dashed divider */}
-          <div style={{ borderTop: '2px dashed #e5e7eb', margin: '16px 0' }} />
-
-          {/* 6. Detail rows */}
-          <DetailRow label="Product">{receiptData.productName}</DetailRow>
-          <DetailRow label="Amount">
-            <span style={{ color: '#7c3aed', fontSize: '16px' }}>₹{receiptData.amount}</span>
-          </DetailRow>
-          <DetailRow label="Order ID">{receiptData.orderId}</DetailRow>
-          <DetailRow label="Payment ID">{receiptData.paymentId}</DetailRow>
-          <DetailRow label="Email">{receiptData.email}</DetailRow>
-          <DetailRow label="Date">{receiptData.date}</DetailRow>
-          <DetailRow label="Status">
-            <span style={{
-              background: '#dcfce7', color: '#15803d',
-              padding: '2px 10px', borderRadius: '999px', fontSize: '12px', fontWeight: 700
-            }}>PAID</span>
-          </DetailRow>
-
-          {/* 7. Dashed divider */}
-          <div style={{ borderTop: '2px dashed #e5e7eb', margin: '16px 0' }} />
-
-          {/* 8. Download link */}
-          <div style={{ textAlign: 'center', marginBottom: '16px' }}>
-            <p style={{ color: '#6b7280', fontSize: '12px', margin: '0 0 8px' }}>Your download link:</p>
-            <a
-              href={receiptData.downloadLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                color: '#7c3aed', fontWeight: 700, fontSize: '14px',
-                wordBreak: 'break-all', textDecoration: 'underline'
-              }}
-            >
-              Click here to download your files
-            </a>
-          </div>
-
-          {/* 9. Thank you */}
-          <p style={{ textAlign: 'center', color: '#374151', fontWeight: 600, fontSize: '14px', margin: '0 0 20px' }}>
-            Thank you for your purchase! 🎉
-          </p>
-
-          {/* Close button */}
-          <button
-            onClick={() => { onClose(); document.body.style.overflow = ''; }}
-            style={{
-              width: '100%', padding: '12px', borderRadius: '12px',
-              background: 'linear-gradient(135deg, #7c3aed, #6d28d9)',
-              color: '#fff', fontWeight: 700, fontSize: '15px',
-              border: 'none', cursor: 'pointer'
-            }}
-          >
-            Close
-          </button>
         </div>
+        {/* ===== END RECEIPT CARD ===== */}
+
+        {/* Tip box — NOT inside receipt card */}
+        <div style={{
+          background: '#fef9c3', border: '1px solid #fde047',
+          borderRadius: '12px', padding: '12px 16px',
+          color: '#854d0e', fontSize: '13px', fontWeight: 500, lineHeight: '1.5'
+        }}>
+          💡 Screenshot the receipt above, then tap the WhatsApp button to send it to us for confirmation!
+        </div>
+
+        {/* Button 1: WhatsApp share */}
+        <button
+          onClick={handleWhatsAppShare}
+          style={{
+            width: '100%', padding: '14px', borderRadius: '12px',
+            background: 'linear-gradient(135deg, #7c3aed, #6d28d9)',
+            color: '#fff', fontWeight: 700, fontSize: '15px',
+            border: 'none', cursor: 'pointer', letterSpacing: '0.3px'
+          }}
+        >
+          📸 Screenshot → Share on WhatsApp
+        </button>
+
+        {/* Button 2: Download product */}
+        <button
+          onClick={() => window.open(receiptData.downloadLink, '_blank')}
+          style={{
+            width: '100%', padding: '14px', borderRadius: '12px',
+            background: 'transparent', color: '#16a34a',
+            fontWeight: 700, fontSize: '15px',
+            border: '2px solid #16a34a', cursor: 'pointer'
+          }}
+        >
+          ⬇️ Download Product
+        </button>
+
+        {/* Button 3: Close */}
+        <button
+          onClick={onClose}
+          style={{
+            width: '100%', padding: '14px', borderRadius: '12px',
+            background: 'transparent', color: '#9ca3af',
+            fontWeight: 700, fontSize: '15px',
+            border: '2px solid #374151', cursor: 'pointer'
+          }}
+        >
+          ✕ Close Receipt
+        </button>
+
       </div>
     </div>
   );
 };
+
 
 // --- Main Page Component ---
 const ProductLaunchingPage: React.FC = () => {
