@@ -396,7 +396,20 @@ const PaymentReceipt: React.FC<PaymentReceiptProps> = ({ receiptData, onClose, o
           ⬇️ Download Product
         </button>
 
-        {/* Button 3: Close */}
+        {/* Button 3: Print Receipt */}
+        <button
+          onClick={() => window.print()}
+          style={{
+            width: '100%', padding: '14px', borderRadius: '12px',
+            background: 'transparent', color: '#4f46e5',
+            fontWeight: 700, fontSize: '15px',
+            border: '2px solid #4f46e5', cursor: 'pointer'
+          }}
+        >
+          🖨️ Print Receipt
+        </button>
+
+        {/* Button 4: Close */}
         <button
           onClick={onClose}
           style={{
@@ -435,6 +448,31 @@ const ProductLaunchingPage: React.FC = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL && !import.meta.env.VITE_BACKEND_URL.includes('localhost')
     ? import.meta.env.VITE_BACKEND_URL
     : '';
+
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @media print {
+        body * { visibility: hidden !important; }
+        #payment-receipt, 
+        #payment-receipt * { visibility: visible !important; }
+        #payment-receipt {
+          position: fixed !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100% !important;
+          background: white !important;
+          padding: 20px !important;
+          box-shadow: none !important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
 
   useEffect(() => {
     const fetchProducts = async () => {
