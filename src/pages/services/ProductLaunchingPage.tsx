@@ -7,6 +7,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SEO from '@/components/SEO';
 import { Product, OrderResponse, PaymentVerifyResponse } from '@/types/types';
 
+const WHATSAPP_NUMBER = "919714407181"; // from ContactPage.tsx
+
+interface ReceiptData {
+  orderId: string;
+  paymentId: string;
+  productName: string;
+  downloadLink: string;
+  amount: number;
+  email: string;
+  date: string;
+  status: string;
+}
+
 // Helper to load Razorpay SDK
 const loadRazorpayScript = () => {
   return new Promise((resolve) => {
@@ -225,6 +238,126 @@ const AccordionItem: React.FC<{ question: string, answer: string }> = ({ questio
   );
 };
 
+// --- PaymentReceipt Component ---
+interface PaymentReceiptProps {
+  receiptData: ReceiptData;
+  onClose: () => void;
+}
+
+const PaymentReceipt: React.FC<PaymentReceiptProps> = ({ receiptData, onClose }) => {
+  const receiptNumber = `REC-${receiptData.paymentId.slice(-6).toUpperCase()}`;
+
+  const DetailRow = ({ label, children }: { label: string; children: React.ReactNode }) => (
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+      <span style={{ color: '#6b7280', fontSize: '13px' }}>{label}</span>
+      <span style={{ fontWeight: 700, fontSize: '13px', textAlign: 'right', maxWidth: '55%', wordBreak: 'break-all' }}>{children}</span>
+    </div>
+  );
+
+  return (
+    <div style={{
+      position: 'fixed', inset: 0, zIndex: 9999,
+      background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(6px)',
+      display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px'
+    }}>
+      <div id="payment-receipt" style={{
+        background: '#fff', color: '#111', borderRadius: '20px',
+        width: '100%', maxWidth: '420px', overflow: 'hidden',
+        boxShadow: '0 25px 60px rgba(0,0,0,0.5)',
+        fontFamily: "'Segoe UI', sans-serif"
+      }}>
+
+        {/* 1. Purple header bar */}
+        <div style={{
+          background: 'linear-gradient(135deg, #7c3aed, #6d28d9)',
+          padding: '16px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center'
+        }}>
+          <span style={{ color: '#fff', fontWeight: 800, fontSize: '15px', letterSpacing: '1.5px' }}>REVONZA STUDIO</span>
+          <span style={{ color: '#c4b5fd', fontWeight: 700, fontSize: '13px', letterSpacing: '2px' }}>RECEIPT</span>
+        </div>
+
+        <div style={{ padding: '24px 24px 20px' }}>
+
+          {/* 2. Green checkmark */}
+          <div style={{ textAlign: 'center', marginBottom: '12px' }}>
+            <div style={{
+              width: '60px', height: '60px', borderRadius: '50%',
+              background: '#dcfce7', display: 'flex', alignItems: 'center',
+              justifyContent: 'center', margin: '0 auto 12px'
+            }}>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+
+            {/* 3. Payment Successful */}
+            <h2 style={{ margin: '0 0 4px', fontSize: '20px', fontWeight: 800, color: '#111' }}>Payment Successful!</h2>
+
+            {/* 4. Receipt number */}
+            <p style={{ margin: 0, color: '#7c3aed', fontSize: '13px', fontWeight: 600 }}>{receiptNumber}</p>
+          </div>
+
+          {/* 5. Dashed divider */}
+          <div style={{ borderTop: '2px dashed #e5e7eb', margin: '16px 0' }} />
+
+          {/* 6. Detail rows */}
+          <DetailRow label="Product">{receiptData.productName}</DetailRow>
+          <DetailRow label="Amount">
+            <span style={{ color: '#7c3aed', fontSize: '16px' }}>₹{receiptData.amount}</span>
+          </DetailRow>
+          <DetailRow label="Order ID">{receiptData.orderId}</DetailRow>
+          <DetailRow label="Payment ID">{receiptData.paymentId}</DetailRow>
+          <DetailRow label="Email">{receiptData.email}</DetailRow>
+          <DetailRow label="Date">{receiptData.date}</DetailRow>
+          <DetailRow label="Status">
+            <span style={{
+              background: '#dcfce7', color: '#15803d',
+              padding: '2px 10px', borderRadius: '999px', fontSize: '12px', fontWeight: 700
+            }}>PAID</span>
+          </DetailRow>
+
+          {/* 7. Dashed divider */}
+          <div style={{ borderTop: '2px dashed #e5e7eb', margin: '16px 0' }} />
+
+          {/* 8. Download link */}
+          <div style={{ textAlign: 'center', marginBottom: '16px' }}>
+            <p style={{ color: '#6b7280', fontSize: '12px', margin: '0 0 8px' }}>Your download link:</p>
+            <a
+              href={receiptData.downloadLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: '#7c3aed', fontWeight: 700, fontSize: '14px',
+                wordBreak: 'break-all', textDecoration: 'underline'
+              }}
+            >
+              Click here to download your files
+            </a>
+          </div>
+
+          {/* 9. Thank you */}
+          <p style={{ textAlign: 'center', color: '#374151', fontWeight: 600, fontSize: '14px', margin: '0 0 20px' }}>
+            Thank you for your purchase! 🎉
+          </p>
+
+          {/* Close button */}
+          <button
+            onClick={() => { onClose(); document.body.style.overflow = ''; }}
+            style={{
+              width: '100%', padding: '12px', borderRadius: '12px',
+              background: 'linear-gradient(135deg, #7c3aed, #6d28d9)',
+              color: '#fff', fontWeight: 700, fontSize: '15px',
+              border: 'none', cursor: 'pointer'
+            }}
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // --- Main Page Component ---
 const ProductLaunchingPage: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -237,6 +370,8 @@ const ProductLaunchingPage: React.FC = () => {
   const [paymentStatus, setPaymentStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [paymentError, setPaymentError] = useState<string | null>(null);
   const [userEmail, setUserEmail] = useState('');
+  const [receiptData, setReceiptData] = useState<ReceiptData | null>(null);
+  const [showReceipt, setShowReceipt] = useState(false);
 
   // Use relative URL in production so API calls go to the same server (Render).
   // In local dev, VITE_BACKEND_URL should be set to http://localhost:4000
@@ -316,12 +451,26 @@ const ProductLaunchingPage: React.FC = () => {
             });
 
             if (!verifyRes.ok) throw new Error('Payment verification failed.');
-            const verifyData: PaymentVerifyResponse = await verifyRes.json();
+            const result = await verifyRes.json();
 
-            if (verifyData.success) {
-              setPaymentStatus('success');
+            if (result.success) {
+              setReceiptData({
+                orderId: response.razorpay_order_id,
+                paymentId: response.razorpay_payment_id,
+                productName: result.productName,
+                downloadLink: result.downloadLink,
+                amount: result.amount,
+                email: email,
+                date: new Date().toLocaleString('en-IN', {
+                  day: '2-digit', month: 'long', year: 'numeric',
+                  hour: '2-digit', minute: '2-digit'
+                }),
+                status: "PAID"
+              });
+              setShowReceipt(true);
+              document.body.style.overflow = 'hidden';
             } else {
-              throw new Error(verifyData.message || 'Verification failed.');
+              throw new Error(result.message || 'Verification failed.');
             }
           } catch (err: any) {
             setPaymentStatus('error');
@@ -555,6 +704,19 @@ const ProductLaunchingPage: React.FC = () => {
             product={selectedProduct}
             onProceed={handleProceed}
           />
+
+          {/* Payment Receipt overlay */}
+          {showReceipt && receiptData && (
+            <PaymentReceipt
+              receiptData={receiptData}
+              onClose={() => {
+                setShowReceipt(false);
+                setReceiptData(null);
+                setPaymentStatus('idle');
+                document.body.style.overflow = '';
+              }}
+            />
+          )}
 
           {/* CTA Section (Only in idle state) */}
           {paymentStatus === 'idle' && !loading && !error && (
