@@ -238,7 +238,11 @@ const ProductLaunchingPage: React.FC = () => {
   const [paymentError, setPaymentError] = useState<string | null>(null);
   const [userEmail, setUserEmail] = useState('');
 
-  const API_URL = import.meta.env.VITE_BACKEND_URL;
+  // Use relative URL in production so API calls go to the same server (Render).
+  // In local dev, VITE_BACKEND_URL should be set to http://localhost:4000
+  const API_URL = import.meta.env.VITE_BACKEND_URL && !import.meta.env.VITE_BACKEND_URL.includes('localhost')
+    ? import.meta.env.VITE_BACKEND_URL
+    : '';
 
   useEffect(() => {
     const fetchProducts = async () => {

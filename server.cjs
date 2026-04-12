@@ -1,4 +1,9 @@
 require('dotenv').config();
+const dns = require('dns');
+// Force Node.js to prioritize IPv4 over IPv6 for outgoing connections (Gmail SMTP & Razorpay API)
+dns.setDefaultResultOrder('ipv4first');
+console.log('✅ DNS resolution order set to IPv4 first');
+
 const express = require('express');
 const path = require('path');
 const compression = require('compression');
@@ -27,11 +32,6 @@ const transporter = nodemailer.createTransport({
     pass: process.env.GMAIL_PASS,
   },
 });
-
-// Force Node.js to prioritize IPv4 over IPv6 for outgoing connections like Nodemailer
-// This fixes the ENETUNREACH errors on platforms like Render that might not have full IPv6 outbound routing.
-require('dns').setDefaultResultOrder('ipv4first');
-
 
 // Middleware
 app.use(cors({ 
