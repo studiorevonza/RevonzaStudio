@@ -201,19 +201,24 @@ app.post('/api/verify-payment', async (req, res) => {
       return res.status(404).json({ error: 'Product not found' });
     }
 
-    // Send product email
-    await sendProductEmail(email, product.name, product.downloadLink);
-
+    // ✅ Return success IMMEDIATELY — don't block on email
     res.json({ 
       success: true, 
       productName: product.name, 
-      message: 'Check your email for the download link!' 
+      message: 'Payment verified! Check your email for the download link.' 
     });
+
+    // 📧 Send email in background — errors won't affect the user
+    sendProductEmail(email, product.name, product.downloadLink)
+      .then(() => console.log(`✅ Email sent to ${email} for ${product.name}`))
+      .catch((err) => console.error(`❌ Email failed for ${email}:`, err.message));
+
   } catch (error) {
     console.error('Error verifying payment:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
 
 app.get('/api/products', (req, res) => {
   // Return all products but omit the downloadLink for security
