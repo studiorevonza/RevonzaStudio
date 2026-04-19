@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { BRAND_NAME } from '@/utils/constants';
 import { Instagram, Twitter, Linkedin, Mail, Phone } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -113,8 +114,8 @@ const Footer: React.FC = () => {
             <div className="flex flex-col md:flex-row items-center gap-6 text-sm text-revonza-textMuted">
               <p>&copy; {new Date().getFullYear()} {BRAND_NAME}. All rights reserved.</p>
               <div className="flex gap-4">
-                <a href="#" className="hover:text-revonza-accent transition-colors">Privacy Policy</a>
-                <a href="#" className="hover:text-revonza-accent transition-colors">Terms of Service</a>
+                <Link to="/privacy-policy" className="hover:text-revonza-accent transition-colors">Privacy Policy</Link>
+                <Link to="/terms-of-service" className="hover:text-revonza-accent transition-colors">Terms of Service</Link>
               </div>
             </div>
             <div className="flex items-center gap-2 text-sm text-revonza-textMuted">

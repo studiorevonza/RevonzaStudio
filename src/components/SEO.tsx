@@ -18,7 +18,9 @@ const SEO: React.FC<SEOProps> = ({ pageSEO, children }) => {
   const canonicalUrl = pageSEO.canonical || `${GLOBAL_SEO.url}${window.location.pathname}`;
 
   // Construct og:image URL
-  const ogImageUrl = pageSEO.ogImage || `${GLOBAL_SEO.url}/og-default.jpg`;
+  const ogImageUrl = pageSEO.ogImage 
+    ? pageSEO.ogImage.replace(/\.(jpg|jpeg|png)$/, '.svg').replace('/og-', '/og-')
+    : `${GLOBAL_SEO.url}/og-default.svg`;
 
   // Geo resolution
   const geoRegion = pageSEO.geo?.region || GLOBAL_SEO.geo.region;

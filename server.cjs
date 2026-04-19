@@ -23,38 +23,27 @@ const razorpay = new Razorpay({
 
 // Middleware
 app.use(cors({ 
-  origin: ["https://www.revonzastudio.tech", "http://localhost:5173", "http://localhost:3000", "http://localhost:3001"] 
+  origin: ["https://www.revonzastudio.tech", "http://localhost:5173", "http://localhost:3000", "http://localhost:3001", "*"],
+  credentials: true
 }));
 app.use(express.json());
 
+// Log API requests for debugging
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path}`);
+  next();
+});
+
 // PRODUCTS Data
 const PRODUCTS = {
-  "ui-kit-pro": {
-    id: "ui-kit-pro",
-    name: "UI Kit Pro",
-    description: "Professional UI kit for modern web applications.",
-    price: 100, // in paise
-    originalPrice: 200,
+  "ai-prompts-pack": {
+    id: "ai-prompts-pack",
+    name: "AI Prompts Pack",
+    description: "Get access to a powerful collection of AI prompts designed for multiple use cases across different fields. Covers Business, AI Automation, Study, Productivity, Freelancing, Content Creation, and more. Beginner to advanced prompts — easy to use, customizable, and designed for real-world results.",
+    price: 4900,         // ₹49 in paise
+    originalPrice: 9900, // ₹99 in paise
     tag: "Bestseller",
-    link: "https://drive.google.com/open?id=UI_KIT_PRO_LINK"
-  },
-  "brand-identity-pack": {
-    id: "brand-identity-pack",
-    name: "Brand Identity Pack",
-    description: "Complete brand identity design assets.",
-    price: 100, // in paise
-    originalPrice: 200,
-    tag: "Pro",
-    link: "https://drive.google.com/open?id=BRAND_PACK_LINK"
-  },
-  "social-media-templates": {
-    id: "social-media-templates",
-    name: "Social Media Templates",
-    description: "High-quality templates for social media growth.",
-    price: 100, // in paise
-    originalPrice: 200,
-    tag: "Trending",
-    link: "https://drive.google.com/open?id=SOCIAL_TEMPLATES_LINK"
+    link: "https://drive.google.com/drive/folders/16-nyYMOyQAIWNRkLOHBOGSOkCZq4z754?usp=sharing"
   }
 };
 

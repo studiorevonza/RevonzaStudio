@@ -68,7 +68,7 @@ const AboutPage: React.FC = () => {
                     type="image/webp" 
                   />
                   <img 
-                    src="/Aboutimage.png" 
+                    src="/Aboutimage.webp" 
                     alt="Team collaboration" 
                     loading="lazy"
                     width="800"

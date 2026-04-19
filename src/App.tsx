@@ -14,12 +14,19 @@ import AboutPage from '@/pages/AboutPage';
 import ContactPage from '@/pages/ContactPage';
 import DetailedPricingPage from '@/pages/DetailedPricingPage';
 import ProjectDetailsPage from '@/pages/ProjectDetailsPage';
+import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
+import TermsOfServicePage from '@/pages/TermsOfServicePage';
 
 // Import individual service pages
-import ComingSoonPage from '@/pages/ComingSoonPage';
 import ProductLaunchingPage from '@/pages/services/ProductLaunchingPage';
-
-// Import individual service project pages
+import WebsiteDevelopmentPage from '@/pages/services/WebsiteDevelopmentPage';
+import AIIntegrationPage from '@/pages/services/AIIntegrationPage';
+import LogoDesignPage from '@/pages/services/LogoDesignPage';
+import ThumbnailDesignPage from '@/pages/services/ThumbnailDesignPage';
+import HostingSolutionsPage from '@/pages/services/HostingSolutionsPage';
+import GraphicDesignPage from '@/pages/services/GraphicDesignPage';
+import DesignBrandingPage from '@/pages/services/DesignBrandingPage';
+import MaintenanceModificationPage from '@/pages/services/MaintenanceModificationPage';
 
 // Scroll to top helper
 const ScrollToTop = () => {
@@ -53,18 +60,22 @@ const App: React.FC = () => {
                 <Route path="/project-details/:projectId" element={<ProjectDetailsPage />} />
                 
                 {/* Individual Service Routes */}
-                <Route path="/services/website-development" element={<ComingSoonPage />} />
-                <Route path="/services/ai-integration" element={<ComingSoonPage />} />
-                <Route path="/services/logo-design" element={<ComingSoonPage />} />
-                <Route path="/services/thumbnail-design" element={<ComingSoonPage />} />
+                <Route path="/services/website-development" element={<WebsiteDevelopmentPage />} />
+                <Route path="/services/ai-integration" element={<AIIntegrationPage />} />
+                <Route path="/services/logo-design" element={<LogoDesignPage />} />
+                <Route path="/services/thumbnail-design" element={<ThumbnailDesignPage />} />
                 <Route path="/services/product-launching" element={<ProductLaunchingPage />} />
-                <Route path="/services/hosting-solutions" element={<ComingSoonPage />} />
-                <Route path="/services/graphic-design" element={<ComingSoonPage />} />
-                <Route path="/services/design-branding" element={<ComingSoonPage />} />
-                <Route path="/services/maintenance-modification" element={<ComingSoonPage />} />
+                <Route path="/services/hosting-solutions" element={<HostingSolutionsPage />} />
+                <Route path="/services/graphic-design" element={<GraphicDesignPage />} />
+                <Route path="/services/design-branding" element={<DesignBrandingPage />} />
+                <Route path="/services/maintenance-modification" element={<MaintenanceModificationPage />} />
                 
                 {/* Products Route */}
                 <Route path="/products" element={<ProductLaunchingPage />} />
+
+                {/* Legal Pages */}
+                <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                <Route path="/terms-of-service" element={<TermsOfServicePage />} />
               </Routes>
             </main>
             <Footer />
