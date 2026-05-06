@@ -8,7 +8,7 @@ Welcome to Revonza Studio, a modern digital agency website showcasing web develo
 - **Responsive Design**: Fully responsive mobile-first design with Tailwind CSS
 - **Performance Optimized**: Code splitting, tree shaking, and lazy loading
 - **Smooth Animations**: Framer Motion for engaging user interactions
-- **SEO Optimized**: Dynamic SEO component with meta tags and structured data
+- **SEO Optimized**: Dynamic SEO component with static meta tags, valid robots.txt, and structured data setup for optimal Google Search Console indexing.
 - **Theme Support**: Custom dark/light theme context
 - **Production Ready**: Express server with compression and security headers
 - **WhatsApp Integration**: Direct contact form integration with WhatsApp
@@ -263,7 +263,7 @@ For support, questions, or collaboration opportunities:
 </p>
 
 <p align="center">
-  <a href="https://www.revonzastudio.tech">Visit Our Website</a> •
+  <a href="https://revonzastudio.tech">Visit Our Website</a> •
   <a href="https://wa.me/919714407181">Contact Us</a> •
   <a href="mailto:studiorevonza@gmail.com">Email Us</a>
 </p>

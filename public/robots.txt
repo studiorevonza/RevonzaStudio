@@ -4,4 +4,4 @@ Allow: /
 # Block specific admin/system paths if any
 Disallow: /api/
 
-Sitemap: https://www.revonzastudio.tech/sitemap.xml
+Sitemap: https://revonzastudio.tech/sitemap.xml
