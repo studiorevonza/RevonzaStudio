@@ -1,222 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
-    
-    <!-- DNS prefetch for external resources -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//esm.sh">
-    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              revonza: {
-                base: 'var(--color-bg-base)',
-                surface: 'var(--color-bg-surface)',
-                accent: 'var(--color-accent)',
-                accentOld: '#60519b',
-                text: 'var(--color-text-main)',
-                textMuted: 'var(--color-text-muted)',
-                border: 'var(--color-border)',
-                white: 'var(--color-text-inverse)',
-              }
-            },
-            fontFamily: {
-              sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
-            },
-            backgroundImage: {
-              'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="YIkYwYWDPLKRRVnmDCjBOsSSHOZTqDBM6A-huMZUaqQ" />
+
+  <link rel="icon" type="image/x-icon" href="public\favicon-dark.png">
+
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  </noscript>
+
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//esm.sh">
+  <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            revonza: {
+              base: 'var(--color-bg-base)',
+              surface: 'var(--color-bg-surface)',
+              accent: 'var(--color-accent)',
+              accentOld: '#60519b',
+              text: 'var(--color-text-main)',
+              textMuted: 'var(--color-text-muted)',
+              border: 'var(--color-border)',
+              white: 'var(--color-text-inverse)',
             }
+          },
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+          },
+          backgroundImage: {
+            'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
           }
         }
       }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        /* Default Light Theme */
-        --color-bg-base: #ffffff;
-        --color-bg-surface: #f8fafc;
-        --color-accent: #8b5cf6;
-        --color-text-main: #111827;
-        --color-text-muted: #4b5563;
-        --color-text-inverse: #ffffff;
-        --color-border: #e2e8f0;
-        
-        --glass-bg: rgba(255, 255, 255, 0.7);
-        --glass-border: rgba(0, 0, 0, 0.05);
-        --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-        --glass-bg-hover: rgba(243, 244, 246, 0.9);
-        
-        --atmosphere-color: rgba(139, 92, 246, 0.05);
-      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
 
-      [data-theme='dark'] {
-        --color-bg-base: #0f111a;
-        --color-bg-surface: #1e202c;
-        --color-accent: #8b5cf6;
-        --color-text-main: #ffffff;
-        --color-text-muted: #bfc0d1;
-        --color-text-inverse: #ffffff;
-        --color-border: #2d2f3d;
+      --color-bg-base: #ffffff;
+      --color-bg-surface: #f8fafc;
+      --color-accent: #8b5cf6;
+      --color-text-main: #111827;
+      --color-text-muted: #4b5563;
+      --color-text-inverse: #ffffff;
+      --color-border: #e2e8f0;
 
-        --glass-bg: rgba(22, 24, 33, 0.7);
-        --glass-border: rgba(255, 255, 255, 0.08);
-        --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        --glass-bg-hover: rgba(30, 32, 44, 0.9);
-        
-        --atmosphere-color: rgba(96, 81, 155, 0.08);
-      }
+      --glass-bg: rgba(255, 255, 255, 0.7);
+      --glass-border: rgba(0, 0, 0, 0.05);
+      --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+      --glass-bg-hover: rgba(243, 244, 246, 0.9);
 
-      body {
-        font-family: 'Inter', sans-serif;
-        background-color: var(--color-bg-base);
-        color: var(--color-text-main);
-        overflow-x: hidden;
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
-      
-      /* Optimized Atmospheric Background */
-      body::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(circle at 50% -20%, var(--atmosphere-color) 0%, transparent 60%);
-        z-index: -1;
-        pointer-events: none;
-        will-change: transform;
-        transition: background 0.3s ease;
-      }
+      --atmosphere-color: rgba(139, 92, 246, 0.05);
+    }
 
-      /* Refined Glassmorphism - Optimized */
-      .glass-panel {
-        background: var(--glass-bg);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid var(--glass-border);
-        box-shadow: var(--glass-shadow);
-        transform: translateZ(0);
-        transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-      }
-      
-      .glass-panel-hover {
-        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      }
-      
-      /* Neon Hover Effect */
-      .glass-panel-hover:hover {
-        background: var(--glass-bg-hover);
-        border-color: var(--color-accent);
-        box-shadow: 0 0 20px rgba(139, 92, 246, 0.25), 0 0 40px rgba(139, 92, 246, 0.1);
-        transform: translateY(-5px);
-      }
+    [data-theme='dark'] {
+      --color-bg-base: #0f111a;
+      --color-bg-surface: #1e202c;
+      --color-accent: #8b5cf6;
+      --color-text-main: #ffffff;
+      --color-text-muted: #bfc0d1;
+      --color-text-inverse: #ffffff;
+      --color-border: #2d2f3d;
 
-      /* Custom scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: var(--color-bg-base);
-      }
-      ::-webkit-scrollbar-thumb {
-        background: var(--color-bg-surface);
-        border-radius: 4px;
-        border: 2px solid var(--color-bg-base);
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: var(--color-accent);
-      }
+      --glass-bg: rgba(22, 24, 33, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      --glass-bg-hover: rgba(30, 32, 44, 0.9);
 
-      /* Enhanced Animations */
-      @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-      @keyframes scaleIn {
-        from { opacity: 0; transform: scale(0.95); }
-        to { opacity: 1; transform: scale(1); }
-      }
-      @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-        100% { transform: translateY(0px); }
-      }
-      @keyframes scan {
-        0% { top: 0%; opacity: 0; }
-        15% { opacity: 1; }
-        85% { opacity: 1; }
-        100% { top: 100%; opacity: 0; }
-      }
-      
-      .animate-fade-in-up {
+      --atmosphere-color: rgba(96, 81, 155, 0.08);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--color-bg-base);
+      color: var(--color-text-main);
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Optimized Atmospheric Background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% -20%, var(--atmosphere-color) 0%, transparent 60%);
+      z-index: -1;
+      pointer-events: none;
+      will-change: transform;
+      transition: background 0.3s ease;
+    }
+
+    /* Refined Glassmorphism - Optimized */
+    .glass-panel {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      transform: translateZ(0);
+      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .glass-panel-hover {
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* Neon Hover Effect */
+    .glass-panel-hover:hover {
+      background: var(--glass-bg-hover);
+      border-color: var(--color-accent);
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.25), 0 0 40px rgba(139, 92, 246, 0.1);
+      transform: translateY(-5px);
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--color-bg-base);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--color-bg-surface);
+      border-radius: 4px;
+      border: 2px solid var(--color-bg-base);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--color-accent);
+    }
+
+    /* Enhanced Animations */
+    @keyframes fadeInUp {
+      from {
         opacity: 0;
-        animation: fadeInUp 0.6s ease-out forwards;
+        transform: translateY(20px);
       }
-      
-      .animate-fade-in {
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
         opacity: 0;
-        animation: fadeIn 0.8s ease-out forwards;
       }
-      
-      .animate-scale-in {
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
         opacity: 0;
-        animation: scaleIn 0.5s ease-out forwards;
+        transform: scale(0.95);
       }
 
-      .animate-float {
-        animation: float 6s ease-in-out infinite;
+      to {
+        opacity: 1;
+        transform: scale(1);
       }
-      
-      .animate-scan {
-        animation: scan 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
       }
 
-      /* Delays */
-      .delay-100 { animation-delay: 100ms; }
-      .delay-200 { animation-delay: 200ms; }
-      .delay-300 { animation-delay: 300ms; }
-      .delay-400 { animation-delay: 400ms; }
-      .delay-500 { animation-delay: 500ms; }
+      50% {
+        transform: translateY(-10px);
+      }
 
-      /* Form Input Styles */
-      input, select, textarea {
-        color: var(--color-text-main) !important;
+      100% {
+        transform: translateY(0px);
       }
-      
-      input::placeholder, textarea::placeholder {
-        color: var(--color-text-muted) !important;
-        opacity: 0.7;
+    }
+
+    @keyframes scan {
+      0% {
+        top: 0%;
+        opacity: 0;
       }
-      
-      option {
-        background-color: var(--color-bg-base) !important;
-        color: var(--color-text-main) !important;
+
+      15% {
+        opacity: 1;
       }
-    </style>
-    <!-- Removed import maps to prevent external CDN dependency issues -->
+
+      85% {
+        opacity: 1;
+      }
+
+      100% {
+        top: 100%;
+        opacity: 0;
+      }
+    }
+
+    .animate-fade-in-up {
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .animate-fade-in {
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    .animate-scale-in {
+      opacity: 0;
+      animation: scaleIn 0.5s ease-out forwards;
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .animate-scan {
+      animation: scan 3s ease-in-out infinite;
+    }
+
+    /* Delays */
+    .delay-100 {
+      animation-delay: 100ms;
+    }
+
+    .delay-200 {
+      animation-delay: 200ms;
+    }
+
+    .delay-300 {
+      animation-delay: 300ms;
+    }
+
+    .delay-400 {
+      animation-delay: 400ms;
+    }
+
+    .delay-500 {
+      animation-delay: 500ms;
+    }
+
+    /* Form Input Styles */
+    input,
+    select,
+    textarea {
+      color: var(--color-text-main) !important;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: var(--color-text-muted) !important;
+      opacity: 0.7;
+    }
+
+    option {
+      background-color: var(--color-bg-base) !important;
+      color: var(--color-text-main) !important;
+    }
+  </style>
+  <!-- Removed import maps to prevent external CDN dependency issues -->
 </head>
-  <body>
-    <div id="root"></div>
+
+<body>
+  <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
+
 </html>
